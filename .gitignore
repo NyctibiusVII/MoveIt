@@ -1,0 +1,10 @@
+#.gitignore
+
+#config. pessoal
+.vscode
+
+#node modules
+node_modules/
+
+#readme TESTE...
+README_TEST.md
