@@ -69,7 +69,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - [Css](https://pt.wikipedia.org/wiki/Cascading_Style_Sheets)
 - [Typescript | ^4.1.5](https://www.typescriptlang.org/)
 - [ReactJS | ^17.0.1](https://pt-br.reactjs.org/)
-- [NextJS | ^10.0.5](https://nextjs.org/)
+- [NextJS | ^10.0.7](https://nextjs.org/)
 - [NodeJS | ^15.9.0](https://nodejs.org/en/)
 
 ## Layout 🚧
