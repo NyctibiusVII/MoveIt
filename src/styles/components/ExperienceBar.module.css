@@ -30,12 +30,29 @@
     -o-border-radius: 4px;
 }
 .experienceBar > div span.currentExperience {
+    background: var(--white);
+    opacity: 0.9;
+
+    padding: 5px;
+
     position: absolute;
     top: 12px;
+
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
 
     transform: translateX(-50%);
     -webkit-transform: translateX(-50%);
     -moz-transform: translateX(-50%);
     -ms-transform: translateX(-50%);
     -o-transform: translateX(-50%);
+
+    filter: blur(0.3px);
+    -webkit-filter: blur(0.3px);
+    -moz-filter: blur(0.3px);
+    -ms-filter: blur(0.3px);
+    -o-filter: blur(0.3px);
 }

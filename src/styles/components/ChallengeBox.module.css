@@ -1,0 +1,125 @@
+.challengeBoxContainer {
+    height: 100%;
+
+    background: var(--white);
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.05);
+
+    padding: 1.5rem 2rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+
+
+.challengeNotActive {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.challengeNotActive strong {
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.4;
+}
+.challengeNotActive p {
+    max-width: 70%;
+
+    margin-top: 3rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1.4;
+}
+.challengeNotActive p img {
+    margin-bottom: 1rem;
+}
+
+
+
+.challengeActive {
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+}
+.challengeActive header {
+    color: var(--blue);
+
+    font-size: 1.25rem;
+    font-weight: 600;
+
+    padding: 0 2rem 1.5rem;
+    border-bottom: 1px solid var(--gray-line);
+}
+.challengeActive main {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+}
+.challengeActive main strong {
+    color: var(--title);
+
+    font-size: 2rem;
+    font-weight: 600;
+
+    margin: 1.5rem 0 1rem;
+}
+.challengeActive main p {
+    line-height: 1.5;
+}
+.challengeActive footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* or repeat(2, 1fr) */
+    gap: 1rem;
+}
+.challengeActive footer button {
+    height: 3rem;
+    
+    color: var(--white);
+    font-size: 1rem;
+    font-weight: 600;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 0;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+
+    transition: filter 0.2s;
+    -webkit-transition: filter 0.2s;
+    -moz-transition: filter 0.2s;
+    -ms-transition: filter 0.2s;
+    -o-transition: filter 0.2s;
+}
+
+
+
+.challengeActive footer button.challengeFailButton {
+    background: var(--red);
+
+}
+.challengeActive footer button.challengeSucceededButton {
+    background: var(--green);
+}
+.challengeActive footer button:hover {
+    filter: brightness(0.9);
+    -webkit-filter: brightness(0.9);
+}

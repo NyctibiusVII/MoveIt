@@ -3,7 +3,7 @@
     <img src="./.github/logo-moveit.png" width="500" heigh="150" alt="logo moveit">
 </h1>
 <h4 align="center">
-    Trilha ReactJS <img src="./.github/logo-icon-react.svg" height="20" alt="logo icon react">
+    Trilha ReactJS <img src="./.github/logo-icon-react.svg" height="15" alt="logo icon react">
 </h4>
 <!-- <h4 align="center">Projeto web construído durante o Next Level Week #04-Discovery com a Rocketseat/DiegoFernandes.</h4> -->
 <p align="center">
