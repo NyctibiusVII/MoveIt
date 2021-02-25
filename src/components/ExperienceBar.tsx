@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { ChallengesContext } from '../contexts/challengesContexts';
+import { ChallengesContext } from '../contexts/ChallengesContexts';
 
 import styles from '../styles/components/ExperienceBar.module.css'
 
@@ -13,6 +13,7 @@ export function ExperienceBar() {
             <div>
                 <div style={{ width: `${percentToNextLevel}%` }}/>
                 <span className={styles.currentExperience} style={{ left: `${percentToNextLevel}%` }}>
+                    <div className={styles.arrowExperience}></div>
                     {currentExperience} xp
                 </span>
             </div>

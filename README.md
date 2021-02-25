@@ -61,6 +61,7 @@ O conceito do Pomodoro é que a pessoa que vai estudar ou executar uma tarefa de
 * Gerenciar seu tempo.
 * Níveis de xp aumentados conforme sua evolução na técnica pomodoro.
 * Compartilhamento de seu progresso.
+* Notificação auditiva e visual.
 
 ## Tecnologias 🚀
 Esse projeto foi desenvolvido com as seguintes tecnologias:

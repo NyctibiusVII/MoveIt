@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { ChallengesContext } from '../contexts/challengesContexts';
+import { ChallengesContext } from '../contexts/ChallengesContexts';
 import styles from '../styles/components/CompletedChallenges.module.css'
 
 export function CompletedChallenges() {
