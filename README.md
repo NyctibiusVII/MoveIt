@@ -151,6 +151,15 @@ $ npm run dev
 Para construir essa aplicação tive a ajuda do professor **Diego Fernandes** da Rocketseat que disponibilizou video aulas do projeto **NLW#4-Discovery** e tive uma ajuda desta grande comunidade que a Rocketseat construiu no *Discord*.
 Feito com ♥ by Rocketseat :wave: [Participe da nossa comunidade!](https://discord.gg/YxU7fJT)
 
+### Hashtags \#
+| Dias  | Hashtags            |
+|-------|---------------------|
+| Dia 1 | #RumoAoProxímoNivel |
+| Dia 2 | #JornadaInfinita    |
+| Dia 3 | #FocoPraticaGrupo   |
+| Dia 4 | #NeverStopLearning  |
+| Dia 5 | #MissionComplete    |
+
 ## Licença ⚖️
 Este projeto está sob a licença do MIT. Veja o arquivo [LICENSE](https://github.com/NyctibiusVII/NLW-4-Discovery/blob/master/LICENSE) para mais detalhes.
 
