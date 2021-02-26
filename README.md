@@ -79,8 +79,8 @@ Concluindo-a ou não, ele deve parar e descansar 5 minutos.
 
 ## Tecnologias 🚀
 Esse projeto foi desenvolvido com as seguintes tecnologias:
-- [Html](https://pt.wikipedia.org/wiki/HTML)
-- [Css](https://pt.wikipedia.org/wiki/Cascading_Style_Sheets)
+- [Html | 5](https://pt.wikipedia.org/wiki/HTML)
+- [Css | 3](https://pt.wikipedia.org/wiki/Cascading_Style_Sheets)
 - [Typescript | ^4.1.5](https://www.typescriptlang.org/)
 - [ReactJS | ^17.0.1](https://pt-br.reactjs.org/)
 - [NextJS | ^10.0.7](https://nextjs.org/)

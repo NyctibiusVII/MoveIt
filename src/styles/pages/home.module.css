@@ -1,3 +1,4 @@
+/* Desktop */
 .container {
     max-width: 972px;
     height: 100vh;
@@ -14,4 +15,16 @@
     grid-template-columns: 1fr 1fr;
     gap: 6.25rem;
     align-content: center;
+}
+
+
+
+/* Mobile && Tablet */
+@media (max-width: 720px) {
+    .container {
+        max-width: 520px;
+    }
+    .container section {
+        grid-template-columns: 1fr;
+    }
 }
