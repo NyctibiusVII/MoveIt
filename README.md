@@ -117,19 +117,21 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
     <summary>Dependências</summary>
 
 ```json
-Dependências:
-    js-cookie: ^2.2.1
-    next: 10.0.7
-    react: 17.0.1
-    react-dom: 17.0.1
-
-Dependências de desenvolvimento:
-    @types/js-cookie: ^2.2.6
-    @types/node: ^14.14.31
-    @types/react: ^17.0.2
-    @types/react-dom: ^17.0.1
-    typescript: ^4.1.5
-    //ex: $ npm install @types/_____ -D
+  "dependencies": {
+    "js-cookie": "^2.2.1",
+    "next": "10.0.7",
+    "react": "17.0.1",
+    "react-confetti": "^6.0.1",
+    "react-dom": "17.0.1"
+  },
+  "devDependencies": {
+    "@types/js-cookie": "^2.2.6",
+    "@types/node": "^14.14.31",
+    "@types/react": "^17.0.2",
+    "@types/react-dom": "^17.0.1",
+    "typescript": "^4.1.5"
+  }
+    //Ex: $ npm install @types/_____ -D
 ```
 </details>
 
