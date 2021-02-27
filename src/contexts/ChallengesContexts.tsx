@@ -53,6 +53,7 @@ export function ChallengesProvider({ children, ...rest }: ChallengesProviderProp
     function levelUp() {
       setLevel(level + 1)
       setIsLevelUpModalOpen(true)
+      new Audio('/nextLevel.ogg').play()
     }
     function closeLevelUpModal() {
         setIsLevelUpModalOpen(false)
