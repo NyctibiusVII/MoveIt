@@ -19,5 +19,5 @@ export function ExperienceBar() {
             </div>
             <span>{experienceToNextLevel} xp</span>
         </header>
-    );
+    )
 }

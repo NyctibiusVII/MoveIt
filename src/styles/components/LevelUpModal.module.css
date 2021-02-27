@@ -1,58 +1,103 @@
 .overlay {
-    background: rgba(242, 243, 245, 0.8);
+  background: rgba(242, 243, 245, 0.8);
 
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
 .container {
-    width: 100%;
-    max-width: 400px;
+  width: 100%;
+  max-width: 420px;
 
-    background: var(--white);
-    box-shadow: 0 0 60px rgba(0, 0, 0, 0.05);
+  background: var(--white);
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.05);
 
-    padding: 2rem 3rem;
-    text-align: center;
+  text-align: center;
 
-    position: relative;
+  position: relative;
 
-    border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
 }
-.container header {
-    background: url('/icons/levelup.svg') no-repeat center;
-    background-size: contain;
-    color: var(--blue);
-    font-size: 8.75rem;
-    font-weight: 600;
+.subContainer {
+  padding: 1.5rem 3rem;
 }
-.container strong {
-    color: var(--title);
-    font-size: 2.25rem;
+.subContainer header {
+  background: url("/icons/levelup.svg") no-repeat center;
+  /*background-size: contain;*/
+  color: var(--blue);
+  font-size: 8.75rem;
+  font-weight: 600;
+
+  filter: drop-shadow(5px 10px 6px rgba(220, 221, 224));
 }
-.container p {
-    color: var(--text);
-    font-size: 1.25rem;
-
-    margin-top: 0.25rem;
+.subContainer strong {
+  color: var(--title);
+  font-size: 2rem;
 }
-.container button {
-    background: transparent;
-    font-size: 0;
+.subContainer p {
+  color: var(--text);
+  font-size: 1.25rem;
 
-    position: absolute;
-    top: 0.5rem;
-    right: 0.5rem;
+  margin-top: 0.25rem;
+}
+.subContainer button.close {
+  background: transparent;
+  font-size: 0;
 
-    border: 0;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+
+  border: 0;
+}
+
+.overlay footer {
+  width: 100%;
+
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+
+  overflow: hidden;
+}
+.overlay footer button.buttonShareWithTwitter {
+  width: 100%;
+  height: 5rem;
+
+  background: var(--blue-very-light);
+  color: var(--blue-twitter);
+  font-size: 1.25rem;
+  font-weight: 600;
+  border: 0;
+  border-top: 1px solid var(--gray-line);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /*
+  transition: 0.2s;
+  -webkit-transition: 0.2s;
+  -moz-transition: 0.2s;
+  -ms-transition: 0.2s;
+  -o-transition: 0.2s;
+  */
+}
+.overlay footer button.buttonShareWithTwitter:hover {
+  background: var(--blue-twitter);
+  color: var(--white);
+}
+.overlay footer button.buttonShareWithTwitter:hover img.logoTwitter {
+  filter: brightness(10);
+  -webkit-filter: brightness(10);
 }

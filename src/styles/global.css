@@ -7,18 +7,22 @@
     /*Aplicada a regra de harmonia de cores*/
     --white: #fff;
 
+    --red-very-light: #FFF5F5;
     --red-light: #F54260;
     --red: #e83f5b;
     --red-dark: #691C29;
 
+    --green-very-light: #F7FFF5;
     --green-light: #52E32D;
     --green: #4cd62b;
     --green-dark: #1F5711;
 
+    --blue-very-light: #F5FCFF;
     --blue-light: #5F6BED;
     --blue: #5965e0;
     --blue-dark: #4953b8;
     --blue-twitter: #2aa9e0;
+    
 
     --gray-line: #dcdde0;
     --background: #f2f3f5;

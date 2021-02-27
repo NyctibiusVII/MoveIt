@@ -1,11 +1,12 @@
-import { createContext, ReactNode, useContext, useEffect, useState } from "react";
-import { ChallengesContext } from "./ChallengesContexts";
+import { createContext, ReactNode, useContext, useEffect, useState } from "react"
+import { ChallengesContext } from "./ChallengesContexts"
 
 interface CountdownContextData {
     minutes: number
     seconds: number
     isActive: boolean
     hasFinished: boolean
+    isCounting: boolean
     startCountdown: () => void
     resetCountdown: () => void
 }
@@ -18,24 +19,30 @@ export const CountdownContext = createContext({} as CountdownContextData)
 let countdownTimeout: NodeJS.Timeout
 
 export function CountdownProvider({ children }: CountdownProviderProps) {
-    const __fixedMinutes = 25
+    const __fixedMinutes = (0.2/3)/2 //25 //(0.2/3)/2 /* - Para teste */
     const { startNewChallenge } = useContext(ChallengesContext)
 
     const [time, setTime] = useState(__fixedMinutes * 60) //25min * 60sec = 1500sec
     const [isActive, setIsActive] = useState(false)
     const [hasFinished, setHasFinished] = useState(false)
 
+    const [isCounting, setIsCounting] = useState(false)
+
     const minutes = Math.floor(time / 60)
     const seconds = time % 60
 
     function startCountdown() {
         setIsActive(true)
+
+        setIsCounting(true)
     }
     function resetCountdown() {
         clearTimeout(countdownTimeout)
         setIsActive(false)
         setHasFinished(false)
         setTime(__fixedMinutes * 60)
+
+        setIsCounting(false)
     }
     useEffect(() => {
         if (isActive && time > 0) {
@@ -55,6 +62,7 @@ export function CountdownProvider({ children }: CountdownProviderProps) {
             seconds,
             isActive,
             hasFinished,
+            isCounting,
             startCountdown,
             resetCountdown
         }}>

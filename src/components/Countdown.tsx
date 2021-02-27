@@ -32,21 +32,21 @@ export function Countdown() {
 
             { hasFinished ? (
                 <button disabled className={styles.countdownButton}>
-                    Ciclo encerrado
+                    Ciclo encerrado&nbsp;&nbsp;&nbsp;<img src="/icons/verified.svg" alt="Verificado" />
                 </button>
             ) : (
                 <>
                     { isActive ? (
                         <button type="button" className={`${styles.countdownButton} ${styles.countdownButtonActive}`} onClick={resetCountdown}>
-                            Abandonar ciclo
+                            Abandonar ciclo <img src="/icons/close.svg" alt="Resetar contador" />
                         </button>
                     ) : (
                         <button type="button" className={styles.countdownButton} onClick={startCountdown}>
-                            Iníciar um ciclo
+                            Iníciar um ciclo&nbsp;&nbsp;&nbsp;<img src="/icons/play.svg" alt="Iniciar contador" />
                         </button>
                     ) }
                 </>
             ) }
         </div>
-    );
+    )
 }

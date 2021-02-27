@@ -74,8 +74,9 @@ Concluindo-a ou não, ele deve parar e descansar 5 minutos.
 #### Funcionalidades
 * Gerenciar seu tempo.
 * Níveis de xp aumentados conforme sua evolução na técnica pomodoro.
-* Compartilhamento de seu progresso.
+* Compartilhamento de seu progresso (Twitter).
 * Notificação auditiva e visual.
+* Site responsivo.
 
 ## Tecnologias 🚀
 Esse projeto foi desenvolvido com as seguintes tecnologias:
@@ -90,20 +91,21 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 #### Desktop Screenshot
 <div style="display: flex; flex-direction: 'column'; align-items: 'center';">
 <!-- Responsive, 1440 x 900, 50% (Laptop L - 1440px)--><!--
-    <img src="./.github/desktop--login.png" width="400px">-->
+    <img src="./.github/desktop-login.png" width="400px">-->
     <img src="./.github/desktop-index.png" width="400px">
-    <img src="./.github/desktop-index-xp.png" width="400px">
+    <img src="./.github/desktop-index-counting.png" width="400px">
     <img src="./.github/desktop-index-modal.png" width="400px">
+    <img src="./.github/desktop-index-xp.png" width="400px">
 </div>
 
 #### Mobile Screenshot
 <div style="display: flex; flex-direction: 'row';">
-em breve...
 <!-- Responsive, 425 x 900, 60% (Mobile L - 425px)--><!--
-    <img src="./.github/mobile-index-login.png" width="180">
+    <img src="./.github/mobile-login.png" width="180">-->
+    <img src="./.github/mobile-index.png" width="180">
+    <img src="./.github/mobile-index-modal.png" width="180"><!--
     <img src="./.github/mobile-index-share.png" width="180">
-    <img src="./.github/mobile-index-counting.png" width="180">
-    <img src="./.github/mobile-index-modal.png" width="180">-->
+    <img src="./.github/mobile-index-counting.png" width="180">-->
 </div>
 
 ## Rodando o projeto 🚴🏻‍♂️
