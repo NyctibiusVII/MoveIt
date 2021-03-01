@@ -1,11 +1,11 @@
-import { CompletedChallenges } from "../components/CompletedChallenges"
+import { Profile } from "../components/Profile"
 import { Countdown } from "../components/Countdown"
 import { ChallengeBox } from "../components/ChallengeBox"
 import { ExperienceBar } from "../components/ExperienceBar"
-import { Profile } from "../components/Profile"
 import { CountdownProvider } from "../contexts/CountdownContext"
 import { ChallengesProvider } from "../contexts/ChallengesContexts"
 import { GetServerSideProps } from 'next'
+import { CompletedChallenges } from "../components/CompletedChallenges"
 
 import styles from "../styles/pages/home.module.css"
 
@@ -28,9 +28,9 @@ export default function Home(props:HomeProps) {
         <Head>
           <title>Início | MoveIt</title>
         </Head>
-        
+
         <ExperienceBar />
-      
+
         <CountdownProvider>
           <section>
             <div>

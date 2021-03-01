@@ -32,14 +32,34 @@
 .subContainer {
   padding: 1.5rem 3rem;
 }
-.subContainer header {
-  background: url("/icons/levelup.svg") no-repeat center;
-  /*background-size: contain;*/
+
+.subContainer div.containerDetailLevel {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+.subContainer div.containerDetailLevel div.level {
+  z-index: 1000;
+}
+.subContainer div.containerDetailLevel div.level span {
   color: var(--blue);
   font-size: 8.75rem;
   font-weight: 600;
+  line-height: 1.3;
 
   filter: drop-shadow(5px 10px 6px rgba(220, 221, 224));
+}
+.subContainer div.containerDetailLevel img.detailA {
+  margin-right: -50px;
+}
+.subContainer div.containerDetailLevel img.detailB {
+  margin-left: -50px;
+}
+.subContainer div.containerDetailLevel img.detailA,
+.subContainer div.containerDetailLevel img.detailB {
+  width: 100px;
+
+  margin-top: 16px;
 }
 .subContainer strong {
   color: var(--title);

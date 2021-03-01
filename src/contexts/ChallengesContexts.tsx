@@ -31,7 +31,7 @@ interface ChallengesProviderProps {
 export const ChallengesContext = createContext({} as ChallengesContextData)
 
 export function ChallengesProvider({ children, ...rest }: ChallengesProviderProps) {
-    const [level, setLevel] = useState(rest.level ?? 1) //abc ?? 1 = se não existir use 1
+    const [level, setLevel] = useState(rest.level ?? 1) // - abc ?? 1 = se não existir use 1
     const [currentExperience, setCurrentExperience] = useState(rest.currentExperience ?? 0)
     const [challengesCompleted, setChallengesCompleted] = useState(rest.challengesCompleted ?? 0)
 
@@ -42,7 +42,7 @@ export function ChallengesProvider({ children, ...rest }: ChallengesProviderProp
 
     useEffect(() => {
         Notification.requestPermission()
-    }, []) // [] executado uma unica vez
+    }, []) // - [] executado uma unica vez
 
     useEffect(() => {
         Cookies.set('level', String(level))
