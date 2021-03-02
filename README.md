@@ -118,8 +118,10 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ```json
   "dependencies": {
+    "chrome-aws-lambda": "^7.0.0",
     "js-cookie": "^2.2.1",
     "next": "10.0.7",
+    "puppeteer-core": "^8.0.0",
     "react": "17.0.1",
     "react-confetti": "^6.0.1",
     "react-dom": "17.0.1"
