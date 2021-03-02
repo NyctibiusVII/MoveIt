@@ -74,7 +74,7 @@ Concluindo-a ou não, ele deve parar e descansar 5 minutos.
 #### Funcionalidades
 * Gerenciar seu tempo.
 * Níveis de xp aumentados conforme sua evolução na técnica pomodoro.
-* Compartilhamento de seu progresso (Twitter).
+* Compartilhamento de seu progresso (Twitter) com imagem dinâmica via URL de (1200 x 630).
 * Notificação auditiva e visual.
 * Site responsivo.
 
@@ -96,6 +96,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
     <img src="./.github/desktop-index-counting.png" width="400px">
     <img src="./.github/desktop-index-modal.png" width="400px">
     <img src="./.github/desktop-index-xp.png" width="400px">
+    <img src="./.github/desktop-image-next-level.png" width="400px">
 </div>
 
 #### Mobile Screenshot
@@ -103,7 +104,8 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 <!-- Responsive, 425 x 900, 60% (Mobile L - 425px)--><!--
     <img src="./.github/mobile-login.png" width="180">-->
     <img src="./.github/mobile-index.png" width="180">
-    <img src="./.github/mobile-index-modal.png" width="180"><!--
+    <img src="./.github/mobile-index-modal.png" width="180">
+    <img src="./.github/mobile-twitter-next-level.png" width="180"><!--
     <img src="./.github/mobile-index-share.png" width="180">
     <img src="./.github/mobile-index-counting.png" width="180">-->
 </div>
