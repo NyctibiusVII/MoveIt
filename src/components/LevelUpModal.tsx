@@ -4,42 +4,55 @@ import { ChallengesContext } from '../contexts/ChallengesContexts'
 import Confetti from 'react-confetti'
 import useWindowDimensions from '../contexts/WindowDimensions'
 import styles from '../styles/components/LevelUpModal.module.css'
+import { throws } from 'assert'
+
+var toType = function(obj: any) {return ({}).toString.call(obj).match(/\s([a-zA-Z]+)/)[1].toLowerCase()}
 
 export function LevelUpModal() {
     const { level, currentExperience, challengesCompleted, closeLevelUpModal, } = useContext(ChallengesContext)
-    //const { shareWithTwitter } = useContext(ChallengesContext)
     const { width, height } = useWindowDimensions()
 
+    const root = 'https://moveit-nyctibiusvii.vercel.app/'
+    const rootTwitter = 'https://twitter.com/intent/tweet?'
+
+    const dataForTwitterContent = {
+        text: `Avancei para o próximo level no MoveIt. Meu status atual: level ${level}, xp ${currentExperience} e ${challengesCompleted} desafios completos.`,
+        linkShareNextLevel: `${root}api/image-generator?level=${level}&currentExperience=${currentExperience}&challengesCompleted=${challengesCompleted}`,
+        hashtags: 'MoveIt,Rocketseat,NLW4,NyctibiusVII',
+        author: 'NyctibiusVII'
+    }
     const shareWithTwitter = () => {
-        const
-            root = 'https://moveit-nyctibiusvii.vercel.app/',
-            rootTwitter = 'https://twitter.com/intent/tweet?'
+        const customText = _isString(dataForTwitterContent.text) === true ? customizationForURL(dataForTwitterContent.text) : 'TypeError%28text%29'
+        const customLink = _isString(dataForTwitterContent.linkShareNextLevel) === true ? customizationForURL(dataForTwitterContent.linkShareNextLevel) : 'TypeError%28link%29'
+        const customHashtags = _isString(dataForTwitterContent.hashtags) === true ? customizationForURL(dataForTwitterContent.hashtags) : 'TypeError%28hashtags%29'
+        const customAuthor = _isString(dataForTwitterContent.author) === true ? customizationForURL(dataForTwitterContent.author) : 'TypeError%28author%29'
 
-        const
-            author = 'NyctibiusVII',
-            hashtags = 'MoveIt,Rocketseat,NLW4,NyctibiusVII',
-            text = `Avancei para o próximo level no MoveIt. Meu status atual: level ${level}, xp ${currentExperience} e ${challengesCompleted} desafios completos.`
+        const nextLine = '%0D%0D'
 
-        const linkShareNextLevel = `${root}api/image-generator?level=${level}&currentExperience=${currentExperience}&challengesCompleted=${challengesCompleted}`
+        function _isString(text:any) {
+            if (toType(text) !== "string") {
+                typeError(text)
+                return false
+            }
+            return true
+        }
+        function typeError(text:any) {
+            console.error('Error function\n\"function isString() waiting for \'String\'\"\n\nData received:\n'+text+'\n\ntypeof:\n'+toType(text))
+        }
 
-        const customHashtags = customizationForURL(hashtags)
-        const customText = customizationForURL(text)
-        const customLink = customizationForURL(linkShareNextLevel)
-        const customAuthor = customizationForURL(author)
-        
         window.open(
-            `${rootTwitter}text=${customText}&url=${customLink}&hashtags=${customHashtags}&via=${customAuthor}`, //TODO - twitter não aceita passar mais de 1 valor na URL. necessario 3 (level, currentExperience, challengesCompleted)
+            `${rootTwitter}text=${customText}${nextLine}Veja%20aqui%3A%0D&url=${customLink}${nextLine}&hashtags=${customHashtags}&via=${customAuthor}`,
              '_blank'
         )
     }
-    function customizationForURL(text:String) {
+    function customizationForURL(text:string) {
         const __space = "%20"      //  
         const __comma = "%2C"      // ,
         const __bar = "%2F"        // /
         const __two_points = "%3A" // :
+        const __e_commercial = "%26" // &
 
-        let _text = text.replace(/ /g, __space).replace(/,/g, __comma).replace(/\//g, __bar).replace(/:/g, __two_points)
-        return _text
+        return text.replace(/ /g, __space).replace(/,/g, __comma).replace(/\//g, __bar).replace(/:/g, __two_points).replace(/&/g, __e_commercial)
     }
 
     return (

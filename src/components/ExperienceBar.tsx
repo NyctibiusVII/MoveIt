@@ -3,9 +3,12 @@ import { ChallengesContext } from '../contexts/ChallengesContexts'
 
 import styles from '../styles/components/ExperienceBar.module.css'
 
+var toType = function(obj: any) {return ({}).toString.call(obj).match(/\s([a-zA-Z]+)/)[1].toLowerCase()}
+
 export function ExperienceBar() {
     const { currentExperience, experienceToNextLevel } = useContext(ChallengesContext)
-    const percentToNextLevel = Math.round((currentExperience * 100)) / experienceToNextLevel
+    let percentToNextLevel = Math.round((currentExperience * 100)) / experienceToNextLevel
+    percentToNextLevel = toType(percentToNextLevel) === "number" ? percentToNextLevel : 0
 
     return (
         <header className={styles.experienceBar}>
