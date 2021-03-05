@@ -78,6 +78,42 @@ Concluindo-a ou não, ele deve parar e descansar 5 minutos.
 * Notificação auditiva e visual.
 * Site responsivo.
 
+<details>
+    <summary>Desafios</summary>
+
+```
+✔ - Documentar bem o projeto
+✔ - Melhorar o estilo: Responsividade e Design
+✔ - Confetes atras do modal quando passar de level
+- Barra de progresso (tempo restante) em baixo do botão abandonar ciclo
+- Next PWA
+
+Funcionalidades:
+    - Mensagem de aviso ao sair da pagina ("O timer esta ativo!")
+    - Trocar o tema da aplicação: Light e Dark
+    - oAuth github (Pagina de login)
+    - Sidebar lateral (esquerda):
+        - Logo (img)
+        - Home
+        - Leaderbord
+        - Deslogar (Button image)
+    ✔ - Compartilhar com o Twitter:
+        ✔ - Botão em baixo do modal (Compartilhar no Twitter (img))
+            ✔ - Texto com:
+                ✔ - qts Desafios
+                ✔ - qts xp
+                ✔ - qts Level
+            ✔ - Link para a img dinâmica
+            ✔ - Hashtags
+            ✔ - Autor
+        ✔ - Criar img dinâmica para compartilhar:
+            ✔ - (API) image-generator:
+                ✔ - qts Desafios
+                ✔ - qts xp
+                ✔ - qts Level
+```
+</details>
+
 ## Tecnologias 🚀
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 - [Html | 5](https://pt.wikipedia.org/wiki/HTML)
