@@ -124,27 +124,58 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - [NodeJS | ^15.9.0](https://nodejs.org/en/)
 
 ## Layout 🚧
-#### Desktop Screenshot
+## Desktop Screenshot
 <div style="display: flex; flex-direction: 'column'; align-items: 'center';">
-<!-- Responsive, 1440 x 900, 50% (Laptop L - 1440px)--><!--
-    <img src="./.github/desktop-login.png" width="400px">-->
-    <img src="./.github/desktop-index.png" width="400px">
-    <img src="./.github/desktop-index-counting.png" width="400px">
-    <img src="./.github/desktop-index-modal.png" width="400px">
-    <img src="./.github/desktop-index-xp.png" width="400px">
-    <img src="./.github/desktop-image-next-level.png" width="400px">
+<!-- Responsive, 1440 x 900, 50% (Laptop L - 1440px)-->
+    <!--<img width="400px" src="./.github/desktop/login-blank.png">-->
+    <!--<img width="400px" src="./.github/desktop/login-filled.png">-->
+    <!--<img width="400px" src="./.github/desktop/index-initial-countdown.png">-->
+    <img width="400px" src="./.github/desktop/index-half-countdown.png">
+    <img width="400px" src="./.github/desktop/index-final-countdown.png">
+    <img width="400px" src="./.github/desktop/index-modal-with-confetti.png">
+    <!--<img width="400px" src="./.github/desktop/index-modal-without-confetti.png">-->
+    <img width="400px" src="./.github/desktop/imgGenerator-image-next-level.png">
+    <!--<img width="400px" src="./.github/desktop/imgGenerator-twitter-next-level.png">-->
+    <!--<img width="400px" src="./.github/desktop/leaderbord.png">-->
+    <!--<img width="400px" src="./.github/desktop/configs.png">-->
 </div>
+<a href="./.github/README-IMGS.md">Ver mais</a>
 
-#### Mobile Screenshot
+## Mobile Screenshot
 <div style="display: flex; flex-direction: 'row';">
-<!-- Responsive, 425 x 900, 60% (Mobile L - 425px)--><!--
-    <img src="./.github/mobile-login.png" width="180">-->
-    <img src="./.github/mobile-index.png" width="180">
-    <img src="./.github/mobile-index-modal.png" width="180">
-    <img src="./.github/mobile-twitter-next-level.png" width="180"><!--
-    <img src="./.github/mobile-index-share.png" width="180">
-    <img src="./.github/mobile-index-counting.png" width="180">-->
+<!-- Responsive, 425 x 900, 60% (Mobile L - 425px)-->
+    <!--<img width="180px" src="./.github/mobile/login-blank.png">-->
+    <!--<img width="180px" src="./.github/mobile/login-filled.png">-->
+    <img width="180px" src="./.github/mobile/index-initial-countdown.png">
+    <!--<img width="180px" src="./.github/mobile/index-half-countdown.png">-->
+    <img width="180px" src="./.github/mobile/index-final-countdown.png">
+    <!--<img width="180px" src="./.github/mobile/index-modal-with-confetti.png">-->
+    <img width="180px" src="./.github/mobile/index-modal-without-confetti.png">
+    <!--<img width="180px" src="./.github/mobile/imgGenerator-image-next-level.png">-->
+    <img width="180px" src="./.github/mobile/imgGenerator-twitter-next-level.png">
+    <!--<img width="180px" src="./.github/mobile/leaderbord.png">-->
+    <!--<img width="180px" src="./.github/mobile/configs.png">-->
 </div>
+<a href="./.github/README-IMGS.md">Ver mais</a>
+    <!-- IMGS
+      ------------------------------
+      login-blank
+      login-filled
+      ------------------------------
+      initial-countdown
+      half-countdown
+      final-countdown
+      ------------------------------
+      modal-with-confetti
+      modal-without-confetti
+      ------------------------------
+      image-next-level
+      twitter-next-level
+      ------------------------------
+      leaderbord
+      configs
+      ------------------------------
+    -->
 
 ## Rodando o projeto 🚴🏻‍♂️
 #### "Só vou dar uma olhadinha...":
