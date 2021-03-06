@@ -85,7 +85,7 @@ Concluindo-a ou não, ele deve parar e descansar 5 minutos.
 ✔ - Documentar bem o projeto
 ✔ - Melhorar o estilo: Responsividade e Design
 ✔ - Confetes atras do modal quando passar de level
-- Barra de progresso (tempo restante) em baixo do botão abandonar ciclo
+✔ - Barra de progresso (tempo restante) em baixo do botão (Abandonar ciclo e Ciclo encerrado)
 - Next PWA
 
 Funcionalidades:

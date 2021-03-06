@@ -2,6 +2,7 @@ import { createContext, ReactNode, useContext, useEffect, useState } from "react
 import { ChallengesContext } from "./ChallengesContexts"
 
 interface CountdownContextData {
+    percentToEndCycle: number
     minutes: number
     seconds: number
     isActive: boolean
@@ -19,10 +20,17 @@ export const CountdownContext = createContext({} as CountdownContextData)
 let countdownTimeout: NodeJS.Timeout
 
 export function CountdownProvider({ children }: CountdownProviderProps) {
-    const __fixedMinutes = (0.2/3)/2 //25 // - Para teste: (0.2/3)/2
+    const __fixedTimeCountdown = 25 // - For test: (0.2/3)/2 | For production: 25
+    const fixedTime = __fixedTimeCountdown * 60 // - 25min * 60sec = 1500sec
+
+    const [__INITIAL_percentToEndCycle, set_INITIAL_percentToEndCycle] = useState(0)
+    const [__NEW_percentToEndCycle, set_NEW_percentToEndCycle] = useState(0)
+    const [__FINAL_percentToEndCycle, set__FINAL_percentToEndCycle] = useState(0)
+    const [percentToEndCycle, set_PercentToEndCycle] = useState(0)
+
     const { startNewChallenge } = useContext(ChallengesContext)
 
-    const [time, setTime] = useState(__fixedMinutes * 60) // - 25min * 60sec = 1500sec
+    const [time, setTime] = useState(__fixedTimeCountdown * 60) // - 25min * 60sec = 1500sec
     const [isActive, setIsActive] = useState(false)
     const [hasFinished, setHasFinished] = useState(false)
 
@@ -40,15 +48,39 @@ export function CountdownProvider({ children }: CountdownProviderProps) {
         clearTimeout(countdownTimeout)
         setIsActive(false)
         setHasFinished(false)
-        setTime(__fixedMinutes * 60)
 
+        setTime(__fixedTimeCountdown * 60)
+        resetProgressCountdown()
         setIsCounting(false)
     }
+    function resetProgressCountdown() {
+        set_INITIAL_percentToEndCycle(0)
+        set_NEW_percentToEndCycle(0)
+        set__FINAL_percentToEndCycle(0)
+        set_PercentToEndCycle(0)
+    }
+    async function INF({INITIAL, NEW, FINAL}) {
+        set_INITIAL_percentToEndCycle(INITIAL + 1)
+        const NEW_INITIAL = await(INITIAL + 1)
+
+        set_NEW_percentToEndCycle(NEW_INITIAL * 100)
+        const NEW_NEW = (NEW_INITIAL * 100)
+
+        set__FINAL_percentToEndCycle(NEW_NEW / fixedTime)
+        FINAL = Math.round(NEW_NEW / fixedTime)
+
+        set_PercentToEndCycle(FINAL)
+
+        return FINAL
+    }
+
     useEffect(() => {
         if (isActive && time > 0) {
             countdownTimeout = setTimeout(() => {
                 setTime(time - 1)
             }, 1000)
+
+            INF({INITIAL:__INITIAL_percentToEndCycle, NEW:__NEW_percentToEndCycle, FINAL:__FINAL_percentToEndCycle})
         } else if (isActive && time === 0) {
             setHasFinished(true)
             setIsActive(false)
@@ -58,6 +90,7 @@ export function CountdownProvider({ children }: CountdownProviderProps) {
 
     return(
         <CountdownContext.Provider value={{
+            percentToEndCycle,
             minutes,
             seconds,
             isActive,
