@@ -12,18 +12,23 @@
     -ms-border-radius: 50%;
     -o-border-radius: 50%;
 }
-.profileContainer div {
+.profileContainer div.separation {
     margin-left: 1.5rem;
 }
-.profileContainer div strong {
+.profileContainer div.separation strong {
     color: var(--title);
     font-size: 1.5rem;
     font-weight: 600;
 }
-.profileContainer div p {
-    font-size: 1rem;
+.profileContainer div.separation div.levelContainer {
     margin-top: 0.5rem;
+
+    display: flex;
+    align-items: center;
 }
-.profileContainer div p img {
+.profileContainer div.separation div.levelContainer div.levelImage {
     margin-right: 0.5rem;
+}
+.profileContainer div.separation div.levelContainer p {
+    font-size: 1rem;
 }

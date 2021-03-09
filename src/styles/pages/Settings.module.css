@@ -8,32 +8,32 @@
 
     display: flex;
     flex-direction: column;
-}
-.container section {
+  }
+  .container section {
     display: grid;
     flex: 1;
     grid-template-columns: 1fr 1fr;
     gap: 6.25rem;
     align-content: center;
-}
+  }
 
 
 
-/* Mobile && Tablet */
-@media (max-width: 820px) {
+  /* Mobile && Tablet */
+  @media (max-width: 820px) {
     .container {
         max-width: 620px;
     }
     .container section {
         grid-template-columns: 1fr;
     }
-}
+  }
 
 
 
-/* Mobile (_aside) */
-@media (max-width: 600px) {
+  /* Mobile (_aside) */
+  @media (max-width: 600px) {
     .container {
         padding-left: 2rem;
     }
-}
+  }

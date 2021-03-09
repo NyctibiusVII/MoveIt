@@ -10,6 +10,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  z-index: 1000;
 }
 
 .container {
@@ -76,10 +78,19 @@
   font-size: 0;
 
   position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
+  top: 1rem;
+  right: 1rem;
 
   border: 0;
+}
+.subContainer button.close p {
+  font-size: 1.18rem;
+  font-weight: 100;
+
+  margin-top: -0.5rem;
+
+  filter: opacity(0.5);
+  -webkit-filter: opacity(0.5);
 }
 
 .overlay footer {

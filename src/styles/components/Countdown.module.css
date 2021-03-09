@@ -65,16 +65,20 @@
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
 
-  transition: 0.2s;
-  -webkit-transition: 0.2s;
-  -moz-transition: 0.2s;
-  -ms-transition: 0.2s;
-  -o-transition: 0.2s;
+  transition: 0.2s ease-in-out;
+  -webkit-transition: 0.2s ease-in-out;
+  -moz-transition: 0.2s ease-in-out;
+  -ms-transition: 0.2s ease-in-out;
+  -o-transition: 0.2s ease-in-out;
 
   overflow: overlay;
 }
 .countdownButton:not(:disabled):hover {
   background: var(--blue-dark);
+}
+.countdownButton p {
+  font-size: initial;
+  font-weight: 100;
 }
 .countdownButtonActive {
   background: var(--white);
@@ -107,7 +111,7 @@
 .countdownButton > .currentCountdown > div {
   height: 4px;
   background: var(--green);
-  
+
   border-radius: 5px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;

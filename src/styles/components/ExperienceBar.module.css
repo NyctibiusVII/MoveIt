@@ -86,3 +86,16 @@
   -ms-filter: blur(0.3px);
   -o-filter: blur(0.3px);
 }
+
+/*
+@media (max-width: 520px) {
+  .experienceBar {
+    width: 70%;
+
+    margin-bottom: 20px;
+
+    display: flex;
+    align-items: center;
+    align-self: center;
+  }
+}*/

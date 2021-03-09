@@ -4,7 +4,6 @@ import { ChallengesContext } from '../contexts/ChallengesContexts'
 import Confetti from 'react-confetti'
 import useWindowDimensions from '../contexts/WindowDimensions'
 import styles from '../styles/components/LevelUpModal.module.css'
-import { throws } from 'assert'
 
 var toType = function(obj: any) {return ({}).toString.call(obj).match(/\s([a-zA-Z]+)/)[1].toLowerCase()}
 
@@ -46,7 +45,7 @@ export function LevelUpModal() {
         )
     }
     function customizationForURL(text:string) {
-        const __space = "%20"      //  
+        const __space = "%20"      //
         const __comma = "%2C"      // ,
         const __bar = "%2F"        // /
         const __two_points = "%3A" // :
@@ -76,7 +75,7 @@ export function LevelUpModal() {
                     <strong>Parabéns</strong>
                     <p>Você alcançou um novo level.</p>
                     <button type="button" className={styles.close} onClick={closeLevelUpModal}>
-                        <img src="/icons/close.svg" alt="Fechar modal" />
+                        <p>✖</p>
                     </button>
                 </div>
                 <footer>

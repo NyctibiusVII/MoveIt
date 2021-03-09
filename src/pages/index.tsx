@@ -4,12 +4,11 @@ import { ChallengeBox } from "../components/ChallengeBox"
 import { ExperienceBar } from "../components/ExperienceBar"
 import { CountdownProvider } from "../contexts/CountdownContext"
 import { ChallengesProvider } from "../contexts/ChallengesContexts"
-import { GetServerSideProps } from 'next'
+import { GetServerSideProps } from "next"
 import { CompletedChallenges } from "../components/CompletedChallenges"
 
+import Head from "next/head"
 import styles from "../styles/pages/home.module.css"
-
-import Head from 'next/head'
 
 interface HomeProps {
   level: number
