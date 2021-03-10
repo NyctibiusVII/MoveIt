@@ -84,7 +84,7 @@ button.btnPage img {
 
 
 /* Mobile (_aside) */
-@media (max-width: 600px) {
+@media (max-width: 600px) { /* 600px ↑ aparece o aside */
   aside.sidebarContainer {
       display: none;
   }

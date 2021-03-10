@@ -97,10 +97,10 @@ Funcionalidades:
         ✔ - Home
         ✔ - Leaderbord
         ✔ - Settings
-    - Float button #Mobile:
-        - Home
-        - Leaderbord
-        - Settings
+    ✔ - Float action button #Mobile:
+        ✔ - Home
+        ✔ - Leaderbord
+        ✔ - Settings
     - Telas:
         ✔ - Home
         - Leaderbord

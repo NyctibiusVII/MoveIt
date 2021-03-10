@@ -1,0 +1,140 @@
+/* FloatingActionButtonContainerMenu */
+.floatingActionButtonContainerMenu {
+    background-color: transparent;
+
+    position: fixed;
+    right: 0;
+    bottom: 0;
+
+    margin: var(--side-placement);
+
+    z-index: 20;
+}
+
+
+
+/* FloatActionButtonMenu */
+.floatingActionButtonMenu {
+    height: var(--regular-size);
+    width: var(--regular-size);
+    min-height: 36px;
+    min-width: 0;
+
+    background-color: var(--FAB);
+    color: var(--white);
+    box-shadow: 0px 3px 5px -1px rgb(0 0 0 / 20%), 0px 6px 10px 0px rgb(0 0 0 / 14%), 0px 1px 18px 0px rgb(0 0 0 / 12%);
+    box-sizing: border-box;
+    outline: none;
+    border: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    -moz-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    -ms-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    -o-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+.floatingActionButtonMenu:hover {
+    background-color: var(--FAB-dark);
+}
+.floatingActionButtonMenu:active {
+    background-color: var(--FAB-light);
+}
+.floatingActionButtonMenu img {
+    transition: all 0.25s;
+    -webkit-transition: all 0.25s;
+    -moz-transition: all 0.25s;
+    -ms-transition: all 0.25s;
+    -o-transition: all 0.25s;
+}
+
+
+
+/* FloatingActionButtonContainerItens */
+.floatingActionButtonContainerItens {
+    height: var(--regular-size);
+    width: var(--regular-size);
+    min-height: 36px;
+    min-width: 0;
+
+    background-color: transparent;
+
+    position: fixed;
+    right: 0;
+    bottom: 0;
+
+    margin: var(--side-placement);
+
+    z-index: 10;
+}
+
+
+
+/* FloatActionButtonMenuItens */
+.FABhome,
+.FABleaderbord,
+.FABsettings {
+  width: var(--mini-fab-size);
+  height: var(--mini-fab-size);
+
+  background-color: var(--mini-FAB);
+  color: var(--white);
+  box-shadow: 7px 7px 7px 0px rgb(0 0 0 / 14%);
+  outline: none;
+  border: 0;
+
+  position: absolute;
+  top: calc(var(--side-placement) - var(--side-placement) / 2);
+  left: calc(var(--side-placement) - var(--side-placement) / 2);
+
+  transition-property: all;
+  transition-duration: 0.35s;
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+  transform: rotateZ(90deg);
+  -webkit-transform: rotateZ(90deg);
+  -moz-transform: rotateZ(90deg);
+  -ms-transform: rotateZ(90deg);
+  -o-transform: rotateZ(90deg);
+
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+.FABhome:hover,
+.FABleaderbord:hover,
+.FABsettings:hover {
+    background-color: var(--mini-FAB-dark)
+}
+.FABhome:active,
+.FABleaderbord:active,
+.FABsettings:active {
+    background-color: var(--mini-FAB-light)
+}
+.FABhome img,
+.FABleaderbord img,
+.FABsettings img {
+    filter: brightness(100);
+    -webkit-filter: brightness(100);
+}
+
+
+
+/* Mobile (_FloatingActionButton) */
+@media (min-width: 601px) { /* 601px ↑ esconde o FAB */
+    .floatingActionButtonContainerMenu,
+    .floatingActionButtonContainerItens {
+        display: none;
+    }
+}

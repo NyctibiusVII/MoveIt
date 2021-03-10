@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 :root {
-  /*Aplicada a regra de harmonia de cores*/
+  /* Aplicada a regra de harmonia de cores */
   --white: #fff;
 
   --red-very-light: #fff5f5;
@@ -30,6 +30,20 @@
 
   --text-highlight: #b3b9ff;
   --text: #666;
+
+  --FAB-light: #5f6bed;
+  --FAB: #5965E0;
+  --FAB-dark: #4953b8;
+
+  --mini-FAB-light: #4F58C4;
+  --mini-FAB: #4953b8;
+  --mini-FAB-dark: #3F479E;
+
+  /* MATERIAL DESIGN float action button sizes */
+  --regular-size: 56px;
+  --mini-fab-size: 40px;
+  --side-placement: 16px;
+  --plus-size: 16px; /*24px*/
 }
 
 body {
@@ -79,4 +93,61 @@ a {
   -webkit-filter: grayscale(0) !important;
 
   opacity: 1 !important;
+}
+
+
+
+/* isCheckedButton- _FloatingActionButton */
+.activePageButton {
+  background-color: var(--white);
+
+  transition: all 0.2s !important;
+  -webkit-transition: all 0.2s !important;
+  -moz-transition: all 0.2s !important;
+  -ms-transition: all 0.2s !important;
+  -o-transition: all 0.2s !important;
+}
+.activePageButton:hover {
+  background-color: var(--background);
+}
+.activePageButton:active {
+  background-color: var(--blue-very-light);
+}
+.activePageButton img {
+  filter: grayscale(0) !important;
+  -webkit-filter: grayscale(0) !important;
+
+  opacity: 1 !important;
+}
+.FABchecked img {
+  transform: rotatez(-45deg);
+  -webkit-transform: rotatez(-45deg);
+  -moz-transform: rotatez(-45deg);
+  -ms-transform: rotatez(-45deg);
+  -o-transform: rotatez(-45deg);
+}
+.FABenabled button#FABhome {
+  transform: translateY(-5em);
+  -webkit-transform: translateY(-5em);
+  -moz-transform: translateY(-5em);
+  -ms-transform: translateY(-5em);
+  -o-transform: translateY(-5em);
+}
+.FABenabled button#FABleaderbord {
+  transition-delay: 0.1s;
+
+  transform: translateX(-3.5em) translateY(-3.5em);
+  -webkit-transform: translateX(-3.5em) translateY(-3.5em);
+  -moz-transform: translateX(-3.5em) translateY(-3.5em);
+  -ms-transform: translateX(-3.5em) translateY(-3.5em);
+  -o-transform: translateX(-3.5em) translateY(-3.5em);
+}
+.FABenabled button#FABsettings {
+  transition-delay: 0.2s;
+
+  transform: translateX(-5em);
+  -webkit-transform: translateX(-5em);
+  -moz-transform: translateX(-5em);
+  -ms-transform: translateX(-5em);
+  -o-transform: translateX(-5em);
 }
