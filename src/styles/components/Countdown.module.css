@@ -87,10 +87,14 @@
 .countdownButtonActive:hover img {
   filter: brightness(100);
 }
-.countdownButtonActive:not(:disabled):hover {
+.countdownButtonActive:not(:disabled):hover{
   background: var(--red);
   color: var(--white);
 }
+.countdownButtonActive:not(:disabled):hover strong {
+	filter: brightness(4)
+}
+
 .countdownButton:disabled {
   background: var(--white);
   color: var(--text);
@@ -123,4 +127,26 @@
   -moz-transition: 0.2s;
   -ms-transition: 0.2s;
   -o-transition: 0.2s;
+}
+
+.countdownButton > strong::after{
+	content: "";
+	display: inline-block;
+	
+	background-image: url(/icons/play_arrow.svg);
+	background-repeat: no-repeat;
+	background-size: contain;
+	
+	vertical-align: middle;
+	padding-left: 5px;
+	width: 1em;
+	height: 1em;
+	
+	transition: filter .2s;
+}
+
+.countdownButtonActive > strong::after {
+	background-image: url(/icons/x.svg);
+	background-size: .6em;
+	background-position: center;
 }

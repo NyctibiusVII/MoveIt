@@ -46,15 +46,15 @@ export function Countdown() {
             ) : (
                 <>
                     { isActive ? (
-                        <button type="button" className={`${styles.countdownButton} ${styles.countdownButtonActive}`} onClick={resetCountdown}>
-                            Abandonar ciclo&nbsp;&nbsp;&nbsp;<p>✖</p>
+                        <button type="button" className={`${styles.countdownButton} ${styles.countdownButtonActive}`} onClick={resetCountdown}> 
+                            <strong>Abandonar ciclo</strong>
                             <div className={styles.currentCountdown}>
                                 <div style={{ width: `${PERCENT_TO_END_CYCLE}%` }}/>
                             </div>
                         </button>
                     ) : (
                         <button type="button" className={styles.countdownButton} onClick={startCountdown}>
-                            Iníciar um ciclo&nbsp;&nbsp;&nbsp;<p>►</p>
+                            <strong>Iníciar um ciclo</strong>
                         </button>
                     ) }
                 </>
