@@ -1,0 +1,125 @@
+/* Desktop */
+.container {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--blue);
+
+    display: flex;
+    justify-content: center;
+}
+
+
+
+.division {
+  width: 100%;
+  height: 100%;
+
+  margin-left: -10rem;
+
+  display: grid;
+  grid-template-columns: 5fr 3fr;
+}
+.division main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.division .containerLogoLarge {
+    max-width: calc(100% - 20%);
+
+    display: flex;
+}
+.division .containerLogoFill {
+    margin-bottom: 8rem;
+}
+
+.division main div:last-child h3 {
+  color: var(--white);
+  font: 600 2.4rem "inter", sans-serif;
+  line-height: 2rem;
+}
+.division main div:last-child .containerLoginWithGithub {
+    margin: 2.5rem 0;
+  display: flex;
+  align-items: center;
+}
+.logoGithub {
+  display: flex;
+
+  margin-right: 1.5rem;
+}
+.division main div:last-child div p {
+    max-width: calc(100% - 40%);
+    color: var(--text-highlight);
+    font-size: 1.30rem;
+    font-weight: 500;
+    line-height: 1.3;
+
+    margin-bottom: 1px;
+
+    display: flex;
+    align-items: center;
+}
+
+
+
+/* Tablet & Mobile */
+@media (max-width: 1200px) {
+    .division {
+        width: 100%;
+        height: 100%;
+
+        margin: 0;
+
+        display: grid;
+        grid-template-columns: none;
+      }
+    .division .containerLogoLarge {
+      max-width: 100%;
+
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+    }
+    .division .containerLogoFill {
+        margin-bottom: 5rem;
+    }
+    .division main {
+        align-items: center;
+    }
+    .containerLogin {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .division main div:last-child .containerLoginWithGithub {
+      justify-content: center;
+    }
+}
+
+
+
+/* Mobile */
+@media (max-width: 500px) {
+    .division .containerLogoFill {
+        width: calc(100% - 30%);
+    }
+    .division main div:last-child .containerLoginWithGithub {
+        margin: 1.75rem 0;
+    }
+    .logoGithub {
+        width: 30px;
+        height: 30px;
+
+        margin-right: 1.05rem;
+      }
+    .division main div:last-child h3 {
+        font-size: 1.68rem;
+      }
+    .division main div:last-child div p {
+      font-size: 0.91rem;
+    }
+}

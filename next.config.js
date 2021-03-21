@@ -13,4 +13,11 @@ module.exports = {
   images: {
     domains: ['github.com'],
   },
+  env: {
+    TIME_COUNTDOWN_PRODUCTION: 25,
+    TIME_COUNTDOWN_TEST: (0.2/3)/2,
+    STANDARD_LEVEL: 1,
+    STANDARD_CURRENT_EXPERIENCE: 0,
+    STANDARD_CHALLENGES_COMPLETED: 0,
+  },
 }

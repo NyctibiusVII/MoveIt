@@ -86,12 +86,14 @@ Concluindo-a ou não, ele deve parar e descansar 5 minutos.
 ✔ - Melhorar o estilo: Responsividade e Design
 ✔ - Confetes atras do modal quando passar de level
 ✔ - Barra de progresso (tempo restante) em baixo do botão (Abandonar ciclo e Ciclo encerrado)
+- Bloquear funcionalidades se não estiver logado
 ✖ - Next PWA
 
 Funcionalidades:
     - Mensagem de aviso ao sair da pagina ("O timer esta ativo!")
     - Trocar o tema da aplicação: Light e Dark
-    - oAuth github (Pagina de login)
+    ✔ - oAuth github (Pagina de login)
+    - Guardar dados no sql
     ✔ - Sidebar lateral #Desktop:
         ✔ - Logo (img)
         ✔ - Home
@@ -105,6 +107,8 @@ Funcionalidades:
         ✔ - Home
         - Leaderbord
         - Settings
+        ✔ - Login
+        - 404
     ✔ - Compartilhar com o Twitter:
         ✔ - Botão em baixo do modal (Compartilhar no Twitter (img))
             ✔ - Texto com:
@@ -135,11 +139,11 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 ## Desktop Screenshot
 <div style="display: flex; flex-direction: 'column'; align-items: 'center';">
 <!-- Responsive, 1440 x 900, 50% (Laptop L - 1440px)-->
-    <!--<img width="400px" src="./.github/desktop/login-blank.png">-->
+    <img width="400px" src="./.github/desktop/login-blank.png">
     <!--<img width="400px" src="./.github/desktop/login-filled.png">-->
     <!--<img width="400px" src="./.github/desktop/index-initial-countdown.png">-->
     <img width="400px" src="./.github/desktop/index-half-countdown.png">
-    <img width="400px" src="./.github/desktop/index-final-countdown.png">
+    <!--<img width="400px" src="./.github/desktop/index-final-countdown.png">-->
     <img width="400px" src="./.github/desktop/index-modal-with-confetti.png">
     <!--<img width="400px" src="./.github/desktop/index-modal-without-confetti.png">-->
     <img width="400px" src="./.github/desktop/imgGenerator-image-next-level.png">
@@ -195,6 +199,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ```json
   "dependencies": {
+    "axios": "^0.21.1",
     "chrome-aws-lambda": "^7.0.0",
     "js-cookie": "^2.2.1",
     "next": "10.0.7",

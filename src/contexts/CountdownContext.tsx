@@ -1,15 +1,16 @@
 import { createContext, ReactNode, useContext, useEffect, useState } from "react"
+
 import { ChallengesContext } from "./ChallengesContexts"
 
 interface CountdownContextData {
     percentToEndCycle: number
-    minutes: number
-    seconds: number
-    isActive: boolean
-    hasFinished: boolean
-    isCounting: boolean
-    startCountdown: () => void
-    resetCountdown: () => void
+    minutes:           number
+    seconds:           number
+    isActive:          boolean
+    hasFinished:       boolean
+    isCounting:        boolean
+    startCountdown:    () => void
+    resetCountdown:    () => void
 }
 interface CountdownProviderProps {
     children: ReactNode
@@ -20,18 +21,18 @@ export const CountdownContext = createContext({} as CountdownContextData)
 let countdownTimeout: NodeJS.Timeout
 
 export function CountdownProvider({ children }: CountdownProviderProps) {
-    const __fixedTimeCountdown = 25 // - For test: (0.2/3)/2 | For production: 25
-    const fixedTime = __fixedTimeCountdown * 60 // - 25min * 60sec = 1500sec
+    const __fixedTimeCountdown = Number(process.env.TIME_COUNTDOWN_TEST) // - For test: TIME_COUNTDOWN_TEST | For production: TIME_COUNTDOWN_PRODUCTION
+    const fixedTime = __fixedTimeCountdown * 60                                // - 25min * 60sec = 1500sec
 
     const [__INITIAL_percentToEndCycle, set_INITIAL_percentToEndCycle] = useState(0)
-    const [__NEW_percentToEndCycle, set_NEW_percentToEndCycle] = useState(0)
-    const [__FINAL_percentToEndCycle, set__FINAL_percentToEndCycle] = useState(0)
-    const [percentToEndCycle, set_PercentToEndCycle] = useState(0)
+    const [__NEW_percentToEndCycle,     set_NEW_percentToEndCycle]     = useState(0)
+    const [__FINAL_percentToEndCycle,   set__FINAL_percentToEndCycle]  = useState(0)
+    const [percentToEndCycle,           set_PercentToEndCycle]         = useState(0)
 
     const { startNewChallenge } = useContext(ChallengesContext)
 
-    const [time, setTime] = useState(__fixedTimeCountdown * 60) // - 25min * 60sec = 1500sec
-    const [isActive, setIsActive] = useState(false)
+    const [time,        setTime]        = useState(fixedTime)
+    const [isActive,    setIsActive]    = useState(false)
     const [hasFinished, setHasFinished] = useState(false)
 
     const [isCounting, setIsCounting] = useState(false)

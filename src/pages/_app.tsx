@@ -1,18 +1,21 @@
-import { Sidebar } from '../components/Sidebar'
-import { SidebarProvider } from "../contexts/SidebarContext"
+import { Test }                 from '../components/Test'
+import { Sidebar }              from '../components/Sidebar'
 import { FloatingActionButton } from '../components/FloatingActionButton'
+
+import { SidebarProvider } from '../contexts/SidebarContext'
 
 import '../styles/global.css'
 
-function MyApp({ Component, pageProps }) {
-  return (
-    <>
-      <SidebarProvider>
-        <Component {...pageProps} />
-        <Sidebar />
-        <FloatingActionButton />
-      </SidebarProvider>
-    </>
-  )
+export default function MyApp({ Component, pageProps}) {
+    return (
+        <>
+            <SidebarProvider>
+                <Component {...pageProps} />
+
+                <Sidebar />
+                <FloatingActionButton />
+
+            </SidebarProvider>
+        </>
+    )
 }
-export default MyApp

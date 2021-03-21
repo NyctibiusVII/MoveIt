@@ -1,41 +1,42 @@
-import { createContext, useState, ReactNode, useEffect } from 'react'
 import { LevelUpModal } from '../components/LevelUpModal'
 
-import Cookies from 'js-cookie'
+import { createContext, useState, ReactNode, useEffect } from 'react'
+
+import Cookies    from 'js-cookie'
 import challenges from '../../challenges.json'
 
 interface Challenge {
-    type: 'body' | 'eye'
+    type:        'body' | 'eye'
     description: string
-    amount: number
+    amount:      number
 }
 interface ChallengesContextData {
-    level: number
-    currentExperience: number
+    level:                 number
+    currentExperience:     number
     experienceToNextLevel: number
-    challengesCompleted: number
-    activeChallenge: Challenge
-    levelUp: () => void
-    startNewChallenge: () => void
-    resetChallenge: () => void
-    completeChallenge: () => void
-    closeLevelUpModal: () => void
+    challengesCompleted:   number
+    activeChallenge:       Challenge
+    levelUp:               () => void
+    startNewChallenge:     () => void
+    resetChallenge:        () => void
+    completeChallenge:     () => void
+    closeLevelUpModal:     () => void
 }
 interface ChallengesProviderProps {
-    children: ReactNode
-    level: number
-    currentExperience: number
+    children:            ReactNode
+    level:               number
+    currentExperience:   number
     challengesCompleted: number
 }
 
 export const ChallengesContext = createContext({} as ChallengesContextData)
 
 export function ChallengesProvider({ children, ...rest }: ChallengesProviderProps) {
-    const [level, setLevel] = useState(rest.level ?? 1) // - abc ?? 1 = se não existir use 1
-    const [currentExperience, setCurrentExperience] = useState(rest.currentExperience ?? 0)
-    const [challengesCompleted, setChallengesCompleted] = useState(rest.challengesCompleted ?? 0)
+    const [level,               setLevel]               = useState(rest.level               ?? Number(process.env.STANDARD_LEVEL)) // - abc ?? 1 = se não existir use 1
+    const [currentExperience,   setCurrentExperience]   = useState(rest.currentExperience   ?? Number(process.env.STANDARD_CURRENT_EXPERIENCE))
+    const [challengesCompleted, setChallengesCompleted] = useState(rest.challengesCompleted ?? Number(process.env.STANDARD_CHALLENGES_COMPLETED))
 
-    const [activeChallenge, setActiveChallenge] = useState(null)
+    const [activeChallenge,    setActiveChallenge]    = useState(null)
     const [isLevelUpModalOpen, setIsLevelUpModalOpen] = useState(false)
 
     const experienceToNextLevel = Math.pow((level + 1) * 4, 2)
@@ -45,8 +46,8 @@ export function ChallengesProvider({ children, ...rest }: ChallengesProviderProp
     }, []) // - [] executado uma unica vez
 
     useEffect(() => {
-        Cookies.set('level', String(level))
-        Cookies.set('currentExperience', String(currentExperience))
+        Cookies.set('level',               String(level))
+        Cookies.set('currentExperience',   String(currentExperience))
         Cookies.set('challengesCompleted', String(challengesCompleted))
     }, [level, currentExperience, challengesCompleted])
 

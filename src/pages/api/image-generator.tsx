@@ -1,4 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next'
+
 import { getScreenshot } from '../../infra/getScreenshot'
 
 const getHTML = ({ level, currentExperience, challengesCompleted }) =>
@@ -226,15 +227,15 @@ const getHTML = ({ level, currentExperience, challengesCompleted }) =>
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
     const isHTMLDebugMode = false
-    const withoutUrlInfo = 'null'
+    const withoutUrlInfo  = 'null'
     //or
     // - Adicione na URL: /?level=SEU_NIVEL
     // - Adicione na URL: /?currentExperience=SUA_EXPERIENCIA
     // - Adicione na URL: /?challengesCompleted=SUA_QUANTIDADE_DE_DESAFIOS_CONCLUÍDOS
 
     const html = getHTML({
-        level: req.query.level || withoutUrlInfo,
-        currentExperience: req.query.currentExperience || withoutUrlInfo,
+        level:               req.query.level               || withoutUrlInfo,
+        currentExperience:   req.query.currentExperience   || withoutUrlInfo,
         challengesCompleted: req.query.challengesCompleted || withoutUrlInfo,
     })
 
@@ -256,6 +257,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         res.end(html)
     }
 
-    returnImg() //prod
-    //returnHtml() //dev
+    //returnHtml() // - Test
+    returnImg()  // - Production
 }
