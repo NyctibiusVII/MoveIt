@@ -40,6 +40,12 @@
   --mini-FAB: #4953b8;
   --mini-FAB-dark: #3F479E;
 
+  /* TOAST-colors */
+  --toast-success: #4cd62b; /* Ratio 1.92 */
+  --toast-warn: #ffc107;    /* Ratio 1.63 */
+  --toast-error: #f54260;   /* Ratio 3.60 */
+  --toast-info: #2195f3;    /* Ratio 3.15 */
+
   /* MATERIAL DESIGN float action button sizes */
   --regular-size: 56px;
   --mini-fab-size: 40px;
@@ -151,4 +157,58 @@ a {
   -moz-transform: translateX(-5em);
   -ms-transform: translateX(-5em);
   -o-transform: translateX(-5em);
+}
+
+
+
+/* Animations */
+@keyframes sideSlideOn {
+  from {
+      transform: translateX(0);
+      -webkit-transform: translateX(0);
+      -moz-transform: translateX(0);
+      -ms-transform: translateX(0);
+      -o-transform: translateX(0);
+}
+  to {
+      transform: translateX(-100%);
+      -webkit-transform: translateX(-100%);
+      -moz-transform: translateX(-100%);
+      -ms-transform: translateX(-100%);
+      -o-transform: translateX(-100%);
+}
+
+}
+@keyframes sideSlideOff {
+  from {
+      transform: translateX(-100%);
+      -webkit-transform: translateX(-100%);
+      -moz-transform: translateX(-100%);
+      -ms-transform: translateX(-100%);
+      -o-transform: translateX(-100%);
+  }
+  to {
+      transform: translateX(0);
+      -webkit-transform: translateX(0);
+      -moz-transform: translateX(0);
+      -ms-transform: translateX(0);
+      -o-transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  from {
+      opacity: 1;
+  }
+  to {
+      opacity: 0;
+  }
 }

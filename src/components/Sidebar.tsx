@@ -33,10 +33,10 @@ export function Sidebar() {
     /* ------- */ }, [ goHome, goLeaderbord, goSettings, goLogin, [] ])
 
 
-    const homePage       = activePage  === 'home'       ? 'activePage' : '' // - inactivePage
-    const leaderbordPage = activePage  === 'leaderbord' ? 'activePage' : '' // - inactivePage
-    const settingsPage   = activePage  === 'settings'   ? 'activePage' : '' // - inactivePage
-    const loginPage      = activeSidebar === false      ? 'activePage' : '' // - inactivePage
+    const homePage       = activePage    === 'home'       ? 'activePage' : '' // - inactivePage
+    const leaderbordPage = activePage    === 'leaderbord' ? 'activePage' : '' // - inactivePage
+    const settingsPage   = activePage    === 'settings'   ? 'activePage' : '' // - inactivePage
+    const loginPage      = activeSidebar === false        ? 'activePage' : '' // - inactivePage
 
     /*
         console.info(`
@@ -56,7 +56,7 @@ export function Sidebar() {
 
     return (
         <>
-            {activeSidebar ? (
+            { activeSidebar ? (
                 <aside className={styles.sidebarContainer}>
                     <div className={styles.subContainer}>
                         <div className={styles.logoContainer}>
@@ -190,7 +190,7 @@ export function Sidebar() {
             ) : (
                 <>
                 </>
-            )}
+            ) }
         </>
     )
 }

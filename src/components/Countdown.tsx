@@ -1,6 +1,6 @@
 import { CountdownContext } from '../contexts/CountdownContext'
 
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 
 import styles from '../styles/components/Countdown.module.css'
 
@@ -17,11 +17,6 @@ export function Countdown() {
 
     const [minuteLeft, minuteRight] = String(minutes).padStart(2, '0').split('')
     const [secondLeft, secondRight] = String(seconds).padStart(2, '0').split('')
-
-    const [PERCENT_TO_END_CYCLE, set_PERCENT_TO_END_CYCLE] = useState(0)
-    setTimeout(() => {
-        set_PERCENT_TO_END_CYCLE(percentToEndCycle)
-    }, 1000)
 
     return (
         <div>
@@ -41,7 +36,7 @@ export function Countdown() {
                 <button disabled className={styles.countdownButton}>
                     Ciclo encerrado&nbsp;&nbsp;&nbsp;<img src="/icons/verified.svg" alt="Verificado" />
                     <div className={styles.currentCountdown}>
-                        <div style={{ width: `${PERCENT_TO_END_CYCLE}%` }}/>
+                        <div style={{ width: `${percentToEndCycle}%` }}/>
                     </div>
                 </button>
             ) : (
@@ -50,7 +45,7 @@ export function Countdown() {
                         <button type="button" className={`${styles.countdownButton} ${styles.countdownButtonActive}`} onClick={resetCountdown}>
                             Abandonar ciclo&nbsp;&nbsp;&nbsp;<p>✖</p>
                             <div className={styles.currentCountdown}>
-                                <div style={{ width: `${PERCENT_TO_END_CYCLE}%` }}/>
+                                <div style={{ width: `${percentToEndCycle}%` }}/>
                             </div>
                         </button>
                     ) : (

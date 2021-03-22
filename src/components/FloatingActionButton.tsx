@@ -33,10 +33,10 @@ export function FloatingActionButton() {
     /* ------- */     return () => { mounted = false } // - Cleanup()
     /* ------- */ }, [ goHome, goLeaderbord, goSettings, goLogin, [] ])
 
-    const homePage       = activePage  === 'home'       ? 'activePage' : '' // - inactivePage
-    const leaderbordPage = activePage  === 'leaderbord' ? 'activePage' : '' // - inactivePage
-    const settingsPage   = activePage  === 'settings'   ? 'activePage' : '' // - inactivePage
-    const loginPage      = activeFAB   === false        ? 'activePage' : '' // - inactivePage
+    const homePage       = activePage  === 'home'       ? 'activePageButton' : '' // - inactivePageButton
+    const leaderbordPage = activePage  === 'leaderbord' ? 'activePageButton' : '' // - inactivePageButton
+    const settingsPage   = activePage  === 'settings'   ? 'activePageButton' : '' // - inactivePageButton
+    const loginPage      = activeFAB   === false        ? 'activePageButton' : '' // - inactivePageButton
 
     const activeFloatActionButton = () => { isChecked ? setIsChecked(false) : setIsChecked(true) }
     const checked = isChecked ? 'FABchecked' : '' // - noFABchecked
@@ -64,7 +64,7 @@ export function FloatingActionButton() {
 
     return (
         <>
-            {activeFAB ? (
+            { activeFAB ? (
                 <>
                     <div className={`${styles.floatingActionButtonContainerMenu}`}>
                         <button type="button" className={`${styles.floatingActionButtonMenu} ${checked}`} onClick={activeFloatActionButton} aria-label="Float action button menu">
@@ -187,7 +187,7 @@ export function FloatingActionButton() {
             ) : (
                 <>
                 </>
-            )}
+            ) }
         </>
     )
 }

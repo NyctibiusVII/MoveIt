@@ -22,11 +22,11 @@ let countdownTimeout: NodeJS.Timeout
 
 export function CountdownProvider({ children }: CountdownProviderProps) {
     const __fixedTimeCountdown = Number(process.env.TIME_COUNTDOWN_TEST) // - For test: TIME_COUNTDOWN_TEST | For production: TIME_COUNTDOWN_PRODUCTION
-    const fixedTime = __fixedTimeCountdown * 60                                // - 25min * 60sec = 1500sec
+    const fixedTime = __fixedTimeCountdown * 60                          // - 25min * 60sec = 1500sec
 
     const [__INITIAL_percentToEndCycle, set_INITIAL_percentToEndCycle] = useState(0)
     const [__NEW_percentToEndCycle,     set_NEW_percentToEndCycle]     = useState(0)
-    const [__FINAL_percentToEndCycle,   set__FINAL_percentToEndCycle]  = useState(0)
+    const [__FINAL_percentToEndCycle,   set_FINAL_percentToEndCycle]   = useState(0)
     const [percentToEndCycle,           set_PercentToEndCycle]         = useState(0)
 
     const { startNewChallenge } = useContext(ChallengesContext)
@@ -56,9 +56,9 @@ export function CountdownProvider({ children }: CountdownProviderProps) {
     }
     function resetProgressCountdown() {
         set_INITIAL_percentToEndCycle(0)
-        set_NEW_percentToEndCycle(0)
-        set__FINAL_percentToEndCycle(0)
-        set_PercentToEndCycle(0)
+        set_NEW_percentToEndCycle    (0)
+        set_FINAL_percentToEndCycle  (0)
+        set_PercentToEndCycle        (0)
     }
     async function INF({INITIAL, NEW, FINAL}) {
         set_INITIAL_percentToEndCycle(INITIAL + 1)
@@ -67,10 +67,12 @@ export function CountdownProvider({ children }: CountdownProviderProps) {
         set_NEW_percentToEndCycle(NEW_INITIAL * 100)
         const NEW_NEW = (NEW_INITIAL * 100)
 
-        set__FINAL_percentToEndCycle(NEW_NEW / fixedTime)
+        set_FINAL_percentToEndCycle(NEW_NEW / fixedTime)
         FINAL = Math.round(NEW_NEW / fixedTime)
 
-        set_PercentToEndCycle(FINAL)
+        setTimeout(() => {
+            set_PercentToEndCycle(FINAL)
+        }, 0)
 
         return FINAL
     }

@@ -1,4 +1,6 @@
-import { createContext, useState, ReactNode, useEffect } from 'react'
+import { ToastContext } from './ToastContext'
+
+import { createContext, useState, ReactNode, useEffect, useContext } from 'react'
 import axios, { AxiosResponse } from 'axios'
 
 import Cookies from 'js-cookie'
@@ -26,6 +28,8 @@ export const LoginContext = createContext({} as LoginContextData)
 const date = new Date
 
 export function LoginProvider({ children, ...rest }: LoginProviderProps) {
+    const { toastON } = useContext(ToastContext)
+
     const avatarsGithubURL = 'https://avatars.githubusercontent.com/u/'
     const [selectImage, setSelectImage] = useState(0) // - Padrão
     const stockImagePatterns = [
@@ -71,7 +75,6 @@ export function LoginProvider({ children, ...rest }: LoginProviderProps) {
     const [__username,   setUsername]   = useState(quickUsername)
     const [__isLogged,   setIsLogged]   = useState(quickLogin)
 
-
     /*
         console.info(`
             Id       : ${__id}
@@ -104,13 +107,13 @@ export function LoginProvider({ children, ...rest }: LoginProviderProps) {
                 } else {
                     // - Organization
                     console.warn('Access denied: You cannot enter an organization name!\nOnly users are allowed')
-                    toastFailed()
+                    toastWarn()
                 }
             })
             .catch(err => {
                 // - User does not exist
                 console.error(err+'\n\nUser does not exist')
-                toastFailed()
+                toastError()
             })
     }
     function getInfoUser(resp: AxiosResponse<any>) {
@@ -137,14 +140,17 @@ export function LoginProvider({ children, ...rest }: LoginProviderProps) {
         setIsLogged(false)
     }
 
-
-
     function toastSuccess() {
-        //toast.success("")
+        Cookies.set('whichToast', '0')
+        toastON()
     }
-    function toastFailed() {
-        //Cookies.set('username', String(userCache))
-        //toast.failed("")
+    function toastWarn() {
+        Cookies.set('whichToast', '1')
+        toastON()
+    }
+    function toastError() {
+        Cookies.set('whichToast', '2')
+        toastON()
     }
 
     return (

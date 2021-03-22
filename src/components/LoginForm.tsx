@@ -28,16 +28,16 @@ export function LoginForm() {
     return (
         <form onSubmit={handleSubmit} className={styles.form}>
             <input
-            id="name"
-            name="name"
-            type="text"
-            value={UsernameLocal}
-            onChange={handleParam(setUsernameLocal)}
-            className={styles.inputUsername}
-            autoComplete="name"
-            placeholder="Digite seu username"
-            aria-label="username"
-            required />
+                id="name"
+                name="name"
+                type="text"
+                value={UsernameLocal}
+                onChange={handleParam(setUsernameLocal)}
+                className={styles.inputUsername}
+                autoComplete="name"
+                placeholder="Digite seu username"
+                aria-label="username"
+                required />
             <button type="submit" className={styles.btnSubmit}>
               <Image
                 loader={rightArrowLoaderImg}
