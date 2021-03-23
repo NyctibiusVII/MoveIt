@@ -17,6 +17,7 @@
     <img width="400px" src="./desktop/imgGenerator-twitter-next-level.png">
     <img width="400px" src="./desktop/leaderbord.png">
     <img width="400px" src="./desktop/configs.png">
+    <img width="400px" src="./desktop/toasts.png">
 </div>
 
 ## Mobile Screenshot
@@ -33,6 +34,7 @@
     <img width="180px" src="./mobile/imgGenerator-twitter-next-level.png">
     <img width="180px" src="./mobile/leaderbord.png">
     <img width="180px" src="./mobile/configs.png">
+    <img width="180px" src="./mobile/toasts.png">
 </div>
     <!-- IMGS
       ------------------------------

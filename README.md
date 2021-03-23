@@ -103,6 +103,12 @@ Funcionalidades:
         ✔ - Home
         ✔ - Leaderbord
         ✔ - Settings
+    ✔ - Toast:
+        ✔ - Cor dinâmica
+        ✔ - Icon dinâmico
+        ✔ - Texto dinâmico
+        ✔ - ToastBar countdown
+        ✔ - Animação de entrada e saida
     - Telas:
         ✔ - Home
         - Leaderbord
@@ -150,6 +156,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
     <!--<img width="400px" src="./.github/desktop/imgGenerator-twitter-next-level.png">-->
     <!--<img width="400px" src="./.github/desktop/leaderbord.png">-->
     <!--<img width="400px" src="./.github/desktop/configs.png">-->
+    <!--<img width="400px" src="./.github/desktop/toasts.png">-->
 </div>
 <a href="./.github/README-IMGS.md">Ver mais</a>
 
@@ -167,6 +174,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
     <img width="180px" src="./.github/mobile/imgGenerator-twitter-next-level.png">
     <!--<img width="180px" src="./.github/mobile/leaderbord.png">-->
     <!--<img width="180px" src="./.github/mobile/configs.png">-->
+    <img width="180px" src="./.github/mobile/toasts.png">
 </div>
 <a href="./.github/README-IMGS.md">Ver mais</a>
     <!-- IMGS
