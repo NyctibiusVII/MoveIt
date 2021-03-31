@@ -75,8 +75,10 @@ export function DangerZoneProvider({ children }: DangerZoneProviderProps) {
 
     const reload = () => {
         closeDangerZoneModal()
-        Router.reload()
-        goSettings()
+        setTimeout(() => {
+            Router.reload()
+            goSettings()
+        }, 0)
     }
 
     return (
