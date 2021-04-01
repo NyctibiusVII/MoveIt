@@ -257,6 +257,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         res.end(html)
     }
 
-    //returnHtml() // - Test
-    returnImg()  // - Production
+    //returnHtml() // TEST: Return HTML
+    returnImg()  // PROD: Return Png
 }

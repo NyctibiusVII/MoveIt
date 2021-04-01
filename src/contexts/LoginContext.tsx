@@ -1,26 +1,33 @@
-import { ToastContext } from './ToastContext'
+import { SidebarContext }    from './SidebarContext'
+import { ToastContext }      from './ToastContext'
 
-import { createContext, useState, ReactNode, useEffect, useContext } from 'react'
+import {
+    createContext,
+    useContext,
+    useState,
+    useEffect,
+    ReactNode
+}                               from 'react'
+import Router                   from 'next/router'
 import axios, { AxiosResponse } from 'axios'
-
-import Cookies from 'js-cookie'
+import Cookies                  from 'js-cookie'
 
 interface LoginContextData {
-    __id:         String
-    __type:       String
-    __name:       String
-    __username:   String
-    __avatar_url: String
-    __isLogged:   Boolean
+    __id:         string
+    __type:       string
+    __name:       string
+    __avatar_url: string
+    __username:   string
+    __isLogged:   number
     verifyUser:   () => void
     login:        () => void
     logout:       () => void
 }
 interface  LoginProviderProps {
     children:     ReactNode
-    __username:   String
-    __avatar_url: String
-    __isLogged:   Boolean
+    __avatar_url: string
+    __username:   string
+    __isLogged:   number
 }
 
 export const LoginContext = createContext({} as LoginContextData)
@@ -28,7 +35,8 @@ export const LoginContext = createContext({} as LoginContextData)
 const date = new Date
 
 export function LoginProvider({ children, ...rest }: LoginProviderProps) {
-    const { toastON } = useContext(ToastContext)
+    const { goHome, goSettings } = useContext(SidebarContext)
+    const { toastON }            = useContext(ToastContext)
 
     const avatarsGithubURL = 'https://avatars.githubusercontent.com/u/'
     const [selectImage, setSelectImage] = useState(0) // - Padrão
@@ -52,45 +60,34 @@ export function LoginProvider({ children, ...rest }: LoginProviderProps) {
     const getImageCache = () => `${avatarsGithubURL}${stockImagePatterns[selectImage]}?v=4`
     const getUserCache  = () => `User${date.getHours()}${Number(date.getUTCMonth())+1}${date.getUTCFullYear()}`
 
-    const quickImage    = String (rest.__avatar_url) === 'undefined' ? getImageCache() : String (rest.__avatar_url)
-    const quickUsername = String (rest.__username)   === 'undefined' ? getUserCache()  : String (rest.__username)
-    const quickLogin    = String (rest.__isLogged)   === 'undefined' ? false           : Boolean(rest.__isLogged)
+    const quickImage    = String(rest.__avatar_url) === 'undefined' ? getImageCache() : String(rest.__avatar_url)
+    const quickUsername = String(rest.__username)   === 'undefined' ? getUserCache()  : String(rest.__username)
+    const quickLogin    = String(rest.__isLogged)   === 'undefined' ? 0               : Number(rest.__isLogged) // DESC: !__isLogged ? 0 : 1
 
-    /*
-        console.info(`
-            ORIGIN-quickImage    : ${rest.__avatar_url}
-            ORIGIN-quickUsername : ${rest.__username}
-            ORIGIN-quickLogin    : ${rest.__isLogged}
-
-            quickImage    : ${quickImage}
-            quickUsername : ${quickUsername}
-            quickLogin    : ${quickLogin}
-        `) // - Look info
-    */
-
-    const [__id,         setId]         = useState(undefined)
+    const [__id,         setId]         = useState(null)
+    const [__type,       setType]       = useState(null)
+    const [__name,       setName]       = useState(null)
     const [__avatar_url, setAvatar_url] = useState(quickImage)
-    const [__type,       setType]       = useState(undefined)
-    const [__name,       setName]       = useState(undefined)
     const [__username,   setUsername]   = useState(quickUsername)
     const [__isLogged,   setIsLogged]   = useState(quickLogin)
 
-    /*
-        console.info(`
-            Id       : ${__id}
-            Image    : ${__avatar_url}
-            Type     : ${__type}
-            Name     : ${__name}
-            Username : ${__username}
-            Logged   : ${__isLogged}
-        `) // - Look info
+   /**
+    *   console.info(`
+    *       Id       : ${__id}
+    *       Type     : ${__type}
+    *       Name     : ${__name}
+    *       Image    : ${__avatar_url}
+    *       Username : ${__username}
+    *       Logged   : ${__isLogged}
+    *   `) // - Look info
     */
 
     useEffect(() => {
-        Cookies.set('__username',   String(__username))
         Cookies.set('__avatar_url', String(__avatar_url))
+        Cookies.set('__username',   String(__username))
         Cookies.set('__isLogged',   String(__isLogged))
-    }, [__username, __avatar_url, __isLogged])
+    }, [ __avatar_url, __username, __isLogged ])
+
 
     function verifyUser() {
         const quickInputUsername = Cookies.get('usernameCacheForValidation')
@@ -100,10 +97,11 @@ export function LoginProvider({ children, ...rest }: LoginProviderProps) {
             .then(resp => {
                 if (resp.data.type === 'User') {
                     // - User exists
-                    console.info(`Access allowed: Welcome to MoveIt ${resp.data.name}`)
-                    getInfoUser(resp)
+                    console.info(`Access allowed: Welcome to MoveIt ${resp.data.login} 🥳`)
                     toastSuccess()
-                    login()
+
+                    /* ------- */    getInfoUser(resp)
+                    /* ------- */    login()
                 } else {
                     // - Organization
                     console.warn('Access denied: You cannot enter an organization name!\nOnly users are allowed')
@@ -118,26 +116,48 @@ export function LoginProvider({ children, ...rest }: LoginProviderProps) {
     }
     function getInfoUser(resp: AxiosResponse<any>) {
         setId         (resp.data.id)
-        setAvatar_url (resp.data.avatar_url)
         setType       (resp.data.type)
         setName       (resp.data.name)
+        setAvatar_url (resp.data.avatar_url)
         setUsername   (resp.data.login)
 
-        /*
-            console.info(`
-                Id       : ${resp.data.id}
-                Image    : ${resp.data.avatar_url}
-                Type     : ${resp.data.type}
-                Name     : ${resp.data.name}
-                Username : ${resp.data.login}
-            `) // - Look info
+       /**
+        *   console.info(`
+        *       Id       : ${resp.data.id}
+        *       Type     : ${resp.data.type}
+        *       Name     : ${resp.data.name}
+        *       Image    : ${resp.data.avatar_url}
+        *       Username : ${resp.data.login}
+        *   `) // - Look info
         */
     }
     function login() { // - Basic Login
-        setIsLogged(true)
+        setIsLogged(1)
+
+        goHome()
+        Router.push('/')
     }
     function logout() {
-        setIsLogged(false)
+        // - Logged out user
+        console.info(`Session ended successfully: See you later ${__username} 💙`)
+        toastLogout()
+
+        Cookies.set('usernameCacheForToast', String(__username))
+
+        setId         (null)
+        setType       (null)
+        setName       (null)
+        setAvatar_url (getImageCache())
+        setUsername   (getUserCache())
+        setIsLogged   (0)
+
+        goSettings()
+        Router.push('/settings')
+
+        setTimeout(() => {
+            const usernameCacheForToast = Cookies.get('__username')
+            Cookies.set('usernameCacheForToast', String(usernameCacheForToast))
+        }, Number(process.env.TOAST_BAR_COUNTDOWN)*1000)
     }
 
     function toastSuccess() {
@@ -152,6 +172,10 @@ export function LoginProvider({ children, ...rest }: LoginProviderProps) {
         Cookies.set('whichToast', '2')
         toastON()
     }
+    function toastLogout() {
+        Cookies.set('whichToast', '3')
+        toastON()
+    }
 
     return (
         <LoginContext.Provider
@@ -159,8 +183,8 @@ export function LoginProvider({ children, ...rest }: LoginProviderProps) {
                 __id,
                 __type,
                 __name,
-                __username,
                 __avatar_url,
+                __username,
                 __isLogged,
                 verifyUser,
                 login,

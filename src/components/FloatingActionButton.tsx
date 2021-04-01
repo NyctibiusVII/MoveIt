@@ -19,15 +19,7 @@ export function FloatingActionButton() {
     /* ------- */
     /* ------- */     Promise
     /* ------- */         .resolve(Cookies.get('sidebar&FAB'))
-    /* ------- */         .then(resp => {
-    /* ------- */             if (mounted) {
-    /* ------- */                 if (resp === 'disabled') {
-    /* ------- */                     setActiveFAB(false)
-    /* ------- */                 } else {
-    /* ------- */                     setActiveFAB(true)
-    /* ------- */                 }
-    /* ------- */             }
-    /* ------- */         })
+    /* ------- */         .then(resp => mounted && setActiveFAB(resp === 'enable' ? true : false))
     /* ------- */         .catch(err => console.log(err))
     /* ------- */
     /* ------- */     return () => { mounted = false } // - Cleanup()
@@ -64,7 +56,7 @@ export function FloatingActionButton() {
 
     return (
         <>
-            { activeFAB ? (
+            { activeFAB && (
                 <>
                     <div className={`${styles.floatingActionButtonContainerMenu}`}>
                         <button type="button" className={`${styles.floatingActionButtonMenu} ${checked}`} onClick={activeFloatActionButton} aria-label="Float action button menu">
@@ -183,9 +175,6 @@ export function FloatingActionButton() {
                             </button>
                         </Link>
                     </div>
-                </>
-            ) : (
-                <>
                 </>
             ) }
         </>

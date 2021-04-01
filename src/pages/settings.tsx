@@ -2,9 +2,9 @@ import { LoginContext, LoginProvider } from '../contexts/LoginContext'
 import { ChallengesProvider }          from '../contexts/ChallengesContexts'
 import { DangerZoneProvider }          from '../contexts/DangerZoneContext'
 
-import CardList              from '../components/CardList'
+import { CardList }          from '../components/CardList'
 import { ButtonLoggedInOut } from '../components/ButtonLoggedInOut'
-import DangerZone            from '../components/DangerZone'
+import { DangerZone }        from '../components/DangerZone'
 
 import { useContext, useEffect, useState } from 'react'
 import { GetServerSideProps }              from 'next'
@@ -65,7 +65,6 @@ export default function Settings(props:SettingsProps) {
                             <h2 className={styles.subTitle}>Perfil</h2>
                             <div className={styles.separator} />
                                 <CardList />
-                            <br />
                             <h2 className={styles.subTitle}>Informações públicas</h2>
                             <div className={styles.separator} />
                                 Em breve...
@@ -74,12 +73,10 @@ export default function Settings(props:SettingsProps) {
                         <main>
                             <h2 className={styles.subTitle}>Geral</h2>
                             <div className={styles.separator} />
-                                Em breve...
-                            <br />
+                                <ButtonLoggedInOut/>
                             <h2 className={`${styles.subTitle} ${styles.dangerZoneTitle}`}>Zona de perigo</h2>
                             <div className={styles.separator} />
                                 <DangerZone />
-                            <br />
                         </main>
                     </div>
                 </DangerZoneProvider>

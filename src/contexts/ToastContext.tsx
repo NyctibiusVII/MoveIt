@@ -63,11 +63,11 @@ export function ToastProvider({ children }: ToastProviderProps) {
         resetProgresstimeoutLeft()
     }
     function setAnimation() {
-        setFade__('fadeOut')
+        setFade__     ('fadeOut')
         setsideSlide__('sideSlideOff')
 
         setTimeout(() => {
-            setFade__('fadeIn')
+            setFade__     ('fadeIn')
             setsideSlide__('sideSlideOn')
         }, 200)
     }
@@ -96,29 +96,25 @@ export function ToastProvider({ children }: ToastProviderProps) {
     }
 
     useEffect(() => {
-        time === 1 ? setTimeout(() => setAnimation(), 800) : ''
+        time === 1 && setTimeout(() => setAnimation(), 800)
 
         if (isActive && time > 0) {
-            timeoutLeft = setTimeout(() => {
-                setTime(time - 1)
-            }, 1000)
+            timeoutLeft = setTimeout(() => setTime(time - 1), 1000)
 
             INF({INITIAL:__INITIAL_percentToClose, NEW:__NEW_percentToClose, FINAL:__FINAL_percentToClose})
-        } else if (isActive && time === 0) {
-            toastOFF()
-        }
+        } else if (isActive && time === 0) toastOFF()
     }, [isActive, time])
 
-    /*
-        console.log(`
-            isActive       : ${isActive}
-            time           : ${time}s
-            percentToClose : ${percentToClose}%
-            _________________________
-
-            fade__      : ${fade__}
-            sideSlide__ : ${sideSlide__}
-        `) // - Look info
+   /**
+    *   console.log(`
+    *       isActive       : ${isActive}
+    *       time           : ${time}s
+    *       percentToClose : ${percentToClose}%
+    *       _________________________
+    *
+    *       fade__      : ${fade__}
+    *       sideSlide__ : ${sideSlide__}
+    *   `) // - Look info
     */
 
     return(

@@ -47,7 +47,7 @@ export function CountdownProvider({ children }: CountdownProviderProps) {
     }
     function resetCountdown() {
         clearTimeout(countdownTimeout)
-        setIsActive(false)
+        setIsActive   (false)
         setHasFinished(false)
 
         setTime(__fixedTimeCountdown * 60)
@@ -79,9 +79,7 @@ export function CountdownProvider({ children }: CountdownProviderProps) {
 
     useEffect(() => {
         if (isActive && time > 0) {
-            countdownTimeout = setTimeout(() => {
-                setTime(time - 1)
-            }, 1000)
+            countdownTimeout = setTimeout(() => setTime(time - 1), 1000)
 
             INF({INITIAL:__INITIAL_percentToEndCycle, NEW:__NEW_percentToEndCycle, FINAL:__FINAL_percentToEndCycle})
         } else if (isActive && time === 0) {

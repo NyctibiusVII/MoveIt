@@ -13,7 +13,7 @@ export function Toast() {
         /* 0 */ `Bem-vindo ao MoveIt ${Cookies.get('__username')}`,
         /* 1 */ `Sorry! Apenas usuários são permitidos`,
         /* 2 */ `Usuário não existe`,
-        /* 3 */ `Bom dia! ${Cookies.get('__username')}`
+        /* 3 */ `Sessão encerrada com sucesso: Até mais tarde ${Cookies.get('usernameCacheForToast')} 💙`,
     ]
     const stockIconsPatterns = [
         /* 0 */ 'success',
@@ -43,7 +43,7 @@ export function Toast() {
 
     return (
         <>
-            { activeToast ? (
+            { activeToast && (
                 <div
                     className={styles.container}
                     style={{
@@ -74,9 +74,6 @@ export function Toast() {
                         />
                     </div>
                 </div>
-            ) : (
-                <>
-                </>
             ) }
         </>
     )

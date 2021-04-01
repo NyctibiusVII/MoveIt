@@ -3,10 +3,11 @@ import useWindowDimensions   from '../contexts/WindowDimensions'
 
 import { useContext } from 'react'
 
-import Confetti from 'react-confetti'
-import styles   from '../styles/components/LevelUpModal.module.css'
+import Confetti             from 'react-confetti'
+import styles               from '../styles/components/LevelUpModal.module.css'
+import defaultModalStyles   from '../styles/components/DefaultModal.module.css'
 
-var toType = function(obj: any) {return ({}).toString.call(obj).match(/\s([a-zA-Z]+)/)[1].toLowerCase()}
+var toType = (obj: any) => ({}).toString.call(obj).match(/\s([a-zA-Z]+)/)[1].toLowerCase()
 
 export function LevelUpModal() {
     const { level, currentExperience, challengesCompleted, closeLevelUpModal } = useContext(ChallengesContext)
@@ -54,14 +55,14 @@ export function LevelUpModal() {
     }
 
     return (
-        <div className={styles.overlay}>
+        <div className={`${styles.overlay} ${defaultModalStyles.overlay}`}>
             <Confetti
                 width={width}
                 height={height}
                 numberOfPieces={1000}
                 recycle={false}
             />
-            <div className={styles.container}>
+            <div className={`${styles.container} ${defaultModalStyles.container}`}>
                 <div className={styles.subContainer}>
                     <div className={styles.containerDetailLevel}>
                         <img src="/icons/detail-A.svg" className={styles.detailA} alt="Detalhe a" />

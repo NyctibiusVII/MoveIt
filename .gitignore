@@ -9,6 +9,11 @@ README_TEST.md
 # test
 /src/pages/test.jsx
 
+# in development
+/src/components/JsonFromGithubUser.tsx
+/src/contexts/JsonFromGithubUserContext.tsx
+/src/styles/components/JsonFromGithubUser.module.css
+
 # dependencies
 /node_modules
 /.pnp

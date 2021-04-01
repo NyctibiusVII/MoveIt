@@ -21,6 +21,7 @@ interface ChallengesContextData {
     resetChallenge:        () => void
     completeChallenge:     () => void
     closeLevelUpModal:     () => void
+    resetCookiesDataLCC:   () => void
 }
 interface ChallengesProviderProps {
     children:            ReactNode
@@ -46,6 +47,7 @@ export function ChallengesProvider({ children, ...rest }: ChallengesProviderProp
     }, []) // - [] executado uma unica vez
 
     useEffect(() => {
+        console.log("resetCookiesDataLCC EFFECTTTTTTTTTTTT")
         Cookies.set('level',               String(level))
         Cookies.set('currentExperience',   String(currentExperience))
         Cookies.set('challengesCompleted', String(challengesCompleted))
@@ -95,6 +97,12 @@ export function ChallengesProvider({ children, ...rest }: ChallengesProviderProp
         setChallengesCompleted(challengesCompleted + 1)
     }
 
+    function resetCookiesDataLCC() {
+        setLevel              (Number(process.env.STANDARD_LEVEL))
+        setCurrentExperience  (Number(process.env.STANDARD_CURRENT_EXPERIENCE))
+        setChallengesCompleted(Number(process.env.STANDARD_CHALLENGES_COMPLETED))
+    }
+
     return (
         <ChallengesContext.Provider
             value={{
@@ -107,7 +115,8 @@ export function ChallengesProvider({ children, ...rest }: ChallengesProviderProp
                 startNewChallenge,
                 resetChallenge,
                 completeChallenge,
-                closeLevelUpModal
+                closeLevelUpModal,
+                resetCookiesDataLCC
             }}
         >
             { children }

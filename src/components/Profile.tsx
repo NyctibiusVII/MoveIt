@@ -3,9 +3,8 @@ import { ChallengesContext } from '../contexts/ChallengesContexts'
 
 import { useContext } from 'react'
 
-import Image   from 'next/image'
-import Cookies from 'js-cookie'
-import styles  from '../styles/components/Profile.module.css'
+import Image  from 'next/image'
+import styles from '../styles/components/Profile.module.css'
 
 export function Profile() {
     const { level } = useContext(ChallengesContext)

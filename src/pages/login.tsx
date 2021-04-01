@@ -9,9 +9,9 @@ import Cookies from 'js-cookie'
 import styles  from '../styles/pages/login.module.css'
 
 interface LoginProps {
-  __username:   String
-  __avatar_url: String
-  __isLogged:   Boolean
+    __avatar_url: string
+    __username:   string
+    __isLogged:   number
 }
 
 export default function Login(props:LoginProps) {
@@ -24,8 +24,8 @@ export default function Login(props:LoginProps) {
 
     return (
         <LoginProvider
-            __username={props.__username}
             __avatar_url={props.__avatar_url}
+            __username={props.__username}
             __isLogged={props.__isLogged}
         >
             <div className={styles.container}>
@@ -127,9 +127,9 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 
   return {
       props: {
-          __username:   String(__username),
           __avatar_url: String(__avatar_url),
-          __isLogged:   Boolean(__isLogged)
+          __username:   String(__username),
+          __isLogged:   Number(__isLogged)
       }
   }
 }

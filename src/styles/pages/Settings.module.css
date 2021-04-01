@@ -34,8 +34,9 @@
   padding: 4rem 1rem;
 }
 
-.container main {
 
+.subTitle:not(h2.subTitle:first-of-type) {
+  margin-top: 3rem;
 }
 
 

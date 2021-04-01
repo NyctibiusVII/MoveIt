@@ -6,7 +6,7 @@ import { useContext, useEffect, useState } from 'react'
 import Cookies from 'js-cookie'
 import styles  from '../styles/components/DangerZone.module.css'
 
-export default function DangerZone() {
+export function DangerZone() {
     const { openDangerZoneModal } = useContext(DangerZoneContext)
     const { goSettings }          = useContext(SidebarContext)
 

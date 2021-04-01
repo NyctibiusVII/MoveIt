@@ -15,9 +15,9 @@ import Cookies from "js-cookie"
 import styles  from "../styles/pages/home.module.css"
 
 interface HomeProps {
-    __username:   String
-    __avatar_url: String
-    __isLogged:   Boolean
+    __avatar_url: string
+    __username:   string
+    __isLogged:   number
 
     level:               number
     currentExperience:   number
@@ -29,8 +29,8 @@ export default function Home(props:HomeProps) {
 
     return (
         <LoginProvider
-            __username={props.__username}
             __avatar_url={props.__avatar_url}
+            __username={props.__username}
             __isLogged={props.__isLogged}
         >
             <ChallengesProvider
@@ -68,9 +68,9 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 
     return {
         props: {
-            __username:   String(__username),
             __avatar_url: String(__avatar_url),
-            __isLogged:   Boolean(__isLogged),
+            __username:   String(__username),
+            __isLogged:   Number(__isLogged),
 
             level:               Number(level),
             currentExperience:   Number(currentExperience),
