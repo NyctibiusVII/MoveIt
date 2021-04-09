@@ -47,7 +47,6 @@ export function ChallengesProvider({ children, ...rest }: ChallengesProviderProp
     }, []) // - [] executado uma unica vez
 
     useEffect(() => {
-        console.log("resetCookiesDataLCC EFFECTTTTTTTTTTTT")
         Cookies.set('level',               String(level))
         Cookies.set('currentExperience',   String(currentExperience))
         Cookies.set('challengesCompleted', String(challengesCompleted))

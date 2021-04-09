@@ -54,33 +54,34 @@ export function DangerZoneProvider({ children }: DangerZoneProviderProps) {
 
 
     function deleteCookiesData() {
-        resetCookiesDataLCC()
-
-        Cookies.remove('__avatar_url')
-        Cookies.remove('__isLogged')
-        Cookies.remove('__username')
+        cookieBaseDatas()
 
         Cookies.remove('activePage')
         Cookies.remove('activeTheme')
-        Cookies.remove('usernameCacheForValidation')
 
         console.info('Cookies Deletados ✅')
 
         reload()
     }
     function deleteDataBase() {
+        cookieBaseDatas()
+        //Banco de dados...
+
         console.info('Dados Deletados ✅')
 
         reload()
     }
 
-    const reload = () => {
-        closeDangerZoneModal()
-        setTimeout(() => {
-            Router.reload()
-            goSettings()
-        }, 0)
+    const cookieBaseDatas = () => {
+        resetCookiesDataLCC()
+
+        Cookies.remove('__avatar_url')
+        Cookies.remove('__username')
+        Cookies.remove('__isLogged')
+
+        Cookies.remove('usernameCacheForValidation')
     }
+    const reload = () => { closeDangerZoneModal(), setTimeout(() => { Router.reload(), goSettings() }, 0) }
 
     return (
         <DangerZoneContext.Provider
