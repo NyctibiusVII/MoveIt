@@ -61,6 +61,7 @@ export function DangerZoneProvider({ children }: DangerZoneProviderProps) {
         Cookies.remove('__username')
 
         Cookies.remove('activePage')
+        Cookies.remove('activeTheme')
         Cookies.remove('usernameCacheForValidation')
 
         console.info('Cookies Deletados ✅')

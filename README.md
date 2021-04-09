@@ -214,6 +214,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
     "puppeteer-core": "^8.0.0",
     "react": "17.0.1",
     "react-confetti": "^6.0.1",
+    "react-copy-to-clipboard": "^5.0.3",
     "react-dom": "17.0.1"
   },
   "devDependencies": {

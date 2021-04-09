@@ -6,66 +6,70 @@
 :root {
   /* Aplicada a regra de harmonia de cores */
   --white: #fff;
+  --black: #000;
 
-  --red-very-light: #fff5f5;
-  --red-light: #f54260;
-  --red: #e83f5b;
-  --red-dark: #691c29;
+  --red-very-light : #fff5f5;
+  --red-light      : #f54260;
+  --red            : #e83f5b;
+  --red-dark       : #691c29;
 
-  --green-very-light: #f7fff5;
-  --green-light: #52e32d;
-  --green: #4cd62b;
-  --green-dark: #1f5711;
+  --green-very-light : #f7fff5;
+  --green-light      : #52e32d;
+  --green            : #4cd62b;
+  --green-dark       : #1f5711;
 
-  --blue-very-light: #f5fcff;
-  --blue-light: #5f6bed;
-  --blue: #5965e0;
-  --blue-dark: #4953b8;
-  --blue-input-border: #414aa3;
-  --blue-twitter: #2aa9e0;
+  --blue-very-light   : #f5fcff;
+  --blue-light        : #5f6bed;
+  --blue              : #5965e0;
+  --blue-dark         : #4953b8;
+  --blue-input-border : #414aa3;
+  --blue-twitter      : #2aa9e0;
 
-  --gray-line: #dcdde0;
-  --background: #f2f3f5;
+  --background : #f2f3f5;
+  --gray-line  : #dcdde0;
+  --shadow     : #babecc;
+  --dark-gray  : #4b4b4b;
 
-  --title: #2e384d;
+  --title : #2e384d;
 
-  --text-highlight: #b3b9ff;
-  --text: #666;
+  --text-highlight : #b3b9ff;
+  --text           : #666;
 
-  --FAB-light: #5f6bed;
-  --FAB: #5965E0;
-  --FAB-dark: #4953b8;
+  /* Floating Action Button */
+  --FAB-light : #5f6bed;
+  --FAB       : #5965E0;
+  --FAB-dark  : #4953b8;
 
-  --mini-FAB-light: #4F58C4;
-  --mini-FAB: #4953b8;
-  --mini-FAB-dark: #3F479E;
+  --mini-FAB-light : #4F58C4;
+  --mini-FAB       : #4953b8;
+  --mini-FAB-dark  : #3F479E;
 
   /* TOAST-colors */
-  --toast-success: #4cd62b; /* Ratio 1.92 */
-  --toast-warn: #ffc107;    /* Ratio 1.63 */
-  --toast-error: #f54260;   /* Ratio 3.60 */
-  --toast-info: #2195f3;    /* Ratio 3.15 */
+  --toast-success : #4cd62b; /* Ratio 1.92 */
+  --toast-warn    : #ffc107; /* Ratio 1.63 */
+  --toast-error   : #f54260; /* Ratio 3.60 */
+  --toast-info    : #2195f3; /* Ratio 3.15 */
 
   /* JSON-colors */
-  --dark-background: #282a36;
-  --comment: #6272a4;
-  --variable: #bd93f9;
-  --pink-dot: #ff79c6;
-  --yellow-text: #f1fa8c;
-  --gray-text: #666;
+  --dark-background : #282a36;
+  --comment         : #6272a4;
+  --variable        : #bd93f9;
+  --pink-dot        : #ff79c6;
+  --yellow-text     : #f1fa8c;
+  --gray-text       : #666;
 
   /* Danger Zone */
-  --border-danger: #f8514966;
-  --box-shadow-input: #5965e080;
-  --danger-red: var(--red-light);
-  --danger-gray: var(--background);
-  --danger-description: #c9d1d9;
+  --border-danger      : #f8514966;
+  --box-shadow-input   : #5965e080;
+  --danger-red         : var(--red-light);
+  --danger-gray        : var(--background);
+  --danger-description : #c9d1d9;
 
   /* MATERIAL DESIGN float action button sizes */
-  --regular-size: 56px;
-  --mini-fab-size: 40px;
-  --side-placement: 16px;
-  --plus-size: 16px; /*24px*/
+  --regular-size   : 56px;
+  --mini-fab-size  : 40px;
+  --side-placement : 16px;
+  --plus-size      : 16px; /*24px*/
 }
 
 body {
@@ -178,6 +182,22 @@ ul {
   -moz-transform: translateX(-5em);
   -ms-transform: translateX(-5em);
   -o-transform: translateX(-5em);
+}
+
+
+
+/* activeTheme - Theme */
+.activeTheme {
+    background: var(--blue-light) !important;
+    color: white !important;
+    border-right: 5px solid var(--blue-dark) !important;
+}
+
+
+
+/* colorDisplays - Theme */
+.colorDisplays svg {
+  animation: fadeIn 0.5s !important;
 }
 
 

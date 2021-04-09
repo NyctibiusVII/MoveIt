@@ -4,6 +4,7 @@ import { DangerZoneProvider }          from '../contexts/DangerZoneContext'
 
 import { CardList }          from '../components/CardList'
 import { ButtonLoggedInOut } from '../components/ButtonLoggedInOut'
+import { Appearance }        from '../components/Appearance'
 import { DangerZone }        from '../components/DangerZone'
 
 import { useContext, useEffect, useState } from 'react'
@@ -74,6 +75,9 @@ export default function Settings(props:SettingsProps) {
                             <h2 className={styles.subTitle}>Geral</h2>
                             <div className={styles.separator} />
                                 <ButtonLoggedInOut/>
+                            <h2 className={styles.subTitle}>Preferências de tema</h2>
+                            <div className={styles.separator} />
+                                <Appearance />
                             <h2 className={`${styles.subTitle} ${styles.dangerZoneTitle}`}>Zona de perigo</h2>
                             <div className={styles.separator} />
                                 <DangerZone />
