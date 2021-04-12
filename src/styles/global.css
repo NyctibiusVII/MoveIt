@@ -4,26 +4,43 @@
   box-sizing: border-box;
 }
 :root {
-  /* Aplicada a regra de harmonia de cores */
+ /**
+  * Aplicada a regra de harmonia de cores.
+  *
+  * O tema GREEN, BLUE, YELLOW e BROWN é apropriado
+  * para daltônicos (Deuteranopia, Protanopia e Tritanopia).
+  *
+  * - Adobe Color
+  */
   --white: #fff;
   --black: #000;
 
+  /* - THEME RED, GREEN, BLUE, YELLOW e BROWN - */
   --red-very-light : #fff5f5;
-  --red-light      : #f54260;
+  --red-light      : #FA4362;
   --red            : #e83f5b;
   --red-dark       : #691c29;
 
   --green-very-light : #f7fff5;
-  --green-light      : #52e32d;
+  --green-light      : #55ed2f;
   --green            : #4cd62b;
   --green-dark       : #1f5711;
 
   --blue-very-light   : #f5fcff;
-  --blue-light        : #5f6bed;
+  --blue-light        : #6470fa;
   --blue              : #5965e0;
-  --blue-dark         : #4953b8;
+  --blue-dark         : #4d56bf;
   --blue-input-border : #414aa3;
   --blue-twitter      : #2aa9e0;
+
+  --yellow-light : #ffffe3;
+  --yellow       : #fff0c8;
+  --yellow-dark  : #f2dea7;
+
+  --brown-light : #cf8659;
+  --brown       : #b97850;
+  --brown-dark  : #a5694b;
+  /*------------------------------*/
 
   --background : #f2f3f5;
   --gray-line  : #dcdde0;

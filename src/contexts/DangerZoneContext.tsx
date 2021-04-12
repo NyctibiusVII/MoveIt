@@ -58,6 +58,7 @@ export function DangerZoneProvider({ children }: DangerZoneProviderProps) {
 
         Cookies.remove('activePage')
         Cookies.remove('activeTheme')
+        Cookies.remove('cookieConsent')
 
         console.info('Cookies Deletados ✅')
 

@@ -76,6 +76,7 @@ Concluindo-a ou não, ele deve parar e descansar 5 minutos.
 * Níveis de xp aumentados conforme sua evolução na técnica pomodoro.
 * Compartilhamento de seu progresso (Twitter) com imagem dinâmica via URL de (1200 x 630).
 * Notificação auditiva e visual.
+* Modal Cookies consent
 * Site responsivo.
 
 <details>
@@ -92,6 +93,7 @@ Concluindo-a ou não, ele deve parar e descansar 5 minutos.
 Funcionalidades:
     - Mensagem de aviso ao sair da pagina ("O timer esta ativo!")
     - Trocar o tema da aplicação: Light e Dark
+    ✔ - Cookies consent
     ✔ - oAuth github (Pagina de login)
     - Guardar dados no sql
     ✔ - Sidebar lateral #Desktop:

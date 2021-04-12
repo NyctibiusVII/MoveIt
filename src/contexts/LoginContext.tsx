@@ -151,8 +151,7 @@ export function LoginProvider({ children, ...rest }: LoginProviderProps) {
         setUsername   (getUserCache())
         setIsLogged   (0)
 
-        goSettings()
-        Router.push('/settings')
+        reload()
 
         setTimeout(() => {
             const usernameCacheForToast = Cookies.get('__username')
@@ -176,6 +175,8 @@ export function LoginProvider({ children, ...rest }: LoginProviderProps) {
         Cookies.set('whichToast', '3')
         toastON()
     }
+
+    const reload = () => setTimeout(() => { Router.reload(), goSettings() }, 0)
 
     return (
         <LoginContext.Provider
