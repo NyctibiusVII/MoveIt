@@ -193,7 +193,7 @@ export function Appearance() {
                                     f_onCopy()
                                 }}
                             >
-                                <div className={styles.cdL}
+                                <div title={values.hex} className={styles.cdL}
                                      style={{
                                         backgroundColor: `var(${values.variable})`
                                      }}>

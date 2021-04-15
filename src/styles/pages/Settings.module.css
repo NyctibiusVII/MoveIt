@@ -50,6 +50,7 @@
         grid-template-columns: 1fr;
     }
 }
+
 /* Mobile (_aside) */
 @media (max-width: 600px) {
     .container {
