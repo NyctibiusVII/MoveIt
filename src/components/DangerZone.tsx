@@ -1,4 +1,5 @@
 import { DangerZoneContext } from '../contexts/DangerZoneContext'
+import { LoginContext }      from '../contexts/LoginContext'
 import { SidebarContext }    from '../contexts/SidebarContext'
 
 import { useContext, useEffect, useState } from 'react'
@@ -8,6 +9,7 @@ import styles  from '../styles/components/DangerZone.module.css'
 
 export function DangerZone() {
     const { openDangerZoneModal } = useContext(DangerZoneContext)
+    const { logout }              = useContext(LoginContext)
     const { goSettings }          = useContext(SidebarContext)
 
     const cookie   = 315151195
@@ -33,7 +35,7 @@ export function DangerZone() {
     /* --------- */         .catch(err => console.log(err))
     /* --------- */
     /* --------- */     return () => { mounted = false } // - Cleanup()
-    /* --------- */ }, [ goSettings, [] ])
+    /* --------- */ }, [ logout, goSettings, [] ])
 
     return (
         <div className={styles.containerDangerZone}>

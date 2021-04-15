@@ -151,7 +151,7 @@ export function LoginProvider({ children, ...rest }: LoginProviderProps) {
         setUsername   (getUserCache())
         setIsLogged   (0)
 
-        reload()
+        //reload()
 
         setTimeout(() => {
             const usernameCacheForToast = Cookies.get('__username')

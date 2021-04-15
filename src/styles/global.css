@@ -17,7 +17,7 @@
 
   /* - THEME RED, GREEN, BLUE, YELLOW e BROWN - */
   --red-very-light : #fff5f5;
-  --red-light      : #FA4362;
+  --red-light      : #fa4362;
   --red            : #e83f5b;
   --red-dark       : #691c29;
 
@@ -40,7 +40,7 @@
   --brown-light : #cf8659;
   --brown       : #b97850;
   --brown-dark  : #a5694b;
-  /*------------------------------*/
+  /*--------------------------------------------*/
 
   --background : #f2f3f5;
   --gray-line  : #dcdde0;
@@ -60,6 +60,13 @@
   --mini-FAB-light : #4F58C4;
   --mini-FAB       : #4953b8;
   --mini-FAB-dark  : #3F479E;
+
+  /* Logged (in/out) Button */
+  --btn-logged           : #2e384d;
+  --btn-logged-out       : var(--red-light);
+  --btn-logged-in        : var(--blue-light);
+  --pulse-btn-logged-out : #FA4362b3;
+  --pulse-btn-logged-in  : #6470fab3;
 
   /* TOAST-colors */
   --toast-success : #4cd62b; /* Ratio 1.92 */
@@ -268,6 +275,33 @@ ul {
   }
   to {
       opacity: 0;
+  }
+}
+
+@keyframes pulse-red {
+  0% {
+      box-shadow: 0 0 0 0  var(--pulse-btn-logged-out);
+  }
+
+  70% {
+      box-shadow: 0 0 0 10px transparent;
+  }
+
+  100% {
+      box-shadow: 0 0 0 0 transparent;
+  }
+}
+@keyframes pulse-blue {
+  0% {
+      box-shadow: 0 0 0 0  var(--pulse-btn-logged-in);
+  }
+
+  70% {
+      box-shadow: 0 0 0 10px transparent;
+  }
+
+  100% {
+      box-shadow: 0 0 0 0 transparent;
   }
 }
 
