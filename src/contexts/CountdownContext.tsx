@@ -21,8 +21,8 @@ export const CountdownContext = createContext({} as CountdownContextData)
 let countdownTimeout: NodeJS.Timeout
 
 export function CountdownProvider({ children }: CountdownProviderProps) {
-    const __fixedTimeCountdown = Number(process.env.TIME_COUNTDOWN_TEST) // - For test: TIME_COUNTDOWN_TEST | For production: TIME_COUNTDOWN_PRODUCTION
-    const fixedTime = __fixedTimeCountdown * 60                          // - 25min * 60sec = 1500sec
+    const __fixedTimeCountdown = Number(process.env.TIME_COUNTDOWN_PRODUCTION) // - For test: TIME_COUNTDOWN_TEST | For production: TIME_COUNTDOWN_PRODUCTION
+    const fixedTime = __fixedTimeCountdown * 60                                // - 25min * 60sec = 1500sec
 
     const [__INITIAL_percentToEndCycle, set_INITIAL_percentToEndCycle] = useState(0)
     const [__NEW_percentToEndCycle,     set_NEW_percentToEndCycle]     = useState(0)
