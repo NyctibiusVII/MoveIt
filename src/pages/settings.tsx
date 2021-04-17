@@ -12,7 +12,7 @@ import { GetServerSideProps }              from 'next'
 
 import Head    from 'next/head'
 import Cookies from 'js-cookie'
-import styles  from '../styles/pages/SettingsTest.module.css'
+import styles  from '../styles/pages/settings.module.css'
 
 interface SettingsProps {
     __avatar_url: string
