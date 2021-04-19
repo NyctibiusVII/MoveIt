@@ -1,5 +1,5 @@
 <h1 align="center">
-  <br>
+    <br>
     <img src="./.github/logo-full.svg" width="500" heigh="150" alt="logo move.it">
 </h1>
 <h4 align="center">
@@ -7,23 +7,23 @@
 </h4>
 <!-- <h4 align="center">Projeto web construído durante o Next Level Week #04-Discovery com a Rocketseat/DiegoFernandes.</h4> -->
 <p align="center">
-  <img alt="Plataforma" src="https://img.shields.io/static/v1?label=Plataforma&message=Mobile/PC&color=5965E0&labelColor=8257e6">
-  <a aria-label="Completado" href="https://nextlevelweek.com/episodios/omnistack/edicao/4">
-    <img alt="Moveit" src="https://img.shields.io/badge/MoveIt-NLW 4.0-5965E0?logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAALVBMVEVHcExxWsF0XMJzXMJxWcFsUsD///9jRrzY0u6Xh9Gsn9n39fyMecy0qd2bjNJWBT0WAAAABHRSTlMA2Do606wF2QAAAGlJREFUGJVdj1cWwCAIBLEsRU3uf9xobDH8+GZwUYi8i6ucJwrxKE+7D0G9Q4vlYqtmCSjndr4CgCgzlyFgfKfKCVO0LrPKjmiqMxGXkJwNnXskqWG+1oSM+BSwD8f29YLNjvx/OQrn+g99oQSoNmt3PgAAAABJRU5ErkJggg==&labelColor=8257e6"></img>
-  </a>
-  <img alt="Tamanho do repositório" src="https://img.shields.io/github/repo-size/NyctibiusVII/NLW-3-Discovery?color=4CD62B&labelColor=8257e6">
-  <a href="https://github.com/NyctibiusVII/NLW-4-Discovery/blob/master/LICENSE">
-    <img alt="Licença" src="https://img.shields.io/static/v1?label=License&message=MIT&color=5965E0&labelColor=8257e6">
-  </a>
-  <a href="https://picpay.me/Matheus_nyctibius_vii">
-  <img alt="Donate" src="https://img.shields.io/static/v1?label=$&message=Donate&color=5965E0&labelColor=8257e6">
-  </a>
+    <img alt="Plataforma" src="https://img.shields.io/static/v1?label=Plataforma&message=Mobile/PC&color=5965E0&labelColor=8257e6">
+    <a aria-label="Completado" href="https://nextlevelweek.com/episodios/omnistack/edicao/4">
+        <img alt="Moveit" src="https://img.shields.io/badge/MoveIt-NLW 4.0-5965E0?logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAALVBMVEVHcExxWsF0XMJzXMJxWcFsUsD///9jRrzY0u6Xh9Gsn9n39fyMecy0qd2bjNJWBT0WAAAABHRSTlMA2Do606wF2QAAAGlJREFUGJVdj1cWwCAIBLEsRU3uf9xobDH8+GZwUYi8i6ucJwrxKE+7D0G9Q4vlYqtmCSjndr4CgCgzlyFgfKfKCVO0LrPKjmiqMxGXkJwNnXskqWG+1oSM+BSwD8f29YLNjvx/OQrn+g99oQSoNmt3PgAAAABJRU5ErkJggg==&labelColor=8257e6"></img>
+    </a>
+    <img alt="Tamanho do repositório" src="https://img.shields.io/github/repo-size/NyctibiusVII/NLW-3-Discovery?color=4CD62B&labelColor=8257e6">
+    <a href="https://github.com/NyctibiusVII/MoveIt/blob/master/LICENSE">
+        <img alt="Licença" src="https://img.shields.io/static/v1?label=License&message=MIT&color=5965E0&labelColor=8257e6">
+    </a>
+    <a href="https://picpay.me/Matheus_nyctibius_vii">
+        <img alt="Donate" src="https://img.shields.io/static/v1?label=$&message=Donate&color=5965E0&labelColor=8257e6">
+    </a>
 </p>
 <p align="center">
-  <a href="#moveit-">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#tecnologias-">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#layout-">Layout</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#licença-%EF%B8%8F">Licença</a>
+    <a href="#moveit-">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+    <a href="#tecnologias-">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+    <a href="#layout-">Layout</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+    <a href="#licença-%EF%B8%8F">Licença</a>
 </p>
 <!--
 <p align="center">
@@ -33,7 +33,7 @@
 </p>
 -->
 
-# MoveIt <img src=".github/logo-moveit.png" width="28" alt="logo icon">
+# MoveIt <img src=".github/logo-moveit.svg" width="28" alt="logo icon">
 Projeto desenvolvido para gerenciar melhor o seu tempo, saúde mental e física usando a técnica de pomodoro. Projeto realizado na Next Level Week #4 @Rocketseat.
 
 <br>
@@ -240,7 +240,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ```bash
 # Clone o repositório
-$ git clone https://github.com/NyctibiusVII/NLW-4-Discovery.git
+$ git clone https://github.com/NyctibiusVII/MoveIt.git
 
 # Acesse a pasta do projeto no prompt de comando
 $ cd moveit
@@ -268,7 +268,7 @@ Feito com ♥ by Rocketseat :wave: [Participe da nossa comunidade!](https://disc
 | Dia 5 | #MissionComplete    |
 
 ## Licença ⚖️
-Este projeto está sob a licença do MIT. Veja o arquivo [LICENSE](https://github.com/NyctibiusVII/NLW-4-Discovery/blob/master/LICENSE) para mais detalhes.
+Este projeto está sob a licença do MIT. Veja o arquivo [LICENSE](https://github.com/NyctibiusVII/MoveIt/blob/master/LICENSE) para mais detalhes.
 
 ## Contato ✉️
 | <img src="https://user-images.githubusercontent.com/52816125/90341686-05b68880-dfd8-11ea-969c-70c9ce9d0278.jpg" width=100><br><sub><a href="https://www.instagram.com/nyctibius_vii/?hl=pt-br">@MatheusVidigal🦊</a></sub> |
