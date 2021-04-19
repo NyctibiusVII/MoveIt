@@ -11,7 +11,7 @@
     <a aria-label="Completado" href="https://nextlevelweek.com/episodios/omnistack/edicao/4">
         <img alt="Moveit" src="https://img.shields.io/badge/MoveIt-NLW 4.0-5965E0?logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAALVBMVEVHcExxWsF0XMJzXMJxWcFsUsD///9jRrzY0u6Xh9Gsn9n39fyMecy0qd2bjNJWBT0WAAAABHRSTlMA2Do606wF2QAAAGlJREFUGJVdj1cWwCAIBLEsRU3uf9xobDH8+GZwUYi8i6ucJwrxKE+7D0G9Q4vlYqtmCSjndr4CgCgzlyFgfKfKCVO0LrPKjmiqMxGXkJwNnXskqWG+1oSM+BSwD8f29YLNjvx/OQrn+g99oQSoNmt3PgAAAABJRU5ErkJggg==&labelColor=8257e6"></img>
     </a>
-    <img alt="Tamanho do repositório" src="https://img.shields.io/github/repo-size/NyctibiusVII/NLW-3-Discovery?color=4CD62B&labelColor=8257e6">
+    <img alt="Tamanho do repositório" src="https://img.shields.io/github/repo-size/NyctibiusVII/MoveIt?color=4CD62B&labelColor=8257e6">
     <a href="https://github.com/NyctibiusVII/MoveIt/blob/master/LICENSE">
         <img alt="Licença" src="https://img.shields.io/static/v1?label=License&message=MIT&color=5965E0&labelColor=8257e6">
     </a>
@@ -255,7 +255,7 @@ $ npm run dev
 ```
 
 ## Contribuição 💭
-Para construir essa aplicação tive a ajuda do professor **Diego Fernandes** da Rocketseat que disponibilizou video aulas do projeto **NLW#4-Discovery** e tive uma ajuda desta grande comunidade que a Rocketseat construiu no *Discord*.
+Para construir essa aplicação tive a ajuda do professor **Diego Fernandes** da Rocketseat que disponibilizou video aulas do projeto **MoveIt** e tive uma ajuda desta grande comunidade que a Rocketseat construiu no *Discord*.
 Feito com ♥ by Rocketseat :wave: [Participe da nossa comunidade!](https://discord.gg/YxU7fJT)
 
 ### Hashtags \#
