@@ -1,5 +1,13 @@
-import { SidebarContext }    from './SidebarContext'
-import { ToastContext }      from './ToastContext'
+import { SidebarContext } from './SidebarContext'
+import { ToastContext }   from './ToastContext'
+
+import { User }       from '../interface/user'
+import { UserGithub } from '../interface/userGithub'
+import {
+    CookiesType,
+    ISLOGGED
+} from '../interface/cookiesType'
+import { api }        from '../services/api'
 
 import {
     createContext,
@@ -7,15 +15,12 @@ import {
     useState,
     useEffect,
     ReactNode
-}                               from 'react'
-import Router                   from 'next/router'
-import axios, { AxiosResponse } from 'axios'
-import Cookies                  from 'js-cookie'
+}              from 'react'
+import Router  from 'next/router'
+import axios   from 'axios'
+import Cookies from 'js-cookie'
 
 interface LoginContextData {
-    __id:         string
-    __type:       string
-    __name:       string
     __avatar_url: string
     __username:   string
     __isLogged:   number
@@ -32,7 +37,7 @@ interface  LoginProviderProps {
 
 export const LoginContext = createContext({} as LoginContextData)
 
-const date = new Date
+const date = new Date()
 
 export function LoginProvider({ children, ...rest }: LoginProviderProps) {
     const { goHome, goSettings } = useContext(SidebarContext)
@@ -64,115 +69,236 @@ export function LoginProvider({ children, ...rest }: LoginProviderProps) {
     const quickUsername = String(rest.__username)   === 'undefined' ? getUserCache()  : String(rest.__username)
     const quickLogin    = String(rest.__isLogged)   === 'undefined' ? 0               : Number(rest.__isLogged) // DESC: !__isLogged ? 0 : 1
 
-    const [__id,         setId]         = useState(null)
-    const [__type,       setType]       = useState(null)
-    const [__name,       setName]       = useState(null)
     const [__avatar_url, setAvatar_url] = useState(quickImage)
     const [__username,   setUsername]   = useState(quickUsername)
     const [__isLogged,   setIsLogged]   = useState(quickLogin)
 
-   /**
-    *   console.info(`
-    *       Id       : ${__id}
-    *       Type     : ${__type}
-    *       Name     : ${__name}
-    *       Image    : ${__avatar_url}
-    *       Username : ${__username}
-    *       Logged   : ${__isLogged}
-    *   `) // - Look info
-    */
+
 
     useEffect(() => {
-        Cookies.set('__avatar_url', String(__avatar_url))
-        Cookies.set('__username',   String(__username))
-        Cookies.set('__isLogged',   String(__isLogged))
+        Cookies.set(CookiesType.__avatar_url, String(__avatar_url))
+        Cookies.set(CookiesType.__username,   String(__username))
+        Cookies.set(CookiesType.__isLogged,   String(__isLogged))
     }, [ __avatar_url, __username, __isLogged ])
 
 
-    function verifyUser() {
-        const quickInputUsername = Cookies.get('usernameCacheForValidation')
 
-        axios
+    async function verifyUser() {
+        const quickInputUsername = Cookies.get(CookiesType.usernameCacheForValidation)
+
+        await axios
             .get(`https://api.github.com/users/${quickInputUsername}`)
-            .then(resp => {
-                if (resp.data.type === 'User') {
-                    // - User exists
-                    console.info(`Access allowed: Welcome to MoveIt ${resp.data.login} 🥳`)
-                    toastSuccess()
+            .then(async ({ data }) => {
+                // - User exists in Github
 
-                    /* ------- */    getInfoUser(resp)
-                    /* ------- */    login()
+                const user: UserGithub = {
+                    login:   data.login,
+                    id:      data.id,
+                    node_id: data.node_id,
+                    avatar_url:  data.avatar_url,
+                    gravatar_id: data.gravatar_id,
+                    url:      data.url,
+                    html_url: data.html_url,
+                    followers_url: data.followers_url,
+                    following_url: data.following_url,
+                    gists_url:     data.gists_url,
+                    starred_url:   data.starred_url,
+                    subscriptions_url: data.subscriptions_url,
+                    organizations_url: data.organizations_url,
+                    repos_url:  data.repos_url,
+                    events_url: data.events_url,
+                    received_events_url: data.received_events_url,
+                    type:       data.type,
+                    site_admin: data.site_admin,
+                    name:     data.name,
+                    company:  data.company,
+                    blog:     data.blog,
+                    location: data.location,
+                    email:    data.email,
+                    hireable: data.hireable,
+                    bio:      data.bio,
+                    twitter_username: data.twitter_username,
+                    public_repos: data.public_repos,
+                    public_gists: data.public_gists,
+                    followers:    data.followers,
+                    following:    data.following,
+                    created_at: data.created_at,
+                    updated_at: data.updated_at
+                }
+
+                if (user.type === 'User') {
+                    // - User
+
+                    await api
+                        .get(`/users/${quickInputUsername}`, {
+                            validateStatus: (status: number): boolean => status < 500 // - Resolve only if the status code is less than 500
+                        })
+                        .then(resp => {
+                            if (Number(resp.request.status) === 200) {
+                                // - User exists in db
+
+                                const
+                                    data: User= resp.data,
+                                    user: User = {
+                                        github_id:  data.github_id,
+                                        avatar_url: data.avatar_url,
+                                        username:   data.username,
+                                        name:       data.name,
+                                        email:      data.email,
+                                        type:       data.type,
+                                        level:                data.level,
+                                        current_experience:   data.current_experience,
+                                        challenges_completed: data.challenges_completed,
+                                        theme:          data.theme,
+                                        cookie_consent: data.cookie_consent
+                                    }
+
+                                Promise
+                                    .resolve(setCookiesFromDb(user))
+                                    .then(() => {
+                                        toastSuccess()
+                                        console.info(`Access allowed: Welcome back to MoveIt ${user.username} 🥳`)
+
+                                        login()
+                                    })
+                                    .catch(e => { throw e })
+                            } else if (Number(resp.request.status) === 400) {
+                                // - User does not exist in db
+
+                                Promise
+                                    .resolve(setCookiesFromGithub(user))
+                                    .then(async () => {
+                                         // - createUserinDb(user)
+                                         const
+                                            level               = Cookies.get(CookiesType.level),
+                                            currentExperience   = Cookies.get(CookiesType.currentExperience),
+                                            challengesCompleted = Cookies.get(CookiesType.challengesCompleted),
+                                            activeTheme         = Cookies.get(CookiesType.activeTheme),
+                                            cookieConsent       = Cookies.get(CookiesType.cookieConsent)
+
+                                        const newUser: User = {
+                                            github_id:  String(user.id),
+                                            avatar_url: String(user.avatar_url),
+                                            username:   String(user.login),
+                                            name:  String(user.name),
+                                            email: String(user.email),
+                                            type:  String(user.type),
+                                            level:                Number(level)               ?? Number(process.env.STANDARD_LEVEL),                // - Default level
+                                            current_experience:   Number(currentExperience)   ?? Number(process.env.STANDARD_CURRENT_EXPERIENCE),   // - Default experience
+                                            challenges_completed: Number(challengesCompleted) ?? Number(process.env.STANDARD_CHALLENGES_COMPLETED), // - Default challenges
+                                            theme:          String(activeTheme)   ?? String(process.env.DEFAULT_THEME),         // - Default theme
+                                            cookie_consent: Number(cookieConsent) ?? Number(process.env.DEFAULT_COOKIE_CONSENT) // - Default cookie consent
+                                        }
+
+                                        await api
+                                            .post(`/users`, newUser)
+                                            .then(resp => {
+                                                if (Number(resp.request.status) === 201) {
+                                                    toastSuccess()
+                                                    console.info(`Access allowed: Welcome to MoveIt ${user.login} 🥳`)
+
+                                                    login()
+                                                } else { return Promise.reject('Error: uncreated user') }
+                                            })
+                                            .catch(e => { throw e })
+                                    })
+                                    .catch(e => { throw e })
+                            } else { console.error(process.env.ERROR_GET) }
+                        })
+                        .catch(e => { throw e })
                 } else {
                     // - Organization
-                    console.warn('Access denied: You cannot enter an organization name!\nOnly users are allowed')
+
                     toastWarn()
+                    console.warn('Access denied: You cannot enter an organization name!\nOnly users are allowed')
                 }
             })
-            .catch(err => {
-                // - User does not exist
-                console.error(err+'\n\nUser does not exist')
+            .catch(e => {
+                // - User does not exist in Github
+
                 toastError()
+                console.error(e+'\n\nUser does not exist in Github')
             })
     }
-    function getInfoUser(resp: AxiosResponse<any>) {
-        setId         (resp.data.id)
-        setType       (resp.data.type)
-        setName       (resp.data.name)
-        setAvatar_url (resp.data.avatar_url)
-        setUsername   (resp.data.login)
 
-       /**
-        *   console.info(`
-        *       Id       : ${resp.data.id}
-        *       Type     : ${resp.data.type}
-        *       Name     : ${resp.data.name}
-        *       Image    : ${resp.data.avatar_url}
-        *       Username : ${resp.data.login}
-        *   `) // - Look info
-        */
+    const setCookiesFromDb = (user: User): void => {
+        // - Not strictly mandatory
+        setAvatar_url (user.avatar_url)
+        setUsername   (user.username)
+
+        Cookies.set(CookiesType.level,               String(user.level))
+        Cookies.set(CookiesType.currentExperience,   String(user.current_experience))
+        Cookies.set(CookiesType.challengesCompleted, String(user.challenges_completed))
+
+        // - Strictly mandatory
+        Cookies.set(CookiesType.activeTheme,   String(user.theme))
+        Cookies.set(CookiesType.cookieConsent, String(user.cookie_consent))
+
+        /**
+         *  console.info(`
+         *      user{
+         *          Id       : ${user.github_id}
+         *          Image    : ${user.avatar_url}
+         *          Username : ${user.username}
+         *          Name     : ${user.name}
+         *          Email    : ${user.email}
+         *          Type     : ${user.type}
+         *          Level               : ${user.level}
+         *          CurrentExperience   : ${user.current_experience}
+         *          ChallengesCompleted : ${user.challenges_completed}
+         *          Theme         : ${user.theme}
+         *          CookieConsent : ${user.cookie_consent}
+         *          // - CreatedAt     : ${user.created_at}
+         *          // - UpdatedAt     : ${user.updated_at}
+         *      }
+         *  `) // - Look info
+         */
     }
-    function login() { // - Basic Login
-        setIsLogged(1)
+    const setCookiesFromGithub = (user: UserGithub): void => {
+        // - Not strictly mandatory
+        setAvatar_url (user.avatar_url)
+        setUsername   (user.login)
+    }
 
-        goHome()
-        Router.push('/')
+    function login() {
+        setIsLogged(1)   // - Logged
+
+        goHome()         // - Cookie
+        Router.push('/') // - Next page
     }
     function logout() {
-        // - Logged out user
-        console.info(`Session ended successfully: See you later ${__username} 💙`)
-        toastLogout()
-
-        Cookies.set('usernameCacheForToast', String(__username))
-
-        setId         (null)
-        setType       (null)
-        setName       (null)
-        setAvatar_url (getImageCache())
-        setUsername   (getUserCache())
-        setIsLogged   (0)
-
-        //reload()
-
-        setTimeout(() => {
-            const usernameCacheForToast = Cookies.get('__username')
-            Cookies.set('usernameCacheForToast', String(usernameCacheForToast))
-        }, Number(process.env.TOAST_BAR_COUNTDOWN)*1000)
+        Promise
+            .all([ setIsLogged(0), Cookies.set('__isLogged', ISLOGGED.__false) ])
+            .then(() => {
+                Promise
+                    .race([
+                        setAvatar_url (getImageCache()), // - Without image
+                        setUsername   (getUserCache()),  // - Without username
+                        Cookies.set   (CookiesType.level,               String(process.env.STANDARD_LEVEL)),               // - Default level
+                        Cookies.set   (CookiesType.currentExperience,   String(process.env.STANDARD_CURRENT_EXPERIENCE)),  // - Default experience
+                        Cookies.set   (CookiesType.challengesCompleted, String(process.env.STANDARD_CHALLENGES_COMPLETED)) // - Default challenges])
+                    ])
+                    .then(() => {
+                        toastLogout() // - INFO/toast: Logged out
+                        console.info(`Session ended successfully: See you later ${Cookies.get('usernameCacheForToast')} 💙`) // - INFO/console: Logged out
+                    })
+            })
     }
 
     function toastSuccess() {
-        Cookies.set('whichToast', '0')
+        Cookies.set(CookiesType.whichToast, '0')
         toastON()
     }
     function toastWarn() {
-        Cookies.set('whichToast', '1')
+        Cookies.set(CookiesType.whichToast, '1')
         toastON()
     }
     function toastError() {
-        Cookies.set('whichToast', '2')
+        Cookies.set(CookiesType.whichToast, '2')
         toastON()
     }
     function toastLogout() {
-        Cookies.set('whichToast', '3')
+        Cookies.set(CookiesType.whichToast, '3')
         toastON()
     }
 
@@ -181,9 +307,6 @@ export function LoginProvider({ children, ...rest }: LoginProviderProps) {
     return (
         <LoginContext.Provider
             value={{
-                __id,
-                __type,
-                __name,
                 __avatar_url,
                 __username,
                 __isLogged,

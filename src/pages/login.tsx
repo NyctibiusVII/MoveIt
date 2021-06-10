@@ -14,7 +14,7 @@ interface LoginProps {
     __isLogged:   number
 }
 
-export default function Login(props:LoginProps) {
+export default function Login(props: LoginProps) {
     Cookies.set('sidebar&FAB', 'disabled') // NOTE: Sidebar depends on this cookie to be visible if this page is accessed directly via the URL
 
     const imgSize = 40

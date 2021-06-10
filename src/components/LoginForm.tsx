@@ -19,6 +19,8 @@ export function LoginForm() {
 
     const handleSubmit = preventDefault(() => {
         Cookies.set('usernameCacheForValidation', String(UsernameLocal))
+        Cookies.set('usernameCacheForToast',      String(UsernameLocal))
+        
         verifyUser()
     })
 

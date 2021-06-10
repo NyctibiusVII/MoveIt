@@ -3,6 +3,9 @@ import { SidebarContext }    from './SidebarContext'
 
 import { DangerZoneModal } from '../components/DangerZoneModal'
 
+import { api }         from '../services/api'
+import { CookiesType } from '../interface/cookiesType'
+
 import {
     createContext,
     useContext,
@@ -64,9 +67,10 @@ export function DangerZoneProvider({ children }: DangerZoneProviderProps) {
 
         reload()
     }
-    function deleteDataBase() {
-        cookieBaseDatas()
-        //Banco de dados...
+    async function deleteDataBase() {
+        const username = Cookies.get(CookiesType.__username)
+
+        await api.delete(`/users/${username}`).then(() => cookieBaseDatas())
 
         console.info('Dados Deletados ✅')
 

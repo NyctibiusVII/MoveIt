@@ -1,6 +1,12 @@
-import { createContext, ReactNode, useContext, useEffect, useState } from "react"
+import { ChallengesContext } from './ChallengesContexts'
 
-import { ChallengesContext } from "./ChallengesContexts"
+import {
+    createContext,
+    ReactNode,
+    useContext,
+    useEffect,
+    useState
+} from 'react'
 
 interface CountdownContextData {
     percentToEndCycle: number
@@ -21,8 +27,14 @@ export const CountdownContext = createContext({} as CountdownContextData)
 let countdownTimeout: NodeJS.Timeout
 
 export function CountdownProvider({ children }: CountdownProviderProps) {
-    const __fixedTimeCountdown = Number(process.env.TIME_COUNTDOWN_PRODUCTION) // - For test: TIME_COUNTDOWN_TEST | For production: TIME_COUNTDOWN_PRODUCTION
-    const fixedTime = __fixedTimeCountdown * 60                                // - 25min * 60sec = 1500sec
+    const __TIME = (): number => {
+        if (process.env.NODE_ENV === 'production') return Number(process.env.TIME_COUNTDOWN_PRODUCTION)
+        else if (process.env.NODE_ENV === 'development') return Number(process.env.TIME_COUNTDOWN_TEST)
+        else return Number(process.env.TIME_COUNTDOWN_TEST)
+    }
+
+    const __fixedTimeCountdown = __TIME()
+    const fixedTime = __fixedTimeCountdown * 60 // - 25min * 60sec = 1500sec
 
     const [__INITIAL_percentToEndCycle, set_INITIAL_percentToEndCycle] = useState(0)
     const [__NEW_percentToEndCycle,     set_NEW_percentToEndCycle]     = useState(0)
