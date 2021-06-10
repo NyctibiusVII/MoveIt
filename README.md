@@ -77,6 +77,7 @@ Concluindo-a ou não, ele deve parar e descansar 5 minutos.
 * Compartilhamento de seu progresso (Twitter) com imagem dinâmica via URL de (1200 x 630).
 * Notificação auditiva e visual.
 * Modal Cookies consent
+* MongoDB
 * Site responsivo.
 
 <details>
@@ -88,22 +89,25 @@ Concluindo-a ou não, ele deve parar e descansar 5 minutos.
 ✔ - Confetes atras do modal quando passar de level
 ✔ - Barra de progresso (tempo restante) em baixo do botão (Abandonar ciclo e Ciclo encerrado)
 ✔ - Bloquear funcionalidades se não estiver logado
-- Banco de dados
+✔ - Banco de dados
+✔ - API-REST
 ✖ - Next PWA
 
 Funcionalidades:
     - Mensagem de aviso ao sair da pagina ("O timer esta ativo!")
     - Trocar o tema da aplicação: Light e Dark
+    ✔ - Consumo de api-rest
+    ✔ - Banco de dados externo (MongoDB)
     ✔ - oAuth github (Pagina de login)
     ✔ - COOKIES:
         ✔ - Cookies consent
         ✔ - Guardar dados
         ✔ - Alterar dados
         ✔ - Deletar dados
-    - SQL:
-        - Guardar dados
-        - Alterar dados
-        - Deletar dados
+    ✔ - MongoDB:
+        ✔ - Guardar dados
+        ✔ - Alterar dados
+        ✔ - Deletar dados
     ✔ - Sidebar lateral #Desktop:
         ✔ - Logo (img)
         ✔ - Home
@@ -220,19 +224,19 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
     "axios": "^0.21.1",
     "chrome-aws-lambda": "^7.0.0",
     "js-cookie": "^2.2.1",
-    "next": "10.0.7",
+    "next": "^10.2.3",
     "puppeteer-core": "^8.0.0",
-    "react": "17.0.1",
+    "react": "^17.0.1",
     "react-confetti": "^6.0.1",
     "react-copy-to-clipboard": "^5.0.3",
-    "react-dom": "17.0.1"
+    "react-dom": "^17.0.1"
   },
   "devDependencies": {
     "@types/js-cookie": "^2.2.6",
-    "@types/node": "^14.14.31",
-    "@types/react": "^17.0.2",
-    "@types/react-dom": "^17.0.1",
-    "typescript": "^4.1.5"
+    "@types/node": "^15.12.2",
+    "@types/react": "^17.0.10",
+    "@types/react-dom": "^17.0.7",
+    "typescript": "^4.2.4"
   }
     //Ex: $ npm install @types/_____ -D
 ```
