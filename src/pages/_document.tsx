@@ -27,8 +27,6 @@ export default class MyDocument extends Document {
                     <meta name="creator"  content={ NyctibiusVII } />
                     <meta name="keywords" content={ keywords } />
 
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
                     <meta http-equiv="content-type"     content="text/html; charset=UTF-8" />
                     <meta http-equiv="content-language" content={ ptBR } />
                     <meta http-equiv="X-UA-Compatible"  content="ie=edge" />
@@ -52,7 +50,9 @@ export default class MyDocument extends Document {
                     <link rel="shortcut icon" href="/icons/logo-bar.svg" type="image/png" />
 
                     <link rel="preconnect" href="https://fonts.gstatic.com" />
-                    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Rajdhani:wght@600&display=swap" rel="stylesheet" />
+                    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet" />
+
+                    <meta name="google-site-verification" content="OjYiqlxK64Fx5dZre97pwHGJ7pYgOP4vQYH1UCOdBuo" />
                 </Head>
                 <body>
                     <Main />
