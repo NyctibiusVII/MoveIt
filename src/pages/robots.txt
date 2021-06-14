@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Allow: /home
+Allow: /leaderbord
+Allow: /settings
+Allow: /login
+Allow: /api/image-generator
+Disallow: /test
+
+Sitemap: https://moveit-nyctibiusvii.vercel.app/sitemap.xml
