@@ -224,12 +224,12 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
     "axios": "^0.21.1",
     "chrome-aws-lambda": "^7.0.0",
     "js-cookie": "^2.2.1",
-    "next": "^10.2.3",
+    "next": "^11.0.0",
     "puppeteer-core": "^8.0.0",
-    "react": "^17.0.1",
+    "react": "^17.0.2",
     "react-confetti": "^6.0.1",
     "react-copy-to-clipboard": "^5.0.3",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.2"
   },
   "devDependencies": {
     "@types/js-cookie": "^2.2.6",
@@ -238,8 +238,12 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
     "@types/react-dom": "^17.0.7",
     "typescript": "^4.2.4"
   }
-    //Ex: $ npm install @types/_____ -D
 ```
+> Ex: `$ npm install _____` para instalar as dependências
+
+> Utilize a tag `-D` para instalar as dependências de desenvolvimento.
+> Utilize a tag `@types` para instalar o suporte a Typescript.
+> Utilize a tag `@latest` para instalar a versão mais recente.
 </details>
 
 ```bash
