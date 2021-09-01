@@ -1,19 +1,30 @@
-import { LoginContext, LoginProvider } from '../contexts/LoginContext'
+/* Import ---------------------------------------------------------------------- */ // - x70
+
 import { ChallengesProvider }          from '../contexts/ChallengesContexts'
+import { LoginContext, LoginProvider } from '../contexts/LoginContext'
 
 import { ButtonLoggedInOut } from '../components/ButtonLoggedInOut'
 
-import { User }     from '../interface/user'
+import { api }      from '../services/api'
 import { AppProps } from '../interface/appProps'
 import { ISLOGGED } from '../interface/cookiesType'
-import { api }      from '../services/api'
+import { User }     from '../interface/user'
 
-import { useContext, useEffect, useState } from 'react'
-import { GetServerSideProps }              from 'next'
+import {
+    useContext,
+    useEffect,
+    useState
+} from 'react'
 
-import Head    from 'next/head'
+import { GetServerSideProps } from 'next'
+
 import Cookies from 'js-cookie'
-import styles  from '../styles/pages/leaderbord.module.css'
+
+import Head from 'next/head'
+
+import styles from '../styles/pages/leaderbord.module.css'
+
+/* ---------------------------------------------------------------------- */
 
 interface LeaderboardProps {
     __avatar_url: string
@@ -79,7 +90,7 @@ export default function Leaderboard(props: LeaderboardProps) {
 export const getServerSideProps: GetServerSideProps = async (ctx) => { //INFO: fazer o get só do db futuramente...
     const { __username, __isLogged } = ctx.req.cookies
 
-    const usedb = async (): Promise<AppProps> => {
+    const UseDb = async (): Promise<AppProps> => {
         const { data } = await api.get(`/users/${__username}`)
 
         const user: User = {
@@ -108,7 +119,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => { //INFO: f
             }
         }
     }
-    const useCookies = (): AppProps => {
+    const UseCookies = (): AppProps => {
         const { __avatar_url, level, currentExperience, challengesCompleted } = ctx.req.cookies
 
         return {
@@ -124,5 +135,5 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => { //INFO: f
         }
     }
 
-    return __isLogged === ISLOGGED.__true ? usedb() : useCookies()
+    return __isLogged === ISLOGGED.__true ? UseDb() : UseCookies()
 }

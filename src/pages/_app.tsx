@@ -1,22 +1,27 @@
+/* Import ---------------------------------------------------------------------- */ // - x70
+
 /** 1/3
  *  import App from 'next/app'
  *  import type { AppProps, AppContext } from 'next/app'
  */
 import type { AppProps } from 'next/app'
 
-// import { Test }                 from '../components/Test'
 import { CookieConsentModal }   from '../components/CookieConsentModal'
-import { Toast }                from '../components/Toast'
-import { Sidebar }              from '../components/Sidebar'
 import { FloatingActionButton } from '../components/FloatingActionButton'
+import { Sidebar }              from '../components/Sidebar'
+// import { Test }                 from '../components/Test'
+import { Toast }                from '../components/Toast'
 
 import { AppearanceProvider }    from '../contexts/AppearanceContext'
 import { CookieConsentProvider } from '../contexts/CookieConsentContext'
-import { ToastProvider }         from '../contexts/ToastContext'
 import { SidebarProvider }       from '../contexts/SidebarContext'
+import { ToastProvider }         from '../contexts/ToastContext'
 
 import Head from 'next/head'
+
 import '../styles/global.css'
+
+/* ---------------------------------------------------------------------- */
 
 export default function MyApp({ Component, pageProps }: AppProps) {
     return (

@@ -1,23 +1,29 @@
+/* Import ---------------------------------------------------------------------- */ // - x70
+
 import { CountdownProvider }  from '../contexts/CountdownContext'
 import { ChallengesProvider } from '../contexts/ChallengesContexts'
 import { LoginProvider }      from '../contexts/LoginContext'
 
-import { Profile }             from '../components/Profile'
-import { ExperienceBar }       from '../components/ExperienceBar'
 import { Countdown }           from '../components/Countdown'
 import { ChallengeBox }        from '../components/ChallengeBox'
 import { CompletedChallenges } from '../components/CompletedChallenges'
+import { ExperienceBar }       from '../components/ExperienceBar'
+import { Profile }             from '../components/Profile'
 
-import { User }     from '../interface/user'
+import { api }      from '../services/api'
 import { AppProps } from '../interface/appProps'
 import { ISLOGGED } from '../interface/cookiesType'
-import { api }      from '../services/api'
+import { User }     from '../interface/user'
 
 import { GetServerSideProps } from 'next'
 
-import Head    from 'next/head'
 import Cookies from 'js-cookie'
-import styles  from '../styles/pages/home.module.css'
+
+import Head from 'next/head'
+
+import styles from '../styles/pages/home.module.css'
+
+/* ---------------------------------------------------------------------- */
 
 interface HomeProps {
     __avatar_url: string
@@ -71,7 +77,7 @@ export default function Home(props: HomeProps) {
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
     const { __username, __isLogged } = ctx.req.cookies
 
-    const usedb = async (): Promise<AppProps> => {
+    const UseDb = async (): Promise<AppProps> => {
         const { data } = await api.get(`/users/${__username}`)
 
         const user: User = {
@@ -86,7 +92,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
             challenges_completed: data.challenges_completed,
             theme:          data.theme,
             cookie_consent: data.cookie_consent
-    }
+        }
 
         return {
             props: {
@@ -100,7 +106,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
             }
         }
     }
-    const useCookies = (): AppProps => {
+    const UseCookies = (): AppProps => {
         const { __avatar_url, level, currentExperience, challengesCompleted } = ctx.req.cookies
 
         return {
@@ -116,5 +122,5 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
         }
     }
 
-    return __isLogged === ISLOGGED.__true ? usedb() : useCookies()
+    return __isLogged === ISLOGGED.__true ? UseDb() : UseCookies()
 }

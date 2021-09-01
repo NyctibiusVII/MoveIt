@@ -19,6 +19,12 @@
 
 
 
+.container h3 {
+    margin: 1rem 0 3rem 0;
+}
+
+
+
 /* Mobile && Tablet */
 @media (max-width: 820px) {
     .container {

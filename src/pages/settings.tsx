@@ -1,23 +1,34 @@
-import { LoginContext, LoginProvider } from '../contexts/LoginContext'
+/* Import ---------------------------------------------------------------------- */ // - x70
+
 import { ChallengesProvider }          from '../contexts/ChallengesContexts'
 import { DangerZoneProvider }          from '../contexts/DangerZoneContext'
+import { LoginContext, LoginProvider } from '../contexts/LoginContext'
 
-import { CardList }          from '../components/CardList'
-import { ButtonLoggedInOut } from '../components/ButtonLoggedInOut'
+
 import { Appearance }        from '../components/Appearance'
+import { ButtonLoggedInOut } from '../components/ButtonLoggedInOut'
+import { CardList }          from '../components/CardList'
 import { DangerZone }        from '../components/DangerZone'
 
+import {
+    useContext,
+    useEffect,
+    useState
+} from 'react'
 import { User }     from '../interface/user'
 import { AppProps } from '../interface/appProps'
 import { ISLOGGED } from '../interface/cookiesType'
 import { api }      from '../services/api'
 
-import { useContext, useEffect, useState } from 'react'
-import { GetServerSideProps }              from 'next'
+import { GetServerSideProps } from 'next'
 
-import Head    from 'next/head'
 import Cookies from 'js-cookie'
-import styles  from '../styles/pages/settings.module.css'
+
+import Head from 'next/head'
+
+import styles from '../styles/pages/settings.module.css'
+
+/* ---------------------------------------------------------------------- */
 
 interface SettingsProps {
     __avatar_url: string
@@ -97,7 +108,7 @@ export default function Settings(props: SettingsProps) {
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
     const { __username, __isLogged } = ctx.req.cookies
 
-    const usedb = async (): Promise<AppProps> => {
+    const UseDb = async (): Promise<AppProps> => {
         const { data } = await api.get(`/users/${__username}`)
 
         const user: User = {
@@ -126,7 +137,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
             }
         }
     }
-    const useCookies = (): AppProps => {
+    const UseCookies = (): AppProps => {
         const { __avatar_url, level, currentExperience, challengesCompleted } = ctx.req.cookies
 
         return {
@@ -142,5 +153,5 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
         }
     }
 
-    return __isLogged === ISLOGGED.__true ? usedb() : useCookies()
+    return __isLogged === ISLOGGED.__true ? UseDb() : UseCookies()
 }
