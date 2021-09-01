@@ -94,10 +94,10 @@ export function ChallengeBox() {
                     ) : (
                         <div className={styles.challengeNotActive}>
                             <strong>Inicie um ciclo para receber desafios</strong>
-                            <p>
+                            <div>
                                 <LevelUp />
-                                Avance de level completando desafios.
-                            </p>
+                                <p>Avance de level completando desafios.</p>
+                            </div>
                         </div>
                     ) }
                 </>

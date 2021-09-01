@@ -76,8 +76,6 @@
 
 
 .cardContainer div.containerChallengesAndExperience {
-    width: 100%;
-
     justify-content: flex-end;
 
     overflow: hidden;

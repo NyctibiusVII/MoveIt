@@ -31,7 +31,7 @@
   font-weight: 500;
   line-height: 1.4;
 }
-.challengeNotActive p {
+.challengeNotActive > div {
   max-width: 70%;
 
   margin-top: 4.5rem;
@@ -42,7 +42,7 @@
   line-height: 1.4;
 }
 /* - Next/Image */
-.challengeNotActive p > div {
+.challengeNotActive > div > div {
   margin-bottom: 1rem !important;
 }
 
