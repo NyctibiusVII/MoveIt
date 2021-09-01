@@ -1,8 +1,9 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 
 import { getScreenshot } from '../../infra/getScreenshot'
+import { LCC }           from '../../interface/imgLCC'
 
-const getHTML = ({ level, currentExperience, challengesCompleted }) =>
+const getHTML = ({ level, currentExperience, challengesCompleted }: LCC): string =>
 `
     <html lang="pt-br">
         <head>
@@ -225,6 +226,7 @@ const getHTML = ({ level, currentExperience, challengesCompleted }) =>
     </html>
 `
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default async (req: NextApiRequest, res: NextApiResponse) => {
     const isHTMLDebugMode = false
     const withoutUrlInfo  = 'null'
@@ -233,10 +235,10 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     // - Adicione na URL: /?currentExperience=SUA_EXPERIENCIA
     // - Adicione na URL: /?challengesCompleted=SUA_QUANTIDADE_DE_DESAFIOS_CONCLUÍDOS
 
-    const html = getHTML({
-        level:               req.query.level               || withoutUrlInfo,
-        currentExperience:   req.query.currentExperience   || withoutUrlInfo,
-        challengesCompleted: req.query.challengesCompleted || withoutUrlInfo,
+    const html: string = getHTML({
+        level:               req.query.level               ?? withoutUrlInfo,
+        currentExperience:   req.query.currentExperience   ?? withoutUrlInfo,
+        challengesCompleted: req.query.challengesCompleted ?? withoutUrlInfo,
     })
 
     if (isHTMLDebugMode) {
@@ -244,7 +246,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       return res.end(html)
     }
 
-    const file = await getScreenshot(html, { width: 1200, height: 630 })
+    const defaultWidth = 1200, defaultHeight = 630
+    const file = await getScreenshot(html, { width: defaultWidth, height: defaultHeight })
 
     function returnImg() {
         // - Para usar em produção (file)
