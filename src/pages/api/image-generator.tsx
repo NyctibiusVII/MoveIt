@@ -21,7 +21,7 @@ const getHTML = ({ level, currentExperience, challengesCompleted }: LCC): string
             <meta name="creator" content="Matheus Vidigal - (NyctibiusVII)">
             <meta name="copyright" content="© 2021 Matheus Vidigal - (NyctibiusVII)">
             <meta name="description" content="Minha evolução no MoveIt. #NextLevelWeek">
-            <meta name="keywords" content="Evolução, Next level week, moveit, move.it, move-it, MoveIt, pomodoro, vercel, nyctibius, rocketseat, tecnica pomodoro">
+            <meta name="keywords" content="Evolução, Next level week, moveit, move.it, move-it, MoveIt, pomodoro, vercel, nyctibius, rocketseat, técnica pomodoro">
 
             <meta property="og:type" content="page">
             <meta property="og:url" content="https://moveit-nyctibiusvii.vercel.app/">

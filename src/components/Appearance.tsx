@@ -12,6 +12,8 @@ import {
 import { ImgSize }         from '../interface/imgSize'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 
+import successImage from '../../public/icons/toast-success.svg'
+
 import Cookies from 'js-cookie'
 
 import Image   from 'next/image'
@@ -73,8 +75,6 @@ export function Appearance() {
 
         setTimeout(() => setCopied(false), 4000)
     }
-
-    const successLoader = () => `/icons/toast-success.svg`
 
     const cdL = [
         {
@@ -250,12 +250,7 @@ export function Appearance() {
                     <div className={styles.containerFloatingCopyText}>
                         <div className={styles.iconContainer}>
                         <Image
-                            loader={successLoader}
-                            src={`
-                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" version="1.1" width="512" height="512" x="0" y="0" viewBox="0 0 408.576 408.576" style="enable-background:new 0 0 512 512" xml:space="preserve" class="">
-                                    <path d="M204.288,0C91.648,0,0,91.648,0,204.288s91.648,204.288,204.288,204.288s204.288-91.648,204.288-204.288 S316.928,0,204.288,0z M318.464,150.528l-130.56,129.536c-7.68,7.68-19.968,8.192-28.16,0.512L90.624,217.6 c-8.192-7.68-8.704-20.48-1.536-28.672c7.68-8.192,20.48-8.704,28.672-1.024l54.784,50.176L289.28,121.344 c8.192-8.192,20.992-8.192,29.184,0C326.656,129.536,326.656,142.336,318.464,150.528z" fill="#ffffff"/>
-                                </svg>
-                                `}
+                            src={successImage}
                             alt="icon success"
                             width={ImgSize.Little_x20}
                             height={ImgSize.Little_x20}
