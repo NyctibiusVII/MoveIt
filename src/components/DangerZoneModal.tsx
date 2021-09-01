@@ -1,13 +1,23 @@
-import { DangerZoneContext } from "../contexts/DangerZoneContext"
+/* Import ---------------------------------------------------------------------- */ // - x70
 
-import { useContext, useEffect, useState } from "react"
+import { DangerZoneContext } from '../contexts/DangerZoneContext'
 
-import Link               from "next/link"
-import Cookies            from "js-cookie"
-import styles             from '../styles/components/DangerZoneModal.module.css'
+import {
+    useContext,
+    useEffect,
+    useState
+} from 'react'
+
+import Cookies from 'js-cookie'
+
+import Link from 'next/link'
+
 import defaultModalStyles from '../styles/components/DefaultModal.module.css'
+import styles             from '../styles/components/DangerZoneModal.module.css'
 
-const preventDefault = f => e => {
+/* ---------------------------------------------------------------------- */
+
+const preventDefault = (f: any) => (e: any) => {
     e.preventDefault()
     f(e)
 }
@@ -60,7 +70,7 @@ export function DangerZoneModal() {
     /* --------- */ }, [ openDangerZoneModal ])
 
     const [ result, setResult ] = useState('')
-    const handleParam = setValue => e => setValue(e.target.value)
+    const handleParam = (setValue: any) => (e: any) => setValue(e.target.value)
 
     const handleSubmit = preventDefault(() => {
         switch (result.toUpperCase()) {

@@ -122,11 +122,12 @@
 .FABsettings:active {
     background-color: var(--mini-FAB-light)
 }
+/* - Next/Image */
 .FABhome img,
 .FABleaderbord img,
 .FABsettings img {
-    filter: brightness(100);
-    -webkit-filter: brightness(100);
+    filter: brightness(100) !important;
+    -webkit-filter: brightness(100) !important;
 }
 
 

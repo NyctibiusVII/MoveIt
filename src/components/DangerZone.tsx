@@ -1,11 +1,20 @@
+/* Import ---------------------------------------------------------------------- */ // - x70
+
 import { DangerZoneContext } from '../contexts/DangerZoneContext'
 import { LoginContext }      from '../contexts/LoginContext'
 import { SidebarContext }    from '../contexts/SidebarContext'
 
-import { useContext, useEffect, useState } from 'react'
+import {
+    useContext,
+    useEffect,
+    useState
+} from 'react'
 
 import Cookies from 'js-cookie'
-import styles  from '../styles/components/DangerZone.module.css'
+
+import styles from '../styles/components/DangerZone.module.css'
+
+/* ---------------------------------------------------------------------- */
 
 export function DangerZone() {
     const { openDangerZoneModal } = useContext(DangerZoneContext)
@@ -24,7 +33,7 @@ export function DangerZone() {
         openDangerZoneModal()
     }
 
-    /* --------- */ const [ isLogged, setIsLogged ] = useState(null)
+    /* --------- */ const [ isLogged, setIsLogged ] = useState(Boolean)
     /* --------- */
     /* --------- */ useEffect(() => {
     /* --------- */     let mounted = true

@@ -1,8 +1,14 @@
+/* Import ---------------------------------------------------------------------- */ // - x70
+
 import { ChallengesContext } from '../contexts/ChallengesContexts'
 
-import { useContext } from 'react'
+import {
+    useContext
+} from 'react'
 
 import styles from '../styles/components/CompletedChallenges.module.css'
+
+/* ---------------------------------------------------------------------- */
 
 export function CompletedChallenges() {
     const { challengesCompleted } = useContext(ChallengesContext)

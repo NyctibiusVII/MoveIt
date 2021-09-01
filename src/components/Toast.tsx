@@ -1,10 +1,19 @@
+/* Import ---------------------------------------------------------------------- */ // - x70
+
 import { ToastContext } from '../contexts/ToastContext'
 
-import { useContext } from 'react'
+import {
+    useContext
+} from 'react'
+import { ImgSize } from '../interface/imgSize'
 
-import Image   from 'next/image'
 import Cookies from 'js-cookie'
-import styles  from '../styles/components/Toast.module.css'
+
+import Image from 'next/image'
+
+import styles from '../styles/components/Toast.module.css'
+
+/* ---------------------------------------------------------------------- */
 
 export function Toast() {
     const { activeToast, selectedToast, percentToClose, fade__, sideSlide__ } = useContext(ToastContext)
@@ -36,10 +45,9 @@ export function Toast() {
                 </svg>`,
     ]
 
-    const ToastLoaderImg = () => `./icons/toast-${stockIconsPatterns[Number(selectedToast)]}.svg`
-    const ToastSrcIcons  = `${srcIcons[Number(selectedToast)]}`
-    const AltIcons       = `Icon ${stockIconsPatterns[Number(selectedToast)]}`
-    const imgSize        = 20
+    const ToastImage    = () => `/icons/toast-${stockIconsPatterns[Number(selectedToast)]}.svg`
+    const ToastSrcIcons = `${srcIcons[Number(selectedToast)]}`
+    const AltIcons      = `Icon ${stockIconsPatterns[Number(selectedToast)]}`
 
     return (
         <>
@@ -48,18 +56,18 @@ export function Toast() {
                     className={styles.container}
                     style={{
                         backgroundColor: `var(--toast-${stockIconsPatterns[Number(selectedToast)]})`,
-                        animation: `${fade__} 0.5s, ${sideSlide__} 0.5s both`,
-                        WebkitAnimation: ` ${fade__} 0.5s, ${sideSlide__} 0.5s both`
+                        animation:       `${fade__} 0.5s, ${sideSlide__} 0.5s both`,
+                        WebkitAnimation: `${fade__} 0.5s, ${sideSlide__} 0.5s both`
                     }}
                 >
                     <div className={styles.subContainer}>
                         <div className={styles.iconContainer}>
                             <Image
-                                loader={ToastLoaderImg}
+                                loader={ToastImage}
                                 src={ToastSrcIcons}
                                 alt={AltIcons}
-                                width={imgSize}
-                                height={imgSize}
+                                width={ImgSize.Little_x20}
+                                height={ImgSize.Little_x20}
                             />
                         </div>
                         <span>{messages[Number(selectedToast)]}</span>

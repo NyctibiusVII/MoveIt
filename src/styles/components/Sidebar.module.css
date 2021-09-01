@@ -67,15 +67,16 @@ button.btnPage:hover {
   border-left: 5px solid #c0c0c0;
 }
 
+/* - Next/Image */
 button.btnPage,
 button.btnPage img {
-    transition: 0.2s;
-    -webkit-transition: 0.2s;
-    -moz-transition: 0.2s;
-    -ms-transition: 0.2s;
-    -o-transition: 0.2s;
+    transition: 0.2s !important;
+    -webkit-transition: 0.2s !important;
+    -moz-transition: 0.2s !important;
+    -ms-transition: 0.2s !important;
+    -o-transition: 0.2s !important;
 }
-
+/* - Next/Image */
 button.btnPage img {
     filter: grayscale(100%);
     -webkit-filter: grayscale(100%);

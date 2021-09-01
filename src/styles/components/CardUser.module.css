@@ -25,10 +25,8 @@
     align-items: center;
 }
 
-.cardContainer div img.ProfileImage {
-    width: 4rem;
-    height: 4rem;
-
+/* - Next/Image */
+.cardContainer div .ProfileImage {
     margin-left: 1rem;
 
     border-radius: 50%;

@@ -41,8 +41,9 @@
   align-items: center;
   line-height: 1.4;
 }
-.challengeNotActive p img {
-  margin-bottom: 1rem;
+/* - Next/Image */
+.challengeNotActive p > div {
+  margin-bottom: 1rem !important;
 }
 
 .endTheCycle {
@@ -70,11 +71,9 @@
   align-items: center;
 
 }
-.endTheCycle > div img {
-  width: 40px;
-  height: 40px;
-
-  margin-right: 1.5rem;
+/* - Next/Image */
+.endTheCycle > div > div {
+  margin-right: 1rem !important;
 }
 .endTheCycle > div p {
   text-align: left;

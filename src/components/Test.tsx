@@ -1,6 +1,16 @@
-import Cookies from "js-cookie"
-import { useContext, useEffect, useState } from "react"
-import { SidebarContext } from "../contexts/SidebarContext"
+/* Import ---------------------------------------------------------------------- */ // - x70
+
+import { SidebarContext } from '../contexts/SidebarContext'
+
+import {
+    useContext,
+    useEffect,
+    useState
+} from 'react'
+
+import Cookies from 'js-cookie'
+
+/* ---------------------------------------------------------------------- */
 
 export function Test() {
     //const [activeAside, setActiveAside] = useState(false)

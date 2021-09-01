@@ -1,17 +1,23 @@
+/* Import ---------------------------------------------------------------------- */ // - x70
+
 import { CookieConsentContext } from '../contexts/CookieConsentContext'
 
 import {
     useContext,
     useEffect,
     useState
-}              from 'react'
+} from 'react'
+
 import Cookies from 'js-cookie'
-import styles  from '../styles/components/CookieConsentModal.module.css'
+
+import styles from '../styles/components/CookieConsentModal.module.css'
+
+/* ---------------------------------------------------------------------- */
 
 export function CookieConsentModal() {
     const { iAgree } = useContext(CookieConsentContext)
 
-    /* --------- */ const [ activeCookieConsentModal, setActiveCookieConsentModal ] = useState(null)
+    /* --------- */ const [ activeCookieConsentModal, setActiveCookieConsentModal ] = useState(Boolean)
     /* --------- */
     /* --------- */ useEffect(() => {
     /* --------- */     let mounted = true

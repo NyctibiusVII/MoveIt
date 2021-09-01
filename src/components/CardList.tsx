@@ -1,6 +1,10 @@
+/* Import ---------------------------------------------------------------------- */ // - x70
+
 import { CardUser } from './CardUser'
 
-import styles  from '../styles/components/CardList.module.css'
+import styles from '../styles/components/CardList.module.css'
+
+/* ---------------------------------------------------------------------- */
 
 export function CardList() {
     return (

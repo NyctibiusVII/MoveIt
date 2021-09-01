@@ -1,13 +1,24 @@
+/* Import ---------------------------------------------------------------------- */ // - x70
+
 import { AppearanceContext } from '../contexts/AppearanceContext'
 
-import { EmBreve } from "../components/EmBreve"
+import { EmBreve } from '../components/EmBreve'
 
-import { useContext, useEffect, useState } from 'react'
+import {
+    useContext,
+    useEffect,
+    useState
+} from 'react'
+import { ImgSize }         from '../interface/imgSize'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 
-import Image   from 'next/image'
 import Cookies from 'js-cookie'
-import styles  from '../styles/components/Appearance.module.css'
+
+import Image   from 'next/image'
+
+import styles from '../styles/components/Appearance.module.css'
+
+/* ---------------------------------------------------------------------- */
 
 export function Appearance() {
     const { changeLight, changeDark, changeCustom } = useContext(AppearanceContext)
@@ -19,7 +30,7 @@ export function Appearance() {
     const [ copied,     setCopied ]       = useState(false)
 
     const [ fade__,      setFade__ ]      = useState('')
-    const [ sideSlide__, setsideSlide__ ] = useState('')
+    const [ sideSlide__, setSideSlide__ ] = useState('')
 
     const LIGHT_iconCopy = 'var(--white)'
     const DARK_iconCopy  = 'var(--dark-gray)'
@@ -57,14 +68,13 @@ export function Appearance() {
         setCopied(true)
 
         setFade__     ('fadeIn')
-        setsideSlide__('sideSlideOn')
-        setTimeout(() => { setFade__('fadeOut'), setsideSlide__('sideSlideOff') }, 3500)
+        setSideSlide__('sideSlideOn')
+        setTimeout(() => { setFade__('fadeOut'), setSideSlide__('sideSlideOff') }, 3500)
 
         setTimeout(() => setCopied(false), 4000)
     }
 
-    const imgSize = 12
-    const successLoader = () => `./icons/toast-success.svg`
+    const successLoader = () => `/icons/toast-success.svg`
 
     const cdL = [
         {
@@ -197,7 +207,7 @@ export function Appearance() {
                                      style={{
                                         backgroundColor: `var(${values.variable})`
                                      }}>
-                                    <svg width={imgSize} height={imgSize} viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <svg width={ImgSize.Micro_x12} height={ImgSize.Micro_x12} viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M32 22h2v2h-2zm0-4h2v2h-2zm0-4h2v2h-2zm0-4h2v2h-2zm0-4h2v2h-2zm0-4h2v2h-2zm-4 0h2v2h-2zm-4 0h2v2h-2zm-4 0h2v2h-2zm-4 0h2v2h-2zm-4 0h2v2h-2zm0 4h2v2h-2zm0 4h2v2h-2zm0 4h2v2h-2zm0 4h2v2h-2zm0 4h2v2h-2zm4 0h2v2h-2zm4 0h2v2h-2zm4 0h2v2h-2zm4 0h2v2h-2z" fill={values.foreground}/>
                                         <path d="M10 12H3a1 1 0 0 0-1 1v20a1 1 0 0 0 1 1h20a1 1 0 0 0 1-1v-7H10z" fill={values.foreground}/>
                                     </svg>
@@ -234,8 +244,8 @@ export function Appearance() {
                 <div
                     className={styles.containerOverlay}
                     style={{
-                        animation: `${fade__} 0.5s, ${sideSlide__} 0.5s both`,
-                        WebkitAnimation: ` ${fade__} 0.5s, ${sideSlide__} 0.5s both`
+                        animation:       `${fade__} 0.5s, ${sideSlide__} 0.5s both`,
+                        WebkitAnimation: `${fade__} 0.5s, ${sideSlide__} 0.5s both`
                     }}>
                     <div className={styles.containerFloatingCopyText}>
                         <div className={styles.iconContainer}>
@@ -247,8 +257,8 @@ export function Appearance() {
                                 </svg>
                                 `}
                             alt="icon success"
-                            width={20}
-                            height={20}
+                            width={ImgSize.Little_x20}
+                            height={ImgSize.Little_x20}
                         />
                     </div>
                         <div className={styles.textContainer}>
