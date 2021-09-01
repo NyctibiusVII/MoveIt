@@ -1,4 +1,20 @@
+const securityHeaders = [
+  {
+    key: 'Content-Security-Policy',
+    value: `default-src * 'self' data: 'unsafe-inline' 'unsafe-eval' *`,
+  }
+]
+
 module.exports = {
+  async headers() {
+    return [
+      {
+        // Apply these headers to all routes in your application.
+        source: '/(.*)',
+        headers: securityHeaders,
+      },
+    ]
+  },
   generateEtags: false,
   pageExtensions: ['tsx', 'ts'],
   serverRuntimeConfig: {

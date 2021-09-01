@@ -27,9 +27,9 @@ export default class MyDocument extends Document {
                     <meta name="creator"  content={ NyctibiusVII } />
                     <meta name="keywords" content={ keywords } />
 
-                    <meta http-equiv="content-type"     content="text/html; charset=UTF-8" />
-                    <meta http-equiv="content-language" content={ ptBR } />
-                    <meta http-equiv="X-UA-Compatible"  content="ie=edge" />
+                    <meta httpEquiv="content-type"     content="text/html; charset=UTF-8" />
+                    <meta httpEquiv="content-language" content={ ptBR } />
+                    <meta httpEquiv="X-UA-Compatible"  content="ie=edge" />
 
                     <meta property="og:title"       content={ title } />
                     <meta property="og:site_name"   content={ site } />
@@ -56,6 +56,13 @@ export default class MyDocument extends Document {
                 </Head>
                 <body>
                     <Main />
+                    <noscript data-n-css="">
+                        <br/><br/>
+                        Caro leitor!<br/><br/>
+                        Se você estiver lendo esta mensagem é porque o seu navegador não suporta<br/>
+                        &quot;Javascript&quot; ou porque a permissão de executar &quot;Javascript&quot; está<br/>
+                        desabilitada, se for o caso, por favor habilite.
+                    </noscript>
                     <NextScript />
                 </body>
             </Html>
