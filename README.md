@@ -222,21 +222,24 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 ```json
   "dependencies": {
     "axios": "^0.21.1",
-    "chrome-aws-lambda": "^7.0.0",
-    "js-cookie": "^2.2.1",
-    "next": "^11.0.0",
-    "puppeteer-core": "^8.0.0",
+    "chrome-aws-lambda": "^10.1.0",
+    "js-cookie": "^3.0.0",
+    "next": "^11.1.2",
+    "puppeteer-core": "^10.2.0",
     "react": "^17.0.2",
     "react-confetti": "^6.0.1",
-    "react-copy-to-clipboard": "^5.0.3",
+    "react-copy-to-clipboard": "^5.0.4",
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
-    "@types/js-cookie": "^2.2.6",
-    "@types/node": "^15.12.2",
-    "@types/react": "^17.0.10",
-    "@types/react-dom": "^17.0.7",
-    "typescript": "^4.2.4"
+    "@types/js-cookie": "^2.2.7",
+    "@types/node": "^16.7.10",
+    "@types/react": "^17.0.19",
+    "@types/react-copy-to-clipboard": "^5.0.1",
+    "@types/react-dom": "^17.0.9",
+    "eslint": "^7.32.0",
+    "eslint-config-next": "^11.1.2",
+    "typescript": "^4.4.2"
   }
 ```
 > Ex: `$ npm install _____` para instalar as dependências
