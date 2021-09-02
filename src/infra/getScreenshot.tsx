@@ -5,15 +5,9 @@ export async function getOptions() {
     const isDev = !process.env.AWS_REGION
     let options
 
-    const __win32 = (): string => {
-        if (process.env.NODE_ENV === 'production') return 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe'
-        else if (process.env.NODE_ENV === 'development') return 'C:\\Users\\Matheus\\AppData\\Local\\Google\\Chrome SxS\\Application\\chrome.exe'
-        else return 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe'
-    }
-
     const chromeExecPaths: { [key: string]: any } = {
-        win32: __win32(),
-        //win32: 'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe',
+        win32: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
+        // win32: 'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe',
         linux: '/usr/bin/google-chrome',
         darwin: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
     }

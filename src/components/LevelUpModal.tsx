@@ -14,7 +14,8 @@ import twitterImage from '../../public/icons/twitter.svg'
 
 import Confetti from 'react-confetti'
 
-import Image from 'next/image'
+import Image     from 'next/image'
+import getConfig from 'next/config'
 
 import defaultModalStyles from '../styles/components/DefaultModal.module.css'
 import styles             from '../styles/components/LevelUpModal.module.css'
@@ -27,8 +28,10 @@ export function LevelUpModal() {
     const { level, currentExperience, challengesCompleted, closeLevelUpModal } = useContext(ChallengesContext)
     const { width, height } = useWindowDimensions()
 
-    const root        = process.env.SITE_URL_BASE
-    const rootTwitter = process.env.SITE_URL_BASE_TWITTER_INTENT
+    const { serverRuntimeConfig, publicRuntimeConfig } = getConfig()
+
+    const root        = publicRuntimeConfig.SITE_URL_BASE
+    const rootTwitter = publicRuntimeConfig.SITE_URL_BASE_TWITTER_INTENT
 
     const dataForTwitterContent = {
         text               : `Avancei para o próximo level no MoveIt. Meu status atual: level ${level}, xp ${currentExperience} e ${challengesCompleted} desafios completos.`,
