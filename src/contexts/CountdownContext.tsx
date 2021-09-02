@@ -57,6 +57,8 @@ export function CountdownProvider({ children }: CountdownProviderProps) {
     const seconds = time % 60
 
     function startCountdown() {
+        Notification.requestPermission()
+
         setIsActive(true)
 
         setIsCounting(true)

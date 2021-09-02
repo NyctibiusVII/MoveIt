@@ -57,8 +57,6 @@ export function ChallengesProvider({ children, ...rest }: ChallengesProviderProp
 
     const experienceToNextLevel = Math.pow((level + 1) * 4, 2)
 
-    useEffect(() => { Notification.requestPermission() }, []) // - [] Executado uma unica vez na aplicação
-
     useEffect(() => {
         const __ISLOGGED: boolean = Cookies.get('__isLogged') === ISLOGGED.__true
 
