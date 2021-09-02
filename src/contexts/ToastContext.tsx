@@ -116,7 +116,7 @@ export function ToastProvider({ children }: ToastProviderProps) {
             INF(__INITIAL_percentToClose, __NEW_percentToClose, __FINAL_percentToClose)
         } else if (isActive && time === 0) toastOFF()
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [ isActive, time ])
+    }, [ fixedTime, isActive, time, toastOFF ])
 
    /**
     *   console.log(`

@@ -27,18 +27,10 @@ export function FloatingActionButton() {
     const { activePage, goHome, goLeaderbord, goSettings, goLogin } = useContext(SidebarContext)
     const [ isChecked, setIsChecked ] = useState(false)
 
-    /* ------- */ const [ activeFAB, setActiveFAB ] = useState(false)
-    /* ------- */
+    /* ------- */ const [ activeFAB, setActiveFAB ] = useState(Boolean)
     /* ------- */ useEffect(() => {
-    /* ------- */     let mounted = true
-    /* ------- */
-    /* ------- */     Promise
-    /* ------- */         .resolve(Cookies.get('sidebar&FAB'))
-    /* ------- */         .then(resp => mounted && setActiveFAB(resp === 'enable' ? true : false))
-    /* ------- */         .catch(err => console.log(err))
-    /* ------- */
-    /* ------- */     return () => { mounted = false } // - Cleanup()
-    /* ------- */ }, [ goHome, goLeaderbord, goSettings, goLogin, [] ])
+    /* ------- */     setActiveFAB(Cookies.get('sidebar&FAB') === 'enable')
+    /* ------- */ }, [ goLogin ])
 
     const homePage       = activePage  === 'home'       ? 'activePageButton' : '' // - inactivePageButton
     const leaderbordPage = activePage  === 'leaderbord' ? 'activePageButton' : '' // - inactivePageButton

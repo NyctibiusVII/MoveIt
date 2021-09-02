@@ -19,7 +19,6 @@ import styles from '../styles/components/DangerZone.module.css'
 export function DangerZone() {
     const { openDangerZoneModal } = useContext(DangerZoneContext)
     const { logout }              = useContext(LoginContext)
-    const { goSettings }          = useContext(SidebarContext)
 
     const cookie   = 315151195
     const dataBase = 4120121195
@@ -33,18 +32,10 @@ export function DangerZone() {
         openDangerZoneModal()
     }
 
-    /* --------- */ const [ isLogged, setIsLogged ] = useState(Boolean)
-    /* --------- */
-    /* --------- */ useEffect(() => {
-    /* --------- */     let mounted = true
-    /* --------- */
-    /* --------- */     Promise
-    /* --------- */         .resolve(Number(Cookies.get('__isLogged')))
-    /* --------- */         .then(resp => mounted && setIsLogged(resp === 1 ? true : false))
-    /* --------- */         .catch(err => console.log(err))
-    /* --------- */
-    /* --------- */     return () => { mounted = false } // - Cleanup()
-    /* --------- */ }, [ logout, goSettings, [] ])
+    /* ------- */ const [ isLogged, setIsLogged ] = useState(Boolean)
+    /* ------- */ useEffect(() => {
+    /* ------- */     setIsLogged(Cookies.get('__isLogged') === '1')
+    /* ------- */ }, [ logout ])
 
     return (
         <div className={styles.containerDangerZone}>

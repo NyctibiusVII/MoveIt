@@ -105,7 +105,7 @@ export function CountdownProvider({ children }: CountdownProviderProps) {
             startNewChallenge()
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [isActive, time])
+    }, [ fixedTime, isActive, time, startNewChallenge ])
 
     return(
         <CountdownContext.Provider value={{

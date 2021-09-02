@@ -1,8 +1,8 @@
 /* Import ---------------------------------------------------------------------- */ // - x70
 
-import { ChallengesProvider }          from '../contexts/ChallengesContexts'
-import { DangerZoneProvider }          from '../contexts/DangerZoneContext'
-import { LoginContext, LoginProvider } from '../contexts/LoginContext'
+import { ChallengesProvider } from '../contexts/ChallengesContexts'
+import { DangerZoneProvider } from '../contexts/DangerZoneContext'
+import { LoginProvider }      from '../contexts/LoginContext'
 
 
 import { Appearance }        from '../components/Appearance'
@@ -10,11 +10,6 @@ import { ButtonLoggedInOut } from '../components/ButtonLoggedInOut'
 import { CardList }          from '../components/CardList'
 import { DangerZone }        from '../components/DangerZone'
 
-import {
-    useContext,
-    useEffect,
-    useState
-} from 'react'
 import { User }     from '../interface/user'
 import { AppProps } from '../interface/appProps'
 import { ISLOGGED } from '../interface/cookiesType'
@@ -42,21 +37,6 @@ interface SettingsProps {
 
 export default function Settings(props: SettingsProps) {
     Cookies.set('sidebar&FAB', 'enable') // NOTE: Sidebar depends on this cookie to be visible if this page is accessed directly via the URL
-
-    const { login, logout } = useContext(LoginContext)
-
-    /* ------- */ const [isLogged, setIsLogged ] = useState(false)
-    /* ------- */
-    /* ------- */ useEffect(() => {
-    /* ------- */     let mounted = true
-    /* ------- */
-    /* ------- */     Promise
-    /* ------- */         .resolve(Cookies.get('__isLogged'))
-    /* ------- */         .then(resp => mounted && setIsLogged(Number(resp) === 1 ? true : false))
-    /* ------- */         .catch(err => console.error(err))
-    /* ------- */
-    /* ------- */     return () => { mounted = false } // - Cleanup()
-    /* ------- */ }, [ login, logout, [] ])
 
     return (
         <LoginProvider

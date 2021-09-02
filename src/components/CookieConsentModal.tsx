@@ -17,18 +17,11 @@ import styles from '../styles/components/CookieConsentModal.module.css'
 export function CookieConsentModal() {
     const { iAgree } = useContext(CookieConsentContext)
 
-    /* --------- */ const [ activeCookieConsentModal, setActiveCookieConsentModal ] = useState(Boolean)
-    /* --------- */
-    /* --------- */ useEffect(() => {
-    /* --------- */     let mounted = true
-    /* --------- */
-    /* --------- */     Promise
-    /* --------- */         .resolve(Cookies.get('cookieConsent'))
-    /* --------- */         .then(resp => mounted && setActiveCookieConsentModal(Number(resp) !== 1))
-    /* --------- */         .catch(err => console.log(err))
-    /* --------- */
-    /* --------- */     return () => { mounted = false } // - Cleanup()
-    /* --------- */ }, [ iAgree, [] ])
+    /* ------- */ const [ activeCookieConsentModal, setActiveCookieConsentModal ] = useState(Boolean)
+    /* ------- */
+    /* ------- */ useEffect(() => {
+    /* ------- */     setActiveCookieConsentModal(Cookies.get('cookieConsent') !== '1')
+    /* ------- */ }, [ iAgree ])
 
     return (
         <>

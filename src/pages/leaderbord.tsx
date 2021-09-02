@@ -39,20 +39,11 @@ interface LeaderboardProps {
 export default function Leaderboard(props: LeaderboardProps) {
   Cookies.set('sidebar&FAB', 'enable') // NOTE: Sidebar depends on this cookie to be visible if this page is accessed directly via the URL
 
-  const { login, logout } = useContext(LoginContext)
-
-  /* ------- */ const [isLogged, setIsLogged ] = useState(false)
-  /* ------- */
-  /* ------- */ useEffect(() => {
-  /* ------- */     let mounted = true
-  /* ------- */
-  /* ------- */     Promise
-  /* ------- */         .resolve(Cookies.get('__isLogged'))
-  /* ------- */         .then(resp => mounted && setIsLogged(Number(resp) === 1 ? true : false))
-  /* ------- */         .catch(err => console.error(err))
-  /* ------- */
-  /* ------- */     return () => { mounted = false } // - Cleanup()
-  /* ------- */ }, [ login, logout, [] ])
+    /* ------- */ const [ isLogged, setIsLogged ] = useState(Boolean)
+    /* ------- */
+    /* ------- */ useEffect(() => {
+    /* ------- */     setIsLogged(Cookies.get('__isLogged') === '1')
+    /* ------- */ }, [])
 
   return (
       <LoginProvider

@@ -33,41 +33,30 @@ export function DangerZoneModal() {
     const COOKIES = 'COOKIES', cookie   = 315151195
     const DATA    = 'DATA',    dataBase = 4120121195
 
-    /* --------- */ const [ whichDeleteText,          setWhichDeleteText ]          = useState(null)
-    /* --------- */ const [ whichDeleteTextLowerCase, setWhichDeleteTextLowerCase ] = useState(null)
-    /* --------- */ const [ pattern,                  setPattern ]                  = useState(null)
-    /* --------- */
-    /* --------- */ useEffect(() => {
-    /* --------- */     let mounted = true
-    /* --------- */
-    /* --------- */     Promise
-    /* --------- */         .resolve(Cookies.get('whichDelete'))
-    /* --------- */         .then(resp => {
-    /* --------- */                 if (mounted) {
-    /* --------- */                     switch (resp) {
-    /* --------- */                         case String(cookie):
-    /* --------- */                             setWhichDeleteText(COOKIES)
-    /* --------- */
-    /* --------- */                             setWhichDeleteTextLowerCase(COOKIES.toLocaleLowerCase())
-    /* --------- */                             setPattern('[dD][eE][lL][eE][tT][eE]-[cC][oO][oO][kK][iI][eE][sS]')
-    /* --------- */                             break;
-    /* --------- */                         case String(dataBase):
-    /* --------- */                             setWhichDeleteText(DATA)
-    /* --------- */
-    /* --------- */                             setWhichDeleteTextLowerCase(DATA.toLocaleLowerCase())
-    /* --------- */                             setPattern('[dD][eE][lL][eE][tT][eE]-[dD][aA][tT][aA]')
-    /* --------- */                             break;
-    /* --------- */                         default:
-    /* --------- */                             alert('Ocorreu um problema\nPor favor, recarregue a página e tente novamente.')
-    /* --------- */                             console.error('Invalid value:\n'+resp)
-    /* --------- */                             break;
-    /* --------- */                     }
-    /* --------- */                 }
-    /* --------- */         })
-    /* --------- */         .catch(err => console.log(err))
-    /* --------- */
-    /* --------- */     return () => { mounted = false } // - Cleanup()
-    /* --------- */ }, [ openDangerZoneModal ])
+    /* ------- */ const [ whichDeleteText,          setWhichDeleteText ]          = useState(null)
+    /* ------- */ const [ whichDeleteTextLowerCase, setWhichDeleteTextLowerCase ] = useState(null)
+    /* ------- */ const [ pattern,                  setPattern ]                  = useState(null)
+    /* ------- */
+    /* ------- */ useEffect(() => {
+    /* ------- */     switch (Cookies.get('whichDelete')) {
+    /* ------- */         case String(cookie):
+    /* ------- */             setWhichDeleteText(COOKIES)
+    /* ------- */
+    /* ------- */             setWhichDeleteTextLowerCase(COOKIES.toLocaleLowerCase())
+    /* ------- */             setPattern('[dD][eE][lL][eE][tT][eE]-[cC][oO][oO][kK][iI][eE][sS]')
+    /* ------- */             break;
+    /* ------- */         case String(dataBase):
+    /* ------- */             setWhichDeleteText(DATA)
+    /* ------- */
+    /* ------- */             setWhichDeleteTextLowerCase(DATA.toLocaleLowerCase())
+    /* ------- */             setPattern('[dD][eE][lL][eE][tT][eE]-[dD][aA][tT][aA]')
+    /* ------- */             break;
+    /* ------- */         default:
+    /* ------- */             alert('Ocorreu um problema\nPor favor, recarregue a página e tente novamente.')
+    /* ------- */             console.error('Invalid value:\n'+ Cookies.get('whichDelete'))
+    /* ------- */             break;
+    /* ------- */     }
+    /* ------- */ }, [ openDangerZoneModal ])
 
     const [ result, setResult ] = useState('')
     const handleParam = (setValue: any) => (e: any) => setValue(e.target.value)

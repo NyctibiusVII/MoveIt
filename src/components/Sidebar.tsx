@@ -26,18 +26,10 @@ import styles from '../styles/components/Sidebar.module.css'
 export function Sidebar() {
     const { activePage, goHome, goLeaderbord, goSettings, goLogin } = useContext(SidebarContext)
 
-    /* --------- */ const [ activeSidebar, setActiveSidebar ] = useState(false)
-    /* --------- */
-    /* --------- */ useEffect(() => {
-    /* --------- */     let mounted = true
-    /* --------- */
-    /* --------- */     Promise
-    /* --------- */         .resolve(Cookies.get('sidebar&FAB'))
-    /* --------- */         .then(resp => mounted && setActiveSidebar(resp === 'enable' ? true : false))
-    /* --------- */         .catch(err => console.log(err))
-    /* --------- */
-    /* --------- */     return () => { mounted = false } // - Cleanup()
-    /* --------- */ }, [ goHome, goLeaderbord, goSettings, goLogin, [] ])
+    /* ------- */ const [ activeSidebar, setActiveSidebar ] = useState(Boolean)
+    /* ------- */ useEffect(() => {
+    /* ------- */     setActiveSidebar(Cookies.get('sidebar&FAB') === 'enable')
+    /* ------- */ }, [ goLogin ])
 
 
     const homePage       = activePage    === 'home'       ? 'activePage' : '' // - inactivePage

@@ -11,13 +11,12 @@ import {
     useState
 } from 'react'
 
-import { api } from '../services/api'
+import { api, github_api } from '../services/api'
 
 import { User }                  from '../interface/user'
 import { UserGithub }            from '../interface/userGithub'
 import { CookiesType, ISLOGGED } from '../interface/cookiesType'
 
-import axios   from 'axios'
 import Cookies from 'js-cookie'
 
 import getConfig from 'next/config'
@@ -45,8 +44,8 @@ export const LoginContext = createContext({} as LoginContextData)
 const date = new Date()
 
 export function LoginProvider({ children, ...rest }: LoginProviderProps) {
-    const { goHome, goSettings } = useContext(SidebarContext)
-    const { toastON }            = useContext(ToastContext)
+    const { goHome }  = useContext(SidebarContext)
+    const { toastON } = useContext(ToastContext)
 
     const { serverRuntimeConfig, publicRuntimeConfig } = getConfig()
 
@@ -93,8 +92,8 @@ export function LoginProvider({ children, ...rest }: LoginProviderProps) {
     async function verifyUser() {
         const quickInputUsername = Cookies.get(CookiesType.usernameCacheForValidation)
 
-        await axios
-            .get(`https://api.github.com/users/${quickInputUsername}`)
+        await github_api
+            .get(`/users/${quickInputUsername}`)
             .then(async ({ data }) => {
                 // - User exists in Github
 

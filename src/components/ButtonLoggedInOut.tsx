@@ -21,20 +21,13 @@ import styles from '../styles/components/ButtonLoggedInOut.module.css'
 
 export function ButtonLoggedInOut() {
     const { resetCookiesDataLCC } = useContext(ChallengesContext)
-    const { login, logout }       = useContext(LoginContext)
+    const { logout }              = useContext(LoginContext)
 
-    /* ------- */ const [ isLogged, setIsLogged ] = useState(false)
+    /* ------- */ const [ isLogged, setIsLogged ] = useState(Boolean)
     /* ------- */
     /* ------- */ useEffect(() => {
-    /* ------- */     let mounted = true
-    /* ------- */
-    /* ------- */     Promise
-    /* ------- */         .resolve(Cookies.get('__isLogged'))
-    /* ------- */         .then(resp => mounted && setIsLogged(Number(resp) === 1 ? true : false))
-    /* ------- */         .catch(err => console.error(err))
-    /* ------- */
-    /* ------- */     return () => { mounted = false } // - Cleanup()
-    /* ------- */ }, [ logout, login, [] ])
+    /* ------- */     setIsLogged(Cookies.get('__isLogged') === '1')
+    /* ------- */ }, [ logout ])
 
     const __LOGIN  = () => Router.push('/login')
     const __LOGOUT = () => { logout(), resetCookiesDataLCC() }

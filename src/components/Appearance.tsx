@@ -37,26 +37,15 @@ export function Appearance() {
     const LIGHT_iconCopy = 'var(--white)'
     const DARK_iconCopy  = 'var(--dark-gray)'
 
-    /* --------- */ const [ lightTheme,  setLightTheme ]  = useState('')
-    /* --------- */ const [ darkTheme,   setDarkTheme ]   = useState('')
-    /* --------- */ const [ customTheme, setCustomTheme ] = useState('')
-    /* --------- */
-    /* --------- */ useEffect(() => {
-    /* --------- */     let mounted = true
-    /* --------- */
-    /* --------- */     Promise
-    /* --------- */         .resolve(Cookies.get('activeTheme'))
-    /* --------- */         .then(resp => {
-    /* --------- */             if (mounted) {
-    /* --------- */                 setLightTheme (resp === 'light'  ? 'activeTheme' : '') // - inactiveTheme
-    /* --------- */                 setDarkTheme  (resp === 'dark'   ? 'activeTheme' : '') // - inactiveTheme
-    /* --------- */                 setCustomTheme(resp === 'custom' ? 'activeTheme' : '') // - inactiveTheme
-    /* --------- */             }
-    /* --------- */         })
-    /* --------- */         .catch(err => console.log(err))
-    /* --------- */
-    /* --------- */     return () => { mounted = false } // - Cleanup()
-    /* --------- */ }, [ changeLight, changeDark, changeCustom, [] ])
+    /* ------- */ const [ lightTheme,  setLightTheme ]  = useState('')
+    /* ------- */ const [ darkTheme,   setDarkTheme ]   = useState('')
+    /* ------- */ const [ customTheme, setCustomTheme ] = useState('')
+    /* ------- */
+    /* ------- */ useEffect(() => {
+    /* ------- */     setLightTheme (Cookies.get('activeTheme') === 'light'  ? 'activeTheme' : '') // - inactiveTheme
+    /* ------- */     setDarkTheme  (Cookies.get('activeTheme') === 'dark'   ? 'activeTheme' : '') // - inactiveTheme
+    /* ------- */     setCustomTheme(Cookies.get('activeTheme') === 'custom' ? 'activeTheme' : '') // - inactiveTheme
+    /* ------- */ }, [ changeLight, changeDark, changeCustom ])
 
     /*
         console.info(`
