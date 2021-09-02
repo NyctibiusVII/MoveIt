@@ -27,6 +27,7 @@ module.exports = {
 
     SITE_URL_BASE:                process.env.SITE_URL_BASE,
     SITE_URL_BASE_API:            process.env.SITE_URL_BASE_API,
+    SITE_URL_BASE_AVATAR_GITHUB:  process.env.SITE_URL_BASE_AVATAR_GITHUB,
     SITE_URL_BASE_TWITTER_INTENT: process.env.SITE_URL_BASE_TWITTER_INTENT,
 
     ERROR_GET: `Algo deu errado. Por favor recarregue a página, se o erro persistir consulte meu contato no github: ${process.env.GITHUB}${process.env.DEVELOPER_NAME}`

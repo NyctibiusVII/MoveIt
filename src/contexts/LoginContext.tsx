@@ -1,24 +1,29 @@
+/* Import ---------------------------------------------------------------------- */ // - x70
+
 import { SidebarContext } from './SidebarContext'
 import { ToastContext }   from './ToastContext'
 
-import { User }       from '../interface/user'
-import { UserGithub } from '../interface/userGithub'
-import {
-    CookiesType,
-    ISLOGGED
-} from '../interface/cookiesType'
-import { api }        from '../services/api'
-
 import {
     createContext,
+    ReactNode,
     useContext,
-    useState,
     useEffect,
-    ReactNode
-}              from 'react'
-import Router  from 'next/router'
+    useState
+} from 'react'
+
+import { api } from '../services/api'
+
+import { User }                  from '../interface/user'
+import { UserGithub }            from '../interface/userGithub'
+import { CookiesType, ISLOGGED } from '../interface/cookiesType'
+
 import axios   from 'axios'
 import Cookies from 'js-cookie'
+
+import getConfig from 'next/config'
+import Router    from 'next/router'
+
+/* ---------------------------------------------------------------------- */
 
 interface LoginContextData {
     __avatar_url: string
@@ -28,7 +33,7 @@ interface LoginContextData {
     login:        () => void
     logout:       () => void
 }
-interface  LoginProviderProps {
+interface LoginProviderProps {
     children:     ReactNode
     __avatar_url: string
     __username:   string
@@ -43,7 +48,9 @@ export function LoginProvider({ children, ...rest }: LoginProviderProps) {
     const { goHome, goSettings } = useContext(SidebarContext)
     const { toastON }            = useContext(ToastContext)
 
-    const avatarsGithubURL = 'https://avatars.githubusercontent.com/u/'
+    const { serverRuntimeConfig, publicRuntimeConfig } = getConfig()
+
+    const avatarsGithubURL = publicRuntimeConfig.SITE_URL_BASE_AVATAR_GITHUB
     const [selectImage, setSelectImage] = useState(0) // - Padrão
     const stockImagePatterns = [
         /* 0 */  '28929274', // - Rocketseat
@@ -138,7 +145,7 @@ export function LoginProvider({ children, ...rest }: LoginProviderProps) {
                                 // - User exists in db
 
                                 const
-                                    data: User= resp.data,
+                                    data: User = resp.data,
                                     user: User = {
                                         github_id:  data.github_id,
                                         avatar_url: data.avatar_url,
@@ -168,8 +175,8 @@ export function LoginProvider({ children, ...rest }: LoginProviderProps) {
                                 Promise
                                     .resolve(setCookiesFromGithub(user))
                                     .then(async () => {
-                                         // - createUserinDb(user)
-                                         const
+                                        // - createUserinDb(user)
+                                        const
                                             level               = Cookies.get(CookiesType.level),
                                             currentExperience   = Cookies.get(CookiesType.currentExperience),
                                             challengesCompleted = Cookies.get(CookiesType.challengesCompleted),
@@ -301,8 +308,6 @@ export function LoginProvider({ children, ...rest }: LoginProviderProps) {
         Cookies.set(CookiesType.whichToast, '3')
         toastON()
     }
-
-    const reload = () => setTimeout(() => { Router.reload(), goSettings() }, 0)
 
     return (
         <LoginContext.Provider

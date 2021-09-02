@@ -1,21 +1,23 @@
-import { SidebarContext } from './SidebarContext'
+/* Import ---------------------------------------------------------------------- */ // - x70
 
-import { User } from '../interface/user'
-import {
-    CookiesType,
-    ISLOGGED,
-    COOKIES_CONSENT
-} from '../interface/cookiesType'
-import { api }  from '../services/api'
+import { SidebarContext } from './SidebarContext'
 
 import {
     createContext,
-    useContext,
-    ReactNode
-}              from 'react'
+    ReactNode,
+    useContext
+} from 'react'
 
-import Router  from 'next/router'
+import { api } from '../services/api'
+
+import { User }                                   from '../interface/user'
+import { CookiesType, ISLOGGED, COOKIES_CONSENT } from '../interface/cookiesType'
+
 import Cookies from 'js-cookie'
+
+import Router from 'next/router'
+
+/* ---------------------------------------------------------------------- */
 
 interface CookieConsentContextData {
     iAgree: () => void

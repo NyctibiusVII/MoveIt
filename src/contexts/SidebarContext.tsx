@@ -1,6 +1,14 @@
-import { createContext, useState, ReactNode } from "react"
+/* Import ---------------------------------------------------------------------- */ // - x70
+
+import {
+    createContext,
+    ReactNode,
+    useState
+} from 'react'
 
 import Cookies from 'js-cookie'
+
+/* ---------------------------------------------------------------------- */
 
 interface SidebarContextData {
     activePage:   String

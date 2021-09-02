@@ -1,20 +1,26 @@
+/* Import ---------------------------------------------------------------------- */ // - x70
+
 import { ChallengesContext } from './ChallengesContexts'
 import { SidebarContext }    from './SidebarContext'
 
 import { DangerZoneModal } from '../components/DangerZoneModal'
 
-import { api }         from '../services/api'
-import { CookiesType } from '../interface/cookiesType'
-
 import {
     createContext,
+    ReactNode,
     useContext,
-    useState,
-    ReactNode
-}              from 'react'
+    useState
+} from 'react'
 
-import Router  from 'next/router'
+import { api } from '../services/api'
+
+import { CookiesType } from '../interface/cookiesType'
+
 import Cookies from 'js-cookie'
+
+import Router from 'next/router'
+
+/* ---------------------------------------------------------------------- */
 
 interface DangerZoneContextData {
     textMain:             string

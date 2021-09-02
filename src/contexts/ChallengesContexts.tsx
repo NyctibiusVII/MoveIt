@@ -1,21 +1,24 @@
+/* Import ---------------------------------------------------------------------- */ // - x70
+
 import { LevelUpModal } from '../components/LevelUpModal'
 
 import {
-    CookiesType,
-    ISLOGGED
-} from '../interface/cookiesType'
-
-import {
     createContext,
-    useState,
     ReactNode,
-    useEffect
+    useEffect,
+    useState
 } from 'react'
 
-import Cookies    from 'js-cookie'
-import challenges from '../../challenges.json'
 import { api } from '../services/api'
-import { User } from '../interface/user'
+
+import { User }                  from '../interface/user'
+import { CookiesType, ISLOGGED } from '../interface/cookiesType'
+
+import Cookies from 'js-cookie'
+
+import challenges from '../../challenges.json'
+
+/* ---------------------------------------------------------------------- */
 
 interface Challenge {
     type:        'body' | 'eye'
@@ -100,9 +103,9 @@ export function ChallengesProvider({ children, ...rest }: ChallengesProviderProp
         const setCookies_default = () => {
             resetCookiesDataLCC()
 
-            Cookies.set('level',               process.env.STANDARD_LEVEL)
-            Cookies.set('currentExperience',   process.env.STANDARD_CURRENT_EXPERIENCE)
-            Cookies.set('challengesCompleted', process.env.STANDARD_CHALLENGES_COMPLETED)
+            Cookies.set('level',               process.env.STANDARD_LEVEL!)
+            Cookies.set('currentExperience',   process.env.STANDARD_CURRENT_EXPERIENCE!)
+            Cookies.set('challengesCompleted', process.env.STANDARD_CHALLENGES_COMPLETED!)
         }
 
         if(__ISLOGGED) {
@@ -113,9 +116,9 @@ export function ChallengesProvider({ children, ...rest }: ChallengesProviderProp
              * Evitando bugs*
              *
              * - Se (level, currentExperience ou challengesCompleted)
-             * for deletado dos cookies automaticamente todas as três variaveis
-             * seram setadas para seu 'Default' novamente, inpedindo assim,
-             * uma possivel desregulagem na contagem de level, experiência e
+             * for deletado dos cookies automaticamente todas as três variáveis
+             * serão setadas para seu 'Default' novamente, impedindo assim,
+             * uma possível desregulagem na contagem de level, experiência e
              * desafios completos.
              */
             if ((Cookies.get('level') && Cookies.get('currentExperience') && Cookies.get('challengesCompleted')) !== undefined) setCookies_newValue()

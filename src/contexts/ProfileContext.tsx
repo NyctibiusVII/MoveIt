@@ -1,6 +1,16 @@
+/* Import ---------------------------------------------------------------------- */ // - x70
+
 import { LoginContext } from '../contexts/LoginContext'
 
-import { createContext, useState, ReactNode, useEffect, useContext } from 'react'
+import {
+    createContext,
+    ReactNode,
+    useContext,
+    useEffect,
+    useState
+} from 'react'
+
+/* ---------------------------------------------------------------------- */
 
 interface ProfileContextData {
     //id:         String

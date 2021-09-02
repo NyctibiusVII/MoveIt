@@ -1,19 +1,23 @@
+/* Import ---------------------------------------------------------------------- */ // - x70
+
 import {
     createContext,
-    useState,
     ReactNode,
-    useEffect
+    useEffect,
+    useState
 } from 'react'
 
 import Cookies from 'js-cookie'
+
+/* ---------------------------------------------------------------------- */
 
 interface AppearanceContextData {
     changeLight:  () => void
     changeDark:   () => void
     changeCustom: () => void
 }
-interface  AppearanceProviderProps {
-    children:    ReactNode
+interface AppearanceProviderProps {
+    children: ReactNode
 }
 
 export const AppearanceContext = createContext({} as AppearanceContextData)
@@ -44,7 +48,7 @@ export function AppearanceProvider({ children }: AppearanceProviderProps) {
 
     function developing() {
         setTimeout(() => {
-            console.info('Desculpe, mas este recurso ainda esta em desemvolvimento.')
+            console.info('Desculpe, mas este recurso ainda esta em desenvolvimento.')
 
             Cookies.set('activeTheme', 'light')
             setActiveTheme('light')

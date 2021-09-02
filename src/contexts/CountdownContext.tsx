@@ -1,3 +1,5 @@
+/* Import ---------------------------------------------------------------------- */ // - x70
+
 import { ChallengesContext } from './ChallengesContexts'
 
 import {
@@ -7,6 +9,8 @@ import {
     useEffect,
     useState
 } from 'react'
+
+/* ---------------------------------------------------------------------- */
 
 interface CountdownContextData {
     percentToEndCycle: number
@@ -72,33 +76,33 @@ export function CountdownProvider({ children }: CountdownProviderProps) {
         set_FINAL_percentToEndCycle  (0)
         set_PercentToEndCycle        (0)
     }
-    async function INF({INITIAL, NEW, FINAL}) {
-        set_INITIAL_percentToEndCycle(INITIAL + 1)
-        const NEW_INITIAL = await(INITIAL + 1)
-
-        set_NEW_percentToEndCycle(NEW_INITIAL * 100)
-        const NEW_NEW = (NEW_INITIAL * 100)
-
-        set_FINAL_percentToEndCycle(NEW_NEW / fixedTime)
-        FINAL = Math.round(NEW_NEW / fixedTime)
-
-        setTimeout(() => {
-            set_PercentToEndCycle(FINAL)
-        }, 0)
-
-        return FINAL
-    }
 
     useEffect(() => {
         if (isActive && time > 0) {
             countdownTimeout = setTimeout(() => setTime(time - 1), 1000)
 
-            INF({INITIAL:__INITIAL_percentToEndCycle, NEW:__NEW_percentToEndCycle, FINAL:__FINAL_percentToEndCycle})
+            const INF = async (INITIAL: number, NEW: number, FINAL: number): Promise<number> => {
+                set_INITIAL_percentToEndCycle(INITIAL + 1)
+                const NEW_INITIAL = await(INITIAL + 1)
+
+                set_NEW_percentToEndCycle(NEW_INITIAL * 100)
+                const NEW_NEW = (NEW_INITIAL * 100)
+
+                set_FINAL_percentToEndCycle(NEW_NEW / fixedTime)
+                FINAL = Math.round(NEW_NEW / fixedTime)
+
+                setTimeout(() => { set_PercentToEndCycle(FINAL) }, 0)
+
+                return FINAL
+            }
+
+            INF(__INITIAL_percentToEndCycle, __NEW_percentToEndCycle, __FINAL_percentToEndCycle)
         } else if (isActive && time === 0) {
             setHasFinished(true)
             setIsActive(false)
             startNewChallenge()
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isActive, time])
 
     return(
