@@ -27,8 +27,8 @@ export function CardUser() {
                     src={__avatar_url}
                     alt="Foto de perfil"
                     className={styles.ProfileImage}
-                    width={ImgSize.Medium_x80}
-                    height={ImgSize.Medium_x80}
+                    width={ImgSize.Medium_x80 - 16}
+                    height={ImgSize.Medium_x80 - 16}
                     decoding="async"
                     quality={100}
                     priority
@@ -42,8 +42,8 @@ export function CardUser() {
                             <Image
                                 src={levelImage}
                                 alt="Level"
-                                width={ImgSize.Mini_x16 - 2}
-                                height={ImgSize.Mini_x16}
+                                width={ImgSize.Micro_x12}
+                                height={ImgSize.Micro_x12 + 2}
                             />
                         </div>
                         <p>Level</p>

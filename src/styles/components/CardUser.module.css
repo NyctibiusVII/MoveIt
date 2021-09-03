@@ -21,14 +21,14 @@
 }
 
 .cardContainer > div {
+    margin-left: 1rem;
+
     display: flex;
     align-items: center;
 }
 
 /* - Next/Image */
 .cardContainer div .ProfileImage {
-    margin-left: 1rem;
-
     border-radius: 50%;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
@@ -90,8 +90,7 @@
 }
 .cardContainer div.containerChallengesAndExperience div.challenges {
     width: 30%;
-    min-width: 10rem;
-
+    min-width: 10.3rem;
 }
 .cardContainer div.containerChallengesAndExperience div.experience {
     width: 23%;
