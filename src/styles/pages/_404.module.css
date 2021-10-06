@@ -1,0 +1,176 @@
+.container {
+    height: 100vh;
+
+    background-color: var(--background-404);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.container main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container main div.pictures {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container main div.pictures button {
+    background-color: transparent;
+    border: none;
+}
+.container main div.pictures button div > div {
+    width: 17rem;
+    height: 17rem;
+}
+.container main div.pictures button > div:hover {
+    animation: scale-up-center 500ms cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+    -webkit-animation: scale-up-center 500ms cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+}
+.container main div.pictures button > div:hover ::after {
+    content: "Home";
+
+    color: var(--white);
+    font: normal 1.5rem 'Indie Flower', cursive;
+
+    display: flex;
+
+    position: relative;
+    left: 13.5rem;
+    bottom: 2.5rem;
+}
+
+.container main div.pictures > div:nth-of-type(1) {
+    margin-bottom: 4rem !important;
+    display: none !important;
+
+    animation: rotate-40-ccw 1200ms ease-in-out infinite alternate;
+    -webkit-animation: rotate-40-ccw 1200ms ease-in-out infinite alternate;
+}
+.container main div.pictures > div:nth-of-type(2) {
+    animation: slide-top 1250ms ease-in-out infinite alternate;
+    -webkit-animation: slide-top 1250ms ease-in-out infinite alternate;
+}
+
+.container main h1,
+.container main h3 {
+    color: var(--white);
+
+    font: normal 1.5rem 'Indie Flower', cursive;
+    text-align: center;
+}
+
+
+
+/* scale-up-center */
+@-webkit-keyframes scale-up-center {
+    0% {
+        transform: scale(1);
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+    }
+    100% {
+        transform: scale(1.1);
+        -webkit-transform: scale(1.1);
+        -moz-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        -o-transform: scale(1.1);
+    }
+}
+@keyframes scale-up-center {
+    0% {
+        transform: scale(1);
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+    }
+    100% {
+        transform: scale(1.1);
+        -webkit-transform: scale(1.1);
+        -moz-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        -o-transform: scale(1.1);
+    }
+}
+
+/* rotate */
+@-webkit-keyframes rotate-40-ccw {
+    0% {
+        transform: rotate(0);
+        -webkit-transform: rotate(0);
+        -moz-transform: rotate(0);
+        -ms-transform: rotate(0);
+        -o-transform: rotate(0);
+    }
+    100% {
+        transform: rotate(40deg);
+        -webkit-transform: rotate(40deg);
+        -moz-transform: rotate(40deg);
+        -ms-transform: rotate(40deg);
+        -o-transform: rotate(40deg);
+    }
+}
+@keyframes rotate-40-ccw {
+    0% {
+        transform: rotate(0);
+        -webkit-transform: rotate(0);
+        -moz-transform: rotate(0);
+        -ms-transform: rotate(0);
+        -o-transform: rotate(0);
+    }
+    100% {
+        transform: rotate(40deg);
+        -webkit-transform: rotate(40deg);
+        -moz-transform: rotate(40deg);
+        -ms-transform: rotate(40deg);
+        -o-transform: rotate(40deg);
+    }
+}
+
+/* slide-top */
+@-webkit-keyframes slide-top {
+    0% {
+        transform: translateY(0);
+        -webkit-transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-50px);
+        -webkit-transform: translateY(-50px);
+        -moz-transform: translateY(-50px);
+        -ms-transform: translateY(-50px);
+        -o-transform: translateY(-50px);
+    }
+}
+@keyframes slide-top {
+    0% {
+        transform: translateY(0);
+        -webkit-transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-50px);
+        -webkit-transform: translateY(-50px);
+        -moz-transform: translateY(-50px);
+        -ms-transform: translateY(-50px);
+        -o-transform: translateY(-50px);
+    }
+}
+
+
+
+@media (min-width: 320px) { .container main h1 { font-size: 2rem; } }
+@media (min-width: 520px) { .container main h1 { font-size: 2.5rem; } }
+@media (min-width: 620px) {
+    .container main div.pictures { margin-right: 145px; flex-direction: row-reverse; }
+    .container main div.pictures > div:nth-of-type(1) { display: block !important; }
+    .container main div.pictures > div:nth-of-type(2) { display: none !important; }
+}

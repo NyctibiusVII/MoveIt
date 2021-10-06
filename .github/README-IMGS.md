@@ -18,6 +18,7 @@
     <img width="400px" src="./desktop/leaderbord.png">
     <img width="400px" src="./desktop/configs.png">
     <img width="400px" src="./desktop/toasts.png">
+    <img width="400px" src="./desktop/404.png">
 </div>
 
 ## Mobile Screenshot
@@ -35,6 +36,7 @@
     <img width="180px" src="./mobile/leaderbord.png">
     <img width="180px" src="./mobile/configs.png">
     <img width="180px" src="./mobile/toasts.png">
+    <img width="180px" src="./mobile/404.png">
 </div>
     <!-- IMGS
       ------------------------------
@@ -53,5 +55,6 @@
       ------------------------------
       leaderbord
       configs
+      404
       ------------------------------
     -->

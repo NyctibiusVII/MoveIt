@@ -17,6 +17,7 @@
     <img width="400px" src="./imgGenerator-twitter-next-level.png">
     <img width="400px" src="./leaderbord.png">
     <img width="400px" src="./configs.png">
+    <img width="400px" src="./404.png">
 </div>
     <!-- IMGS
       ------------------------------
@@ -35,5 +36,6 @@
       ------------------------------
       leaderbord
       configs
+      404
       ------------------------------
     -->

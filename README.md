@@ -128,7 +128,7 @@ Funcionalidades:
         - Leaderbord
         - Settings
         ✔ - Login
-        - 404
+        ✔ - 404
     ✔ - Compartilhar com o Twitter:
         ✔ - Botão em baixo do modal (Compartilhar no Twitter (img))
             ✔ - Texto com:
@@ -189,6 +189,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
     <!--<img width="180px" src="./.github/mobile/leaderbord.png">-->
     <!--<img width="180px" src="./.github/mobile/configs.png">-->
     <img width="180px" src="./.github/mobile/toasts.png">
+    <img width="180px" src="./.github/mobile/404.png">
 </div>
 <a href="./.github/README-IMGS.md">Ver mais</a>
     <!-- IMGS
@@ -208,6 +209,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
       ------------------------------
       leaderbord
       configs
+      404
       ------------------------------
     -->
 

@@ -76,7 +76,7 @@ export default class MyDocument extends Document {
 
                     <link rel="preconnect" href="https://fonts.googleapis.com" />
                     <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin='anonymous' />
-                    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Rajdhani:wght@600&amp;display=swap" rel="stylesheet" />
+                    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Rajdhani:wght@600&amp;family=Indie+Flower&amp;display=swap" rel="stylesheet" />
 
                     <meta name="google-site-verification" content="OjYiqlxK64Fx5dZre97pwHGJ7pYgOP4vQYH1UCOdBuo" />
                 </Head>
