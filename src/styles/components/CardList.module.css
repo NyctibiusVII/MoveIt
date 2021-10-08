@@ -1,42 +1,29 @@
-.cardListContainer header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.cardListContainer header p,
-.cardListContainer header div p {
-    font: 700 14px 'inter', sans-serif;
-    line-height: 16.14px;
-
-    opacity: 50%;
-}
-.cardListContainer header div {
-    display: flex;
-    align-items: center;
-}
-.cardListContainer header div p {
-    margin: 0 3rem;
-}
+.cardListContainer { display: none; }
 
 
 
-@media(max-width: 1080px) {
-    .cardListContainer header div p:first-child {
-        margin: 0 4rem;
+/* Desktop */
+@media(min-width: 821px) {
+    .cardListContainer {
+        width: 100%;
+
+        display: grid;
+        grid-template-columns: 0.5fr 2fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        gap: 0% 0%;
+        grid-auto-flow: row;
+        grid-template-areas:
+            "you void challenges experience";
     }
-}
-@media(max-width: 945px) {
-    .cardListContainer header div p:first-child {
-        margin: 0 3rem;
+    .cardListContainer p {
+        font: 700 0.875rem 'inter', sans-serif;
+        line-height: 1.009rem;
+
+        opacity: 50%;
     }
-}
 
-
-
-/* Mobile | Tablet */
-@media(max-width: 820px) {
-    .cardListContainer header {
-        display: none;
-    }
+    .you  { grid-area: you; }
+    .void { grid-area: void; }
+    .challenges { grid-area: challenges; }
+    .experience { grid-area: experience; }
 }

@@ -1,214 +1,139 @@
 .cardContainer {
     width: 100%;
-    min-width: 15rem;
 
     background-color: var(--white);
-    box-shadow: 10px 10px 20px 0px rgba(0, 0, 0, 0.05);
+    box-shadow: 0.625rem 0.625rem 1.25rem 0rem rgba(0, 0, 0, 0.05);
 
     padding: 1rem;
 
     margin: 0.5rem auto 0;
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 0.5fr 2fr;
+    grid-template-rows: 1fr 0.5fr 0.5fr;
+    gap: 0% 2%;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "photo info"
+        "challenges challenges"
+        "xp xp";
 
-    border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
+    border-radius: 0.313rem;
+    -webkit-border-radius: 0.313rem;
+    -moz-border-radius: 0.313rem;
+    -ms-border-radius: 0.313rem;
+    -o-border-radius: 0.313rem;
 }
 
-.cardContainer > div {
-    margin-left: 1rem;
 
+
+.photo {
     display: flex;
+    justify-content: flex-start;
     align-items: center;
-}
 
-/* - Next/Image */
-.cardContainer div .ProfileImage {
+    grid-area: photo;
+}
+.photo > * {
     border-radius: 50%;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     -ms-border-radius: 50%;
     -o-border-radius: 50%;
 }
-.cardContainer div.spaceSeparation  {
-    max-width: 10rem;
-    min-width: 5rem;
 
-    margin-left: 1.5rem;
+.info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "username username"
+        "level level";
+    grid-area: info;
 }
-.cardContainer div.spaceSeparation div.cardUsername  {
-    overflow-x: auto;
+
+.username {
+    align-self: flex-end;
+
+    grid-area: username;
+
+    text-overflow: ellipsis;
+    overflow-x: hidden;
 }
-.cardContainer div.spaceSeparation div.cardUsername strong {
+.username strong {
     color: var(--title);
     font-size: 1.3rem;
     font-weight: 600;
 
     white-space: nowrap;
-    overflow-x: auto;
 }
-.cardContainer div.spaceSeparation div.levelContainer {
-    margin-top: 0.5rem;
+
+.level {
+    height: fit-content;
+
+    background-color: var(--green-very-light);
+    color: var(--green);
 
     display: flex;
-    align-items: center;
-}
-.cardContainer div.spaceSeparation div.levelContainer div.levelImage {
-    margin-right: 0.5rem;
-}
-.cardContainer div.spaceSeparation div.levelContainer p {
-    font-size: 1rem;
 
-    padding-right: 5px;
+    grid-area: level;
+    column-gap: 0.5rem;
 }
-.cardContainer div.spaceSeparation div.levelContainer span {
-    width: 4rem;
-
+.level span {
+    text-overflow: ellipsis;
+    overflow-x: hidden;
     white-space: nowrap;
-    overflow-x: auto;
 }
 
-
-
-.cardContainer div.containerChallengesAndExperience {
-    justify-content: flex-end;
-
-    overflow: hidden;
-}
-.cardContainer div.containerChallengesAndExperience div div {
-    padding: 0 0.3rem;
+.challenges { align-self: flex-end; grid-area: challenges; }
+.xp         { align-self: flex-start; grid-area: xp; }
+.challenges, .xp {
+    background-color: var(--blue-very-light);
+    color: var(--blue);
 
     display: flex;
+    justify-content: space-between;
     align-items: center;
 
-    overflow: hidden;
+    column-gap: 0.5rem;
 }
-.cardContainer div.containerChallengesAndExperience div.challenges {
-    width: 30%;
-    min-width: 10.3rem;
-}
-.cardContainer div.containerChallengesAndExperience div.experience {
-    width: 23%;
-    min-width: 8rem;
-}
-.cardContainer div.containerChallengesAndExperience div div span {
-    max-width: 6rem;
-
-    color: var(--blue);
+.challenges span, .xp span {
     font-weight: 500;
 
+    text-overflow: ellipsis;
+    overflow-x: hidden;
     white-space: nowrap;
-    overflow-x: auto;
 }
 
 
 
-@media(max-width: 1080px) {
-    .cardContainer div.containerChallengesAndExperience div.experience {
-        width: 21.5%;
-    }
-}
-@media(max-width: 927px) {
-    .cardContainer div.containerChallengesAndExperience div.challenges {
-        min-width: 11rem;
-    }
-}
-
-
-
-/* Mobile | Tablet */
-@media(max-width: 820px) {
+/* Desktop */
+@media(min-width: 821px) {
     .cardContainer {
-        width: fit-content;
-        width: -webkit-fit-content;
-        width: -moz-fit-content;
-        min-width: 15.99rem;
+        grid-template-columns: 0.5fr 2fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas: "photo info challenges xp";
+        gap: 0% 1%;
+    }
 
-        margin: 1.5rem 0;
+    .level {
+        background-color: initial;
+        color: initial;
+    }
+    .level span { max-width: 5rem; }
 
-        flex-direction: column;
-    }
-    .cardContainer > div {
-        width: 100%;
-        max-width: 20rem;
-        justify-content: space-between;
-    }
-    .cardContainer div img.ProfileImage {
-        margin-left: 0;
-    }
-    .cardContainer div.spaceSeparation  {
-        margin-left: 0;
-    }
-    .cardContainer div.spaceSeparation div {
-        display: flex;
-        justify-content: flex-end;
-    }
-    .cardContainer div.spaceSeparation div.levelContainer div.levelImage {
-        width: 12px;
+    .challenges, .xp {
+        background-color: initial;
+        color: initial;
 
-        display: block;
+        justify-content: normal;
+        align-self: center;
     }
-    .cardContainer div.spaceSeparation div.levelContainer p,
-    .cardContainer div.spaceSeparation div.levelContainer span {
-        background-color: var(--green-very-light);
-        color: var(--green);
-    }
-    .cardContainer div.spaceSeparation div.levelContainer span {
-        width: auto;
-        max-width: 3.2rem;
-    }
-    .cardContainer div.containerChallengesAndExperience {
-        width: auto;
-        min-width: 100%;
+    .challenges span, .xp span {
+        max-width: 5rem;
 
-        margin-top: 1rem;
-
-        display: block;
-    }
-    .cardContainer div.containerChallengesAndExperience div div {
-        padding: 0;
-
-        justify-content: space-between;
-    }
-    .cardContainer div.containerChallengesAndExperience div.challenges,
-    .cardContainer div.containerChallengesAndExperience div.experience {
-        width: 100%;
-
-        background-color: var(--blue-very-light);
-    }
-    .cardContainer div.containerChallengesAndExperience div div p {
         color: var(--blue);
-    }
-    .cardContainer div.containerChallengesAndExperience div div span {
-        max-width: 22rem;
-    }
-}
-
-
-
-@media(max-width: 520px) {
-    .cardContainer div.containerChallengesAndExperience div div span {
-        max-width: 12rem;
-    }
-}
-@media(max-width: 400px) {
-    .cardContainer div.containerChallengesAndExperience div div span {
-        max-width: 10rem;
-    }
-}
-@media(max-width: 350px) {
-    .cardContainer {
-        margin: 1.5rem auto;
-    }
-    .cardContainer div.containerChallengesAndExperience div div span {
-        max-width: 6rem;
-    }
-    .cardContainer div.spaceSeparation  {
-        padding-left: 1rem;
     }
 }
