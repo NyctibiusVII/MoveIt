@@ -8,7 +8,7 @@ import {
 } from 'react'
 import { ImgSize } from '../interface/imgSize'
 
-import levelImage from '../../public/icons/level.svg'
+import levelUpImage from '../../public/icons/level.svg'
 
 import Image from 'next/image'
 
@@ -22,7 +22,7 @@ export function CardUser() {
 
     return (
         <div className={styles.cardContainer}>
-            <div>
+            <div className={styles.photo}>
                 <Image
                     src={__avatar_url}
                     alt="Foto de perfil"
@@ -33,37 +33,34 @@ export function CardUser() {
                     quality={100}
                     priority
                 />
-                <div className={styles.spaceSeparation}>
-                    <div className={`${styles.cardUsername} cardUsername`}>
-                        <strong>{__username}</strong>
+            </div>
+
+            <div className={styles.info}>
+                <div className={styles.username}>
+                    <strong>{__username}</strong>
+                </div>
+                <div className={styles.level}>
+                    <div>
+                        <Image
+                            src={levelUpImage}
+                            alt="Level"
+                            layout="fixed"
+                            width={ImgSize.Custom_x10}
+                            height={ImgSize.Custom_x10 + 2}
+                        />
                     </div>
-                    <div className={styles.levelContainer}>
-                        <div className={styles.levelImage}>
-                            <Image
-                                src={levelImage}
-                                alt="Level"
-                                width={ImgSize.Micro_x12}
-                                height={ImgSize.Micro_x12 + 2}
-                            />
-                        </div>
-                        <p>Level</p>
-                        <span>{level}</span>
-                    </div>
+                    <p>Level</p>
+                    <span>{level}</span>
                 </div>
             </div>
 
-            <div className={styles.containerChallengesAndExperience}>
-                <div className={styles.challenges}>
-                    <div>
-                        <span>{challengesCompleted}</span>&nbsp;<p>completados</p>
-                    </div>
-                </div>
-
-                <div className={styles.experience}>
-                    <div>
-                        <span>{currentExperience}</span>&nbsp;<p>xp</p>
-                    </div>
-                </div>
+            <div className={styles.challenges}>
+                <span>{challengesCompleted}</span>
+                <p>completados</p>
+            </div>
+            <div className={styles.xp}>
+                <span>{currentExperience}</span>
+                <p>xp</p>
             </div>
         </div>
     )
