@@ -10,10 +10,10 @@
     min-width: 22rem;
     height: 5rem;
 
-    background: linear-gradient(90deg, var(--blue-dark) 0%, rgba(73, 83, 184, 0.2) 100%);
-    color: var(--white);
+    background: var(--lf-background);
+    color: var(--lf-foreground);
     outline: none;
-    border: 0;
+    border: 0.063rem solid var(--lf-input-border);
 
     font-size: 1.30rem;
     font-weight: 400;
@@ -26,29 +26,17 @@
     -ms-border-radius: 5px 0px 0px 5px;
     -o-border-radius: 5px 0px 0px 5px;
 }
-
-.inputUsername::placeholder {
-    color: transparent;
-}
-.inputUsername:not(.inputUsername:focus)::placeholder {
-    color: var(--text-highlight);
-}
-.inputUsername:not(:placeholder-shown)~.btnSubmit {
-    background: var(--green);
-}
-.inputUsername:not(:placeholder-shown)~.btnSubmit {
-    background: var(--green);
-}
+.inputUsername::placeholder { color: var(--lf-input-placeholder); }
+.inputUsername:focus::placeholder { color: var(--lf-input-placeholder-focus) }
+.inputUsername:not(:placeholder-shown)~.btnSubmit { background: var(--lf-input-placeholder-filled-btn); }
 .inputUsername:hover,
-.inputUsername:focus {
-    border: 1px solid var(--blue-input-border);
-}
+.inputUsername:focus { border: 0.063rem solid var(--lf-input-border-hover); }
 
 .btnSubmit {
     width: 5rem;
     height: 5rem;
 
-    background: var(--blue-dark);
+    background: var(--lf-bg-btn);
     outline: none;
     border: 0;
 
@@ -81,18 +69,14 @@
 
 /* Tablet & Mobile */
 @media (max-width: 500px) {
-    .form {
-        justify-content: center;
-    }
+    .form { justify-content: center; }
     .inputUsername {
         min-width: 10rem;
         height: 3.5rem;
 
         padding-left: 1.4rem;
     }
-    .inputUsername::placeholder {
-        font-size: 0.91rem;
-    }
+    .inputUsername::placeholder { font-size: 0.91rem; }
     .btnSubmit {
         width: 3.5rem;
         height: 3.5rem;

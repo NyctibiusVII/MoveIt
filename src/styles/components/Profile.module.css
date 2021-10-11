@@ -13,11 +13,9 @@
     -ms-border-radius: 50%;
     -o-border-radius: 50%;
 }
-.profileContainer div.separation {
-    margin-left: 1.5rem;
-}
+.profileContainer div.separation { margin-left: 1.5rem; }
 .profileContainer div.separation strong {
-    color: var(--title);
+    color: var(--profile-username);
     font-size: 1.5rem;
     font-weight: 600;
 }
@@ -27,9 +25,5 @@
     display: flex;
     align-items: center;
 }
-.profileContainer div.separation div.levelContainer div.levelImage {
-    margin-right: 0.5rem;
-}
-.profileContainer div.separation div.levelContainer p {
-    font-size: 1rem;
-}
+.profileContainer div.separation div.levelContainer div.levelImage { margin-right: 0.5rem; }
+.profileContainer div.separation div.levelContainer p { font-size: 1rem; }

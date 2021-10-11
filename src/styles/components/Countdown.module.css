@@ -1,6 +1,6 @@
 /* Countdown */
 .countdownContainer {
-  color: var(--title);
+  color: var(--cd-timer-background);
   font-family: Rajdhani;
   font-weight: 600;
 
@@ -8,8 +8,8 @@
   align-items: center;
 }
 .countdownContainer > div {
-  background: var(--white);
-  box-shadow: 0 0 68px rgba(0, 0, 0, 0.05);
+  background: var(--cd-timer-foreground);
+  box-shadow: 0 0 68px var(--shadow-5p);
 
   font-size: 8.5rem;
   text-align: center;
@@ -25,15 +25,9 @@
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
 }
-.countdownContainer > div span {
-  flex: 1;
-}
-.countdownContainer > div span:first-child {
-  border-right: 1px solid #f0f1f3;
-}
-.countdownContainer > div span:last-child {
-  border-left: 1px solid #f0f1f3;
-}
+.countdownContainer > div span { flex: 1; }
+.countdownContainer > div span:first-child { border-right: 0.063rem solid var(--cd-timer-divisor-line); }
+.countdownContainer > div span:last-child  { border-left:  0.063rem solid var(--cd-timer-divisor-line); }
 .countdownContainer > span {
   font-size: 6.25rem;
 
@@ -45,8 +39,8 @@
   width: 100%;
   height: 5rem;
 
-  background: var(--blue);
-  color: var(--white);
+  background: var(--cd-btn-bg-start-cycle);
+  color: var(--cd-btn-fg-start-cycle);
   font-size: 1.25rem;
   font-weight: 600;
 
@@ -73,24 +67,22 @@
 
   overflow: hidden;
 }
-.countdownButton:not(:disabled):hover {
-  background: var(--blue-dark);
-}
+.countdownButton:not(:disabled):hover { background: var(--cd-btn-bg-start-cycle-hover); }
 .countdownButton p {
   font-size: initial;
   font-weight: 100;
 }
 .countdownButtonActive {
-  background: var(--white);
-  color: var(--text);
+  background: var(--cd-btn-bg-abandon-cycle);
+  color: var(--cd-btn-fg-abandon-cycle);
 }
 .countdownButtonActive:not(:disabled):hover {
-  background: var(--red);
-  color: var(--white);
+  background: var(--cd-btn-bg-abandon-cycle-hover);
+  color: var(--cd-btn-fg-abandon-cycle-hover);
 }
 .countdownButton:disabled {
-  background: var(--white);
-  color: var(--text);
+  background: var(--cd-bg-btn-closed-cycle);
+  color: var(--cd-fg-btn-closed-cycle);
 
   cursor: not-allowed;
 }
@@ -98,7 +90,7 @@
 /* ProgressBarCountdown */
 .countdownButton > .currentCountdown {
   height: 4px;
-  background: var(--gray-line);
+  background: var(--line);
 
   position: absolute;
   bottom: 0;
@@ -107,7 +99,7 @@
 }
 .countdownButton > .currentCountdown > div {
   height: 100%;
-  background: var(--green);
+  background: var(--cd-progress-bar);
 
   border-radius: 0 5px 5px 0;
   -webkit-border-radius: 0 5px 5px 0;

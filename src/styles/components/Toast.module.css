@@ -1,8 +1,8 @@
 .container {
     width: 100%;
 
-    color: var(--white);
-    box-shadow: 20px 20px 20px 0 rgba(0, 0, 0, 0.05), -7px -7px 20px 0px rgba(0, 0, 0, 0.01);
+    color: var(--toast-foreground);
+    box-shadow: 20px 20px 20px 0 var(--shadow-5p), -7px -7px 20px 0px var(--shadow-1p);
     font-size: 1.30rem;
     font-weight: 400;
 
@@ -23,9 +23,7 @@
     z-index: 50;
 }
 
-.subContainer {
-    display: flex;
-}
+.subContainer { display: flex; }
 .iconContainer {
     display: flex;
     margin-right: 0.5rem;
@@ -75,8 +73,4 @@
         padding: 1.2rem;
     }
 }
-@media(max-width: 450px) {
-    .container {
-        padding: 1rem;
-    }
-}
+@media(max-width: 450px) { .container { padding: 1rem; } }

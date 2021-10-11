@@ -41,7 +41,7 @@
     width: 1px;
     height: 100%;
 
-    background-color: var(--white);
+    background-color: var(--btn-logged-space-separation-bar);
 
     margin: 0 0.8rem;
 }
@@ -51,6 +51,6 @@
 }
 
 .btnLL span {
-    color: var(--white);
+    color: var(--btn-logged-foreground);
     font: 400 1.05rem 'Lato', sans-serif;
 }

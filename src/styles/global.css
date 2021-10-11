@@ -1,101 +1,244 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    -webkit-transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    -moz-transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    -ms-transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    -o-transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 }
 :root {
- /**
-  * Aplicada a regra de harmonia de cores.
-  *
-  * O tema GREEN, BLUE, YELLOW e BROWN é apropriado
-  * para daltônicos (Deuteranopia, Protanopia e Tritanopia).
-  *
-  * - Adobe Color
-  */
-  --white: #fff;
-  --black: #000;
+    --white : #fff;
+    --black : #000;
 
-  /* - THEME RED, GREEN, BLUE, YELLOW e BROWN - */
-  --red-very-light : #fff5f5;
-  --red-light      : #fa4362;
-  --red            : #e83f5b;
-  --red-dark       : #691c29;
+    --grey-100 : #f2f3f5;
+    --grey-200 : #dcdde0;
+    --grey-300 : #d3d3d3;
+    --grey-400 : #c9d1d9;
+    --grey-500 : #babecc;
+    --grey-600 : #808080;
+    --grey-700 : #666;
+    --grey-transparent-100 : #f2f3f5cc;
 
-  --green-very-light : #f7fff5;
-  --green-light      : #55ed2f;
-  --green            : #4cd62b;
-  --green-dark       : #1f5711;
+    --red-50  : #fff5f5;
+    --red-100 : #ffafbf;
+    --red-200 : #FF5555;
+    --red-300 : #fa4362;
+    --red-400 : #e83f5b;
+    --red-transparent-100 : #FA4362b3;
+    --red-transparent-200 : #f8514966;
 
-  --blue-very-light   : #f5fcff;
-  --blue-light        : #6470fa;
-  --blue              : #5965e0;
-  --blue-dark         : #4d56bf;
-  --blue-input-border : #414aa3;
-  --blue-twitter      : #2aa9e0;
+    --green-50 : #f7fff5;
+    --green-100 : #50FA7B;
+    --green-200 : #4cd62b;
 
-  --yellow-light : #ffffe3;
-  --yellow       : #fff0c8;
-  --yellow-dark  : #f2dea7;
+    --blue-50   : #f5fcff;
+    --blue-100  : #b3b9ff;
+    --blue-200  : #54abf3;
+    --blue-300  : #2aa9e0;
+    --blue-400  : #6470fa;
+    --blue-500  : #5f6bed;
+    --blue-600  : #5965e0;/* ~ 1° */
+    --blue-700  : #4f58c4;
+    --blue-800  : #4d56bf;
+    --blue-900  : #4953b8;
+    --blue-1000 : #414aa3;
+    --blue-1100 : #3f479e;
+    --blue-1200 : #2e384d;
+    --blue-transparent-100 : #6470fab3;
+    --blue-transparent-200 : #5965e080;
+    --blue-transparent-300 : #4953b833;
 
-  --brown-light : #cf8659;
-  --brown       : #b97850;
-  --brown-dark  : #a5694b;
-  /*--------------------------------------------*/
+    --yellow-100 : #fff0c8;
+    --yellow-200 : #ffcb2f;
 
-  --background : #f2f3f5;
-  --gray-line  : #dcdde0;
-  --shadow     : #babecc;
-  --dark-gray  : #4b4b4b;
+    --brown-100 : #b97850;
+    --brown-200 : #a5694b;
 
-  --background-404 : #ffafbf;
+    /* ~~~~~~~~~~~~~~~~~ Geral ~~~~~~~~~~~~~~~~~ */
+    --shadow-5p      : rgb(0 0 0 / 5%);
+    --shadow-1p      : rgb(0 0 0 / 1%);
+    --text           : var(--grey-700);
 
-  --title : #2e384d;
+    /* ~~~~~~~~~~~~~~~ JSON Code ~~~~~~~~~~~~~~~ */
+    /* Colors ~ Dracula Theme */
+    --code-background : #282A36;
+    --code-foreground : #F8F8F2;
+    --code-selection  : #44475A;
+    --code-comment    : #6272A4;
+    --code-red        : #FF5555;
+    --code-orange     : #FFB86C;
+    --code-yellow     : #F1FA8C;
+    --code-green      : #50FA7B;
+    --code-purple     : #BD93F9;
+    --code-cyan       : #8BE9FD;
+    --code-pink       : #FF79C6;
 
-  --text-highlight : #b3b9ff;
-  --text           : #666;
+    /* ~~~~~~~~ Floating Action Button ~~~~~~~~~ */
+    /* Sizes ~ Material Design */
+    --fab-size-placement : 1rem;
+    --fab-size-icon      : 1rem;
+    --fab-size-regular   : 3.5rem;
+    --fab-size-mini      : 2.5rem;
+}
+[data-theme='light'] {
+    /* ~~~~~~~~~~~~~~~~~ Geral ~~~~~~~~~~~~~~~~~ */
+    --background               : var(--grey-100);
+    --line                     : var(--grey-200);
+    --title                    : var(--blue-1200);
+    /* Scrollbar ------------ */
+    --scrollbar-bg             : transparent;
+    --scrollbar-thumb-bg       : var(--blue-600);
+    --scrollbar-corner-bg      : transparent;
+    /* Profile -------------- */
+    --profile-username         : var(--blue-1200);
+    /* Experience Bar ------- */
+    --eb-background            : var(--green-200);
+    --eb-current-xp-background : var(--white);
+    /* Default Modal -------- */
+    --dm-bg-overlay            : var(--grey-transparent-100);
+    --dm-background            : var(--white);
+    /* 404 Page ------------- */
+    --404-background           : var(--red-100);
+    --404-text                 : var(--white);
+    /* Login Page ----------- */
+    --lp-background            : var(--blue-600);
+    --lp-welcome               : var(--white);
+    --lp-text                  : var(--blue-100);
+    /* Settings Page -------- */
+    --stt-title                : var(--blue-600);
+    /* Toast ---------------- */
+    --toast-foreground         : var(--white);
+    --toast-success            : var(--green-100);
+    --toast-warn               : var(--yellow-200);
+    --toast-error              : var(--red-200);
+    --toast-info               : var(--blue-200);
+    /* Cookie Consent ------- */
+    --ckc-background           : var(--yellow-100);
+    --ckc-bg-btn               : var(--brown-100);
+    --ckc-bg-btn-hover         : var(--brown-200);
+    --ckc-fg-btn               : var(--white);
 
-  /* Floating Action Button */
-  --FAB-light : #5f6bed;
-  --FAB       : #5965E0;
-  --FAB-dark  : #4953b8;
+    /* ~~~~~~~~~~~~~~ Login Form ~~~~~~~~~~~~~~~ */
+    --lf-background                   : linear-gradient(90deg, var(--blue-400) 0%, var(--blue-transparent-200) 100%);
+    --lf-foreground                   : var(--white);
+    --lf-bg-btn                       : var(--blue-800);
+    --lf-input-border                 : transparent;
+    --lf-input-border-hover           : var(--blue-1000);
+    --lf-input-placeholder            : var(--blue-100);
+    --lf-input-placeholder-focus      : transparent;
+    --lf-input-placeholder-filled-btn : var(--green-200);
 
-  --mini-FAB-light : #4F58C4;
-  --mini-FAB       : #4953b8;
-  --mini-FAB-dark  : #3F479E;
+    /* ~~~~~~~~ Logged (in/out) Button ~~~~~~~~~ */
+    --btn-logged                      : var(--blue-1200);
+    --btn-logged-in                   : var(--blue-400);
+    --btn-logged-out                  : var(--red-300);
+    --btn-logged-in-transparent       : var(--blue-transparent-100);
+    --btn-logged-out-transparent      : var(--red-transparent-100);
+    --btn-logged-foreground           : var(--white);
+    --btn-logged-space-separation-bar : var(--white);
 
-  /* Logged (in/out) Button */
-  --btn-logged           : #2e384d;
-  --btn-logged-out       : var(--red-light);
-  --btn-logged-in        : var(--blue-light);
-  --pulse-btn-logged-out : #FA4362b3;
-  --pulse-btn-logged-in  : #6470fab3;
+    /* ~~~~~~~ Button Share With Twitter ~~~~~~~ */
+    --bswt-background       : var(--blue-50);
+    --bswt-background-hover : var(--blue-300);
+    --bswt-foreground       : var(--blue-300);
+    --bswt-foreground-hover : var(--white);
 
-  /* TOAST-colors */
-  --toast-success : #4cd62b; /* Ratio 1.92 */
-  --toast-warn    : #ffc107; /* Ratio 1.63 */
-  --toast-error   : #f54260; /* Ratio 3.60 */
-  --toast-info    : #2195f3; /* Ratio 3.15 */
+    /* ~~~~~~~~~~~~~~~ Card User ~~~~~~~~~~~~~~~ */
+    --cu-background               : var(--white);
+    --cu-username                 : var(--blue-1200);
+    --cu-level-background         : var(--green-50);
+    --cu-level-foreground         : var(--green-200);
+    --cu-challenges-xp-background : var(--blue-50);
+    --cu-challenges-xp-foreground : var(--blue-600);
+    --cu-challenges-xp-num        : var(--blue-600);
 
-  /* JSON-colors */
-  --dark-background : #282a36;
-  --comment         : #6272a4;
-  --variable        : #bd93f9;
-  --pink-dot        : #ff79c6;
-  --yellow-text     : #f1fa8c;
-  --gray-text       : #666;
+    /* ~~~~~~~~~~~~ Level Up Modal ~~~~~~~~~~~~~ */
+    --lum-title            : var(--blue-1200);
+    --lum-text             : var(--grey-700);
+    --lum-btn-close        : transparent;
+    --lum-level-num        : var(--blue-600);
+    --lum-level-num-shadow : var(--grey-200);
 
-  /* Danger Zone */
-  --border-danger      : #f8514966;
-  --box-shadow-input   : #5965e080;
-  --danger-red         : var(--red-light);
-  --danger-gray        : var(--background);
-  --danger-description : #c9d1d9;
+    /* ~~~~~~~~~~~~~~~ Countdown ~~~~~~~~~~~~~~~ */
+    --cd-timer-background           : var(--blue-1200);
+    --cd-timer-foreground           : var(--white);
+    --cd-timer-divisor-line         : var(--grey-100);
+    --cd-btn-bg-start-cycle         : var(--blue-600);
+    --cd-btn-fg-start-cycle         : var(--white);
+    --cd-btn-bg-start-cycle-hover   : var(--blue-800);
+    --cd-btn-bg-abandon-cycle       : var(--white);
+    --cd-btn-fg-abandon-cycle       : var(--grey-700);
+    --cd-btn-bg-abandon-cycle-hover : var(--red-400);
+    --cd-btn-fg-abandon-cycle-hover : var(--white);
+    --cd-bg-btn-closed-cycle        : var(--white);
+    --cd-fg-btn-closed-cycle        : var(--grey-700);
+    --cd-progress-bar               : var(--green-200);
 
-  /* MATERIAL DESIGN float action button sizes */
-  --regular-size   : 56px;
-  --mini-fab-size  : 40px;
-  --side-placement : 16px;
-  --plus-size      : 16px; /*24px*/
+    /* ~~~~~~~~~~~~~ Challenge Box ~~~~~~~~~~~~~ */
+    --cb-background            : var(--white);
+    --cb-earn-xp               : var(--blue-600);
+    --cd-new-challenge-title   : var(--blue-1200);
+    --cb-btn-success           : var(--green-50);
+    --cb-btn-success-hover     : var(--green-200);
+    --cb-btn-txt-success       : var(--green-200);
+    --cb-btn-txt-success-hover : var(--white);
+    --cb-btn-Fail              : var(--red-50);
+    --cb-btn-Fail-hover        : var(--red-400);
+    --cb-btn-txt-Fail          : var(--red-400);
+    --cb-btn-txt-Fail-hover    : var(--white);
+
+    /* ~~~~~~~~~~~~~~ Danger Zone ~~~~~~~~~~~~~~ */
+    --dz-divisor-line                 : var(--grey-200);
+    --dz-border                       : var(--red-transparent-200);
+    --dz-modal-input-box-shadow       : var(--blue-transparent-200);
+    --dz-modal-input-border           : var(--grey-300);
+    --dz-modal-input-border-hover     : var(--grey-600);
+    --dz-modal-input-text             : var(--grey-700);
+    --dz-bg-btn                       : var(--red-300);
+    --dz-bg-btn-hover                 : var(--white);
+    --dz-text-btn                     : var(--white);
+    --dz-text-btn-hover               : var(--red-300);
+    --dz-modal-bg-btn-valid           : var(--red-300);
+    --dz-modal-bg-btn-valid-hover     : var(--white);
+    --dz-modal-bg-btn-invalid         : var(--grey-100);
+    --dz-modal-desc-btn-valid         : var(--white);
+    --dz-modal-desc-btn-valid-hover   : var(--red-300);
+    --dz-modal-desc-btn-invalid       : var(--grey-400);
+    --dz-modal-border-btn-valid       : transparent;
+    --dz-modal-border-btn-valid-hover : var(--red-300);
+    --dz-modal-border-btn-invalid     : transparent;
+
+    /* ~~~~~~~~~~~~~~ Appearance ~~~~~~~~~~~~~~~ */
+    /* Active Theme */
+    --at-btn-background       : var(--blue-400);
+    --at-btn-foreground       : var(--white);
+    --at-btn-border           : var(--blue-800);
+    --at-card-shadow-outset-1 : var(--white);
+    --at-card-shadow-outset-2 : var(--grey-500);
+    --at-toast-background     : var(--white);
+
+    /* ~~~~~~~~~~~~~~~~ Sidebar ~~~~~~~~~~~~~~~~ */
+    /* Active Page */
+    --sd-border : var(--blue-600);
+
+    /* ~~~~~~~~ Floating Action Button ~~~~~~~~~ */
+    --fab-foreground   : var(--white);
+    --fab-light        : var(--blue-500);
+    --fab-default      : var(--blue-600);
+    --fab-dark         : var(--blue-900);
+    --fab-mini-light   : var(--blue-700);
+    --fab-mini-default : var(--blue-900);
+    --fab-mini-dark    : var(--blue-1100);
+    /* Active Page */
+    --fab-ap-background        : var(--white);
+    --fab-ap-background-hover  : var(--grey-100);
+    --fab-ap-background-active : var(--blue-50);
+}
+[data-theme='dark'] {
+
 }
 
 body {
@@ -106,205 +249,161 @@ body {
 body,
 button,
 input,
-textarea {
-    font: 400 1rem "inter", sans-serif;
-}
+textarea { font: 400 1rem "inter", sans-serif; }
 
-button {
-  cursor: pointer;
-}
+button { cursor: pointer; }
 
 a {
-  color: inherit;
-  text-decoration: none;
+    color: inherit;
+    text-decoration: none;
 }
 ol,
 ul {
-  padding-left: 0;
-  margin-top: 0;
-  margin-bottom: 0;
+    padding-left: 0;
+
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 
 
-@media (max-width: 1080px) {
-  html {
-    font-size: 93.75%;
-  }
-}
-@media (max-width: 600px) {
-  html {
-    font-size: 87.5%;
-  }
-}
+@media (max-width: 1080px) { html { font-size: 93.75%; } }
+@media (max-width: 600px) { html { font-size: 87.5%; } }
 
 
 
 /* isActivePage - _Sidebar */
 .activePage {
-  border-left: 5px solid var(--blue) !important;
+    border-left: 0.313rem solid var(--sd-border) !important;
 
-  opacity: 1 !important;
+    opacity: 1 !important;
 }
 .activePage img {
-  filter: grayscale(0) !important;
-  -webkit-filter: grayscale(0) !important;
+    filter: grayscale(0) !important;
+    -webkit-filter: grayscale(0) !important;
 
-  opacity: 1 !important;
+    opacity: 1 !important;
 }
 
 
 
 /* isCheckedButton- _FloatingActionButton */
 .activePageButton {
-  background-color: var(--white);
+    background-color: var(--fab-ap-background);
 
-  transition: all 0.2s !important;
-  -webkit-transition: all 0.2s !important;
-  -moz-transition: all 0.2s !important;
-  -ms-transition: all 0.2s !important;
-  -o-transition: all 0.2s !important;
+    transition: all 0.2s !important;
+    -webkit-transition: all 0.2s !important;
+    -moz-transition: all 0.2s !important;
+    -ms-transition: all 0.2s !important;
+    -o-transition: all 0.2s !important;
 }
-.activePageButton:hover {
-  background-color: var(--background);
-}
-.activePageButton:active {
-  background-color: var(--blue-very-light);
-}
+.activePageButton:hover  { background-color: var(--fab-ap-background-hover); }
+.activePageButton:active { background-color: var(--fab-ap-background-active); }
 .activePageButton img {
-  filter: grayscale(0) !important;
-  -webkit-filter: grayscale(0) !important;
+    filter: grayscale(0) !important;
+    -webkit-filter: grayscale(0) !important;
 
-  opacity: 1 !important;
+    opacity: 1 !important;
 }
 .FABchecked img {
-  transform: rotatez(-45deg);
-  -webkit-transform: rotatez(-45deg);
-  -moz-transform: rotatez(-45deg);
-  -ms-transform: rotatez(-45deg);
-  -o-transform: rotatez(-45deg);
+    transform: rotatez(-45deg);
+    -webkit-transform: rotatez(-45deg);
+    -moz-transform: rotatez(-45deg);
+    -ms-transform: rotatez(-45deg);
+    -o-transform: rotatez(-45deg);
 }
 .FABenabled button#FABhome {
-  transform: translateY(-5em);
-  -webkit-transform: translateY(-5em);
-  -moz-transform: translateY(-5em);
-  -ms-transform: translateY(-5em);
-  -o-transform: translateY(-5em);
+    transform: translateY(-5em);
+    -webkit-transform: translateY(-5em);
+    -moz-transform: translateY(-5em);
+    -ms-transform: translateY(-5em);
+    -o-transform: translateY(-5em);
 }
 .FABenabled button#FABleaderbord {
-  transition-delay: 0.1s;
+    transition-delay: 0.1s;
 
-  transform: translateX(-3.5em) translateY(-3.5em);
-  -webkit-transform: translateX(-3.5em) translateY(-3.5em);
-  -moz-transform: translateX(-3.5em) translateY(-3.5em);
-  -ms-transform: translateX(-3.5em) translateY(-3.5em);
-  -o-transform: translateX(-3.5em) translateY(-3.5em);
+    transform: translateX(-3.5em) translateY(-3.5em);
+    -webkit-transform: translateX(-3.5em) translateY(-3.5em);
+    -moz-transform: translateX(-3.5em) translateY(-3.5em);
+    -ms-transform: translateX(-3.5em) translateY(-3.5em);
+    -o-transform: translateX(-3.5em) translateY(-3.5em);
 }
 .FABenabled button#FABsettings {
-  transition-delay: 0.2s;
+    transition-delay: 0.2s;
 
-  transform: translateX(-5em);
-  -webkit-transform: translateX(-5em);
-  -moz-transform: translateX(-5em);
-  -ms-transform: translateX(-5em);
-  -o-transform: translateX(-5em);
+    transform: translateX(-5em);
+    -webkit-transform: translateX(-5em);
+    -moz-transform: translateX(-5em);
+    -ms-transform: translateX(-5em);
+    -o-transform: translateX(-5em);
 }
 
 
 
 /* activeTheme - Theme */
 .activeTheme {
-    background: var(--blue-light) !important;
-    color: white !important;
-    border-right: 5px solid var(--blue-dark) !important;
+    background: var(--at-btn-background) !important;
+    color: var(--at-btn-foreground) !important;
+    border-right: 0.313rem solid var(--at-btn-border) !important;
 }
-
-
 
 /* colorDisplays - Theme */
-.colorDisplays svg {
-  animation: fadeIn 0.5s !important;
-}
+.colorDisplays svg { animation: fadeIn 0.5s !important; }
 
 
 
 /* Animations */
 @keyframes sideSlideOn {
-  from {
-      transform: translateX(0);
-      -webkit-transform: translateX(0);
-      -moz-transform: translateX(0);
-      -ms-transform: translateX(0);
-      -o-transform: translateX(0);
-}
-  to {
-      transform: translateX(-100%);
-      -webkit-transform: translateX(-100%);
-      -moz-transform: translateX(-100%);
-      -ms-transform: translateX(-100%);
-      -o-transform: translateX(-100%);
-}
-
+    from {
+        transform: translateX(0);
+        -webkit-transform: translateX(0);
+        -moz-transform: translateX(0);
+        -ms-transform: translateX(0);
+        -o-transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+        -webkit-transform: translateX(-100%);
+        -moz-transform: translateX(-100%);
+        -ms-transform: translateX(-100%);
+        -o-transform: translateX(-100%);
+    }
 }
 @keyframes sideSlideOff {
-  from {
-      transform: translateX(-100%);
-      -webkit-transform: translateX(-100%);
-      -moz-transform: translateX(-100%);
-      -ms-transform: translateX(-100%);
-      -o-transform: translateX(-100%);
-  }
-  to {
-      transform: translateX(0);
-      -webkit-transform: translateX(0);
-      -moz-transform: translateX(0);
-      -ms-transform: translateX(0);
-      -o-transform: translateX(0);
-  }
+    from {
+        transform: translateX(-100%);
+        -webkit-transform: translateX(-100%);
+        -moz-transform: translateX(-100%);
+        -ms-transform: translateX(-100%);
+        -o-transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+        -webkit-transform: translateX(0);
+        -moz-transform: translateX(0);
+        -ms-transform: translateX(0);
+        -o-transform: translateX(0);
+    }
 }
 
 @keyframes fadeIn {
-  from {
-      opacity: 0;
-  }
-  to {
-      opacity: 1;
-  }
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 @keyframes fadeOut {
-  from {
-      opacity: 1;
-  }
-  to {
-      opacity: 0;
-  }
+    from { opacity: 1; }
+    to { opacity: 0; }
 }
 
 @keyframes pulse-red {
-  0% {
-      box-shadow: 0 0 0 0  var(--pulse-btn-logged-out);
-  }
-
-  70% {
-      box-shadow: 0 0 0 10px transparent;
-  }
-
-  100% {
-      box-shadow: 0 0 0 0 transparent;
-  }
+    0% { box-shadow: 0 0 0 0  var(--btn-logged-out-transparent); }
+    70% { box-shadow: 0 0 0 0.625 transparent; }
+    100% { box-shadow: 0 0 0 0 transparent; }
 }
 @keyframes pulse-blue {
-  0% {
-      box-shadow: 0 0 0 0  var(--pulse-btn-logged-in);
-  }
-
-  70% {
-      box-shadow: 0 0 0 10px transparent;
-  }
-
-  100% {
-      box-shadow: 0 0 0 0 transparent;
-  }
+    0% { box-shadow: 0 0 0 0  var(--btn-logged-in-transparent); }
+    70% { box-shadow: 0 0 0 0.625rem transparent; }
+    100% { box-shadow: 0 0 0 0 transparent; }
 }
 
 
@@ -321,44 +420,25 @@ ul {
 
 
 /* 1 */
-::-webkit-scrollbar {
-  width: 7px;
-}
-::-webkit-scrollbar:horizontal {
-  height: 7px;
-}
+::-webkit-scrollbar            { width:  0.438rem; }
+::-webkit-scrollbar:horizontal { height: 0.438rem; }
 ::-webkit-scrollbar,
-::-webkit-scrollbar:horizontal {
-  background: transparent;   /*default: #F4F4F4*/
-}
+::-webkit-scrollbar:horizontal { background: var(--scrollbar-bg); }
 /* 5 */
 ::-webkit-scrollbar-thumb {
-  background: var(--blue);   /*default: #dad7d7*/
+    background: var(--scrollbar-thumb-bg);
 
-  border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
+    border-radius: 0.313rem;
+    -webkit-border-radius: 0.313rem;
+    -moz-border-radius: 0.313rem;
+    -ms-border-radius: 0.313rem;
+    -o-border-radius: 0.313rem;
 }
 /* 6 */
-::-webkit-scrollbar-corner {
-  background: transparent;
-}
+::-webkit-scrollbar-corner { background: var(--scrollbar-corner-bg); }
 
 
-
-/* Card user */
-span::-webkit-scrollbar,
-strong::-webkit-scrollbar,
-.cardUsername::-webkit-scrollbar {
-  height: 2px;
-}
 
 /* Json */
-.jsonUser::-webkit-scrollbar {
-  height: 6px;
-}
-.jsonUser::-webkit-scrollbar-thumb {
-  background: var(--variable);
-}
+.jsonUser::-webkit-scrollbar       { height: 0.375rem; }
+.jsonUser::-webkit-scrollbar-thumb { background: var(--variable); }

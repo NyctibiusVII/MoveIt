@@ -1,7 +1,7 @@
 .container {
     height: 100vh;
 
-    background-color: var(--background-404);
+    background-color: var(--404-background);
 
     display: flex;
     justify-content: center;
@@ -37,7 +37,7 @@
 .container main div.pictures button > div:hover ::after {
     content: "Home";
 
-    color: var(--white);
+    color: var(--404-text);
     font: normal 1.5rem 'Indie Flower', cursive;
 
     display: flex;
@@ -61,7 +61,7 @@
 
 .container main h1,
 .container main h3 {
-    color: var(--white);
+    color: var(--404-text);
 
     font: normal 1.5rem 'Indie Flower', cursive;
     text-align: center;

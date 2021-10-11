@@ -16,7 +16,7 @@
 .light,
 .dark,
 .custom {
-    box-shadow: -3px -3px 7px var(--white), 3px 3px 5px var(--shadow);
+    box-shadow: -3px -3px 7px var(--at-card-shadow-outset-1), 3px 3px 5px var(--at-card-shadow-outset-2);
 
     display: grid;
     grid-template-columns: 0.5fr 2.5fr;
@@ -136,13 +136,9 @@
 
 /* Copy - svg */
 .cdLight div.cdL svg,
-.cdDark div.cdD svg {
-    display: none !important;
-}
+.cdDark div.cdD svg { display: none !important; }
 .cdLight div.cdL:hover svg,
-.cdDark div.cdD:hover svg {
-    display: block !important;
-}
+.cdDark div.cdD:hover svg { display: block !important; }
 
 
 
@@ -166,7 +162,7 @@
     width: fit-content;
 
     background-color: var(--toast-success);
-    box-shadow: 10px 10px 20px 0px rgba(0, 0, 0, 0.05), -2px -2px 20px 0px rgba(0, 0, 0, 0.01);
+    box-shadow: 10px 10px 20px 0px var(--shadow-5p), -2px -2px 20px 0px var(--shadow-1p);
 
     float: right;
 
@@ -192,16 +188,14 @@
     justify-content: center;
 }
 .containerFloatingCopyText div.textContainer {
-    background-color: var(--white);
+    background-color: var(--at-toast-background);
 
     padding: 1rem 3rem;
 
     display: flex;
     flex-direction: column;
 }
-.containerFloatingCopyText div.textContainer p.copiedClipboardText {
-    font-weight: 600;
-}
+.containerFloatingCopyText div.textContainer p.copiedClipboardText { font-weight: 600; }
 .containerFloatingCopyText div.textContainer span.floatingCopyText {
     max-width: fit-content;
 

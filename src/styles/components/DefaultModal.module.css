@@ -1,5 +1,5 @@
 .overlay {
-    background: rgba(242, 243, 245, 0.8);
+    background: var(--dm-bg-overlay);
 
     padding: 1.5rem;
 
@@ -18,8 +18,8 @@
 .container {
     width: 100%;
 
-    background: var(--white);
-    box-shadow: 0 0 60px rgba(0, 0, 0, 0.05);
+    background: var(--dm-background);
+    box-shadow: 0 0 60px var(--shadow-5p);
 
     border-radius: 5px;
     -webkit-border-radius: 5px;

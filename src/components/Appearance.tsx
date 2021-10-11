@@ -72,47 +72,47 @@ export function Appearance() {
             foreground:`${DARK_iconCopy}`
         },
         {
-            variable:'--background',
+            variable:'--grey-100',
             hex:'#f2f3f5',
             foreground:`${DARK_iconCopy}`
         },
         {
-            variable:'--gray-line',
+            variable:'--grey-200',
             hex:'#dcdde0',
             foreground:`${DARK_iconCopy}`
         },
         {
-            variable:'--shadow',
+            variable:'--grey-500',
             hex:'#babecc',
             foreground:`${DARK_iconCopy}`
         },
         {
-            variable:'--text',
+            variable:'--grey-700',
             hex:'#666',
             foreground:`${LIGHT_iconCopy}`
         },
         {
-            variable:'--title',
+            variable:'--blue-1200',
             hex:'#2e384d',
             foreground:`${LIGHT_iconCopy}`
         },
         {
-            variable:'--text-highlight',
+            variable:'--blue-100',
             hex:'#b3b9ff',
             foreground:`${DARK_iconCopy}`
         },
         {
-            variable:'--blue',
+            variable:'--blue-600',
             hex:'#5965e0',
             foreground:`${LIGHT_iconCopy}`
         },
         {
-            variable:'--green',
+            variable:'--green-200',
             hex:'#4cd62b',
             foreground:`${LIGHT_iconCopy}`
         },
         {
-            variable:'--red',
+            variable:'--red-400',
             hex:'#e83f5b',
             foreground:`${LIGHT_iconCopy}`
         },

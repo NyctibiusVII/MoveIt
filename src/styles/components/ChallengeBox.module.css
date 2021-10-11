@@ -1,8 +1,8 @@
 .challengeBoxContainer {
   height: 100%;
 
-  background: var(--white);
-  box-shadow: 0 0 60px rgba(0, 0, 0, 0.05);
+  background: var(--cb-background);
+  box-shadow: 0 0 60px var(--shadow-5p);
 
   display: flex;
   flex-direction: column;
@@ -42,9 +42,7 @@
   line-height: 1.4;
 }
 /* - Next/Image */
-.challengeNotActive > div > div {
-  margin-bottom: 1rem !important;
-}
+.challengeNotActive > div > div { margin-bottom: 1rem !important; }
 
 .endTheCycle {
   padding: 3rem 0;
@@ -72,12 +70,8 @@
 
 }
 /* - Next/Image */
-.endTheCycle > div > div {
-  margin-right: 1rem !important;
-}
-.endTheCycle > div p {
-  text-align: left;
-}
+.endTheCycle > div > div { margin-right: 1rem !important; }
+.endTheCycle > div p { text-align: left; }
 
 .challengeActive {
   height: 100%;
@@ -88,13 +82,13 @@
   flex-direction: column;
 }
 .challengeActive header {
-  color: var(--blue);
+  color: var(--cb-earn-xp);
 
   font-size: 1.25rem;
   font-weight: 600;
 
   padding: 0 2rem 1.5rem;
-  border-bottom: 1px solid var(--gray-line);
+  border-bottom: 1px solid var(--line);
 }
 .challengeActive main {
   display: flex;
@@ -104,21 +98,19 @@
   justify-content: center;
 }
 .challengeActive main strong {
-  color: var(--title);
+  color: var(--cd-new-challenge-title);
 
   font-size: 2rem;
   font-weight: 600;
 
   margin: 1.5rem 0 1rem;
 }
-.challengeActive main p {
-  line-height: 1.5;
-}
+.challengeActive main p { line-height: 1.5; }
 
 .challengeBoxContainer footer {
   width: 100%;
 
-  background: var(--gray-line);
+  background: var(--line);
 
   display: grid;
   grid-template-columns: 1fr 1fr; /* or repeat(2, 1fr) */
@@ -138,7 +130,7 @@
   justify-content: center;
 
   border: 0;
-  border-top: 1px solid var(--gray-line);
+  border-top: 1px solid var(--line);
 
   transition: 0.2s;
   -webkit-transition: 0.2s;
@@ -147,22 +139,22 @@
   -o-transition: 0.2s;
 }
 .challengeBoxContainer footer button.challengeFailButton {
-  background: var(--red-very-light);
-  color: var(--red);
+  background: var(--cb-btn-Fail);
+  color: var(--cb-btn-txt-Fail);
 
   border-bottom-left-radius: 5px;
 }
 .challengeBoxContainer footer button.challengeFailButton:hover {
-  background: var(--red);
-  color: var(--white);
+  background: var(--cb-btn-Fail-hover);
+  color: var(--cb-btn-txt-Fail-hover);
 }
 .challengeBoxContainer footer button.challengeSucceededButton {
-  background: var(--green-very-light);
-  color: var(--green);
+  background: var(--cb-btn-success);
+  color: var(--cb-btn-txt-success);
 
   border-bottom-right-radius: 5px;
 }
 .challengeBoxContainer footer button.challengeSucceededButton:hover {
-  background: var(--green);
-  color: var(--white);
+  background: var(--cb-btn-success-hover);
+  color: var(--cb-btn-txt-success-hover);
 }

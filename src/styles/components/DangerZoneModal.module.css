@@ -25,17 +25,15 @@
     filter: opacity(0.5);
     -webkit-filter: opacity(0.5);
 }
-.container div p.typeText {
-    padding-top: 1rem;
-}
+.container div p.typeText { padding-top: 1rem; }
 
 .container div form .inputTypeText {
     width: 100%;
 
-    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.05), 0px 0px 20px 0px rgba(0, 0, 0, 0.05);
-    color: var(--text);
+    box-shadow: 0 0 1.25rem 0 var(--shadow-5p), 0 0 1.25rem 0 var(--shadow-5p);
+    color: var(--dz-modal-input-text);
     outline: none;
-    border: 1px solid lightgrey;
+    border: 0.063rem solid var(--dz-modal-input-border);
     font-size: 1.30rem;
     font-weight: 400;
 
@@ -43,29 +41,27 @@
 
     margin: 1rem 0;
 
-    border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
+    border-radius: 0.313rem;
+    -webkit-border-radius: 0.313rem;
+    -moz-border-radius: 0.313rem;
+    -ms-border-radius: 0.313rem;
+    -o-border-radius: 0.313rem;
 }
-.container div form .inputTypeText:hover {
-    border: 1px solid gray;
-}
+.container div form .inputTypeText:hover { border: 0.063rem solid var(--dz-modal-input-border-hover); }
 .container div form .inputTypeText:focus {
-    border: 1px solid transparent;
-    box-shadow: 0px 0px 0px 1px var(--box-shadow-input), 0px 0px 0px 2px var(--box-shadow-input), 0px 0px 0px 4px var(--box-shadow-input);
+    border: 0.063rem solid transparent;
+    box-shadow: 0 0 0 0.063rem var(--dz-modal-input-box-shadow), 0 0 0 0.125rem var(--dz-modal-input-box-shadow), 0 0 0 0.25rem var(--dz-modal-input-box-shadow);
 }
 
 .container div form .btnSubmit {
     width: 100%;
 
-    background: var(--danger-red);
-    box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.05), -1px -1px 20px 0px rgba(0, 0, 0, 0.05);
-    color: var(--white);
+    background: var(--dz-modal-bg-btn-valid);
+    box-shadow: 0.625rem 0.625rem 0.625rem 0 var(--shadow-5p), -0.063rem -0.063rem 1.25rem 0 var(--shadow-5p);
+    color: var(--dz-modal-desc-btn-valid);
     font-weight: 500;
     outline: none;
-    border: 1px solid transparent;
+    border: 0.063rem solid var(--dz-modal-border-btn-valid);
 
     padding: 1rem 0;
 
@@ -80,42 +76,35 @@
     -o-transition: 0.2s cubic-bezier(0.3,0,0.5,1);
     transition-property: color, background-color, border-color;
 
-    border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
+    border-radius: 0.313rem;
+    -webkit-border-radius: 0.313rem;
+    -moz-border-radius: 0.313rem;
+    -ms-border-radius: 0.313rem;
+    -o-border-radius: 0.313rem;
 
     cursor: pointer;
     white-space: nowrap;
 }
 .container div form :not(.inputTypeText:invalid) ~.btnSubmit:hover {
-    background: var(--white);
-    color: var(--danger-red);
-    border: 1px solid var(--danger-red);
+    background: var(--dz-modal-bg-btn-valid-hover);
+    color: var(--dz-modal-desc-btn-valid-hover);
+    border: 0.063rem solid var(--dz-modal-border-btn-valid-hover);
 }
 .container div form .inputTypeText:invalid ~.btnSubmit {
-    background: var(--danger-gray);
+    background: var(--dz-modal-bg-btn-invalid);
     box-shadow: none;
-    color: var(--danger-description);
+    color: var(--dz-modal-desc-btn-invalid);
 
     cursor: default;
 }
 
-.container div form .btnSubmit span:first-child {
-    display: block;
-}
-.container div form .btnSubmit span:last-child {
-    display: none;
-}
+.container div form .btnSubmit span:first-child { display: none; }
+.container div form .btnSubmit span:last-child  { display: block; }
 
 
 
+/* Desktop */
 @media (max-width: 450px) {
-    .container div form .btnSubmit span:first-child {
-        display: none;
-    }
-    .container div form .btnSubmit span:last-child {
-        display: block;
-    }
+    .container div form .btnSubmit span:first-child { display: block; }
+    .container div form .btnSubmit span:last-child  { display: none; }
 }

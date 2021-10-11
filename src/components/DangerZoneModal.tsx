@@ -141,8 +141,8 @@ export function DangerZoneModal() {
                             autoComplete="off"
                             required />
                         <button type="submit" className={styles.btnSubmit}>
-                            <span>Eu entendo as consequências, deletar {whichDeleteTextLowerCase}</span>
                             <span>Deletar {whichDeleteTextLowerCase}</span>
+                            <span>Eu entendo as consequências, deletar {whichDeleteTextLowerCase}</span>
                         </button>
                     </form>
                 </div>
