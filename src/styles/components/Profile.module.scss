@@ -1,0 +1,37 @@
+.profileContainer {
+    display: flex;
+    align-items: center;
+
+    /* - Next/Image */
+    > div:nth-of-type(1) {
+        width: 5.5rem;
+        height: 5.5rem;
+
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+    }
+
+    .separation {
+        margin-left: 1.5rem;
+
+        strong {
+            color: var(--profile-username);
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .levelContainer {
+            margin-top: 0.5rem;
+
+            display: flex;
+            align-items: center;
+
+            .levelImage { margin-right: 0.5rem; }
+            
+            p { font-size: 1rem; }
+        }
+    }
+}

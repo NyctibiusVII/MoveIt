@@ -6,7 +6,7 @@ import {
     useContext
 } from 'react'
 
-import styles from '../styles/components/CompletedChallenges.module.css'
+import styles from '../styles/components/CompletedChallenges.module.scss'
 
 /* ---------------------------------------------------------------------- */
 

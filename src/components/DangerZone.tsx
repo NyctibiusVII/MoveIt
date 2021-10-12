@@ -12,7 +12,7 @@ import {
 
 import Cookies from 'js-cookie'
 
-import styles from '../styles/components/DangerZone.module.css'
+import styles from '../styles/components/DangerZone.module.scss'
 
 /* ---------------------------------------------------------------------- */
 

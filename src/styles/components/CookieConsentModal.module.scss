@@ -1,0 +1,94 @@
+.containerCookieConsentModal {
+    width: 100vw;
+
+    background: url(../../../public/icons/cookie.svg) no-repeat left 5.625rem var(--ckc-background);
+
+    padding: 1rem 2rem;
+
+    position: fixed;
+    bottom: 0;
+
+    z-index: 50;
+
+    ul li {
+        list-style-type: none;
+
+        padding: 1rem;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        div {
+            &:first-of-type { padding-right: 1rem; }
+
+            &:not(div:first-of-type) button {
+                width: 100%;
+                height: 100%;
+                min-width: fit-content;
+                min-width: -webkit-fit-content;
+                min-width: -moz-fit-content;
+
+                background: var(--ckc-bg-btn);
+                color: var(--ckc-fg-btn);
+                border: 0;
+                font-size: 1.05rem;
+                font-weight: 600;
+
+                padding: 1rem 3rem;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                border-radius: 0.313rem;
+                -webkit-border-radius: 0.313rem;
+                -moz-border-radius: 0.313rem;
+                -ms-border-radius: 0.313rem;
+                -o-border-radius: 0.313rem;
+
+                transition: 0.2s ease-in-out;
+                -webkit-transition: 0.2s ease-in-out;
+                -moz-transition: 0.2s ease-in-out;
+                -ms-transition: 0.2s ease-in-out;
+                -o-transition: 0.2s ease-in-out;
+
+                &:hover { background: var(--ckc-bg-btn-hover); }
+            }
+        }
+    }
+}
+
+
+
+/* Mobile | Tablet */
+@media (max-width: 820px) {
+    .containerCookieConsentModal ul li {
+        display: block;
+
+        div:first-of-type {
+            padding-right: 0;
+
+            display: flex;
+            flex-direction: column;
+
+            strong { margin-bottom: 0.313rem; }
+        }
+        div:not(div:first-of-type) button {
+            margin-top: 1rem;
+
+            padding: 1rem;
+        }
+    }
+}
+@media (max-width: 450px) {
+    .containerCookieConsentModal {
+        padding: 0;
+
+        ul li div:first-of-type {
+            align-items: center;
+
+            p { text-align: center; }
+        }
+    }
+}

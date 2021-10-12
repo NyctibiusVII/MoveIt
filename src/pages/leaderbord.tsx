@@ -22,7 +22,7 @@ import Cookies from 'js-cookie'
 
 import Head from 'next/head'
 
-import styles from '../styles/pages/leaderbord.module.css'
+import styles from '../styles/pages/leaderbord.module.scss'
 
 /* ---------------------------------------------------------------------- */
 

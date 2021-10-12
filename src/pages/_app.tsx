@@ -19,7 +19,7 @@ import { ToastProvider }         from '../contexts/ToastContext'
 
 import Head from 'next/head'
 
-import '../styles/global.css'
+import '../styles/global.scss'
 
 /* ---------------------------------------------------------------------- */
 

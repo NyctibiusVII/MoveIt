@@ -1,0 +1,88 @@
+aside.sidebarContainer {
+    height: 100vh;
+    width: 4.5rem;
+
+    background: linear-gradient(180deg, var(--white) 0%, transparent 100%);
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+
+    filter: drop-shadow(0 0 3.75rem var(--shadow-5p));
+    -webkit-filter: drop-shadow(0 0 3.75rem var(--shadow-5p));
+
+    z-index: 10;
+
+    .subContainer {
+        height: 100%;
+        width: 100%;
+
+        position: relative;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        .logoContainer {
+            position: absolute;
+            top: 0;
+
+            margin-top: 1rem;
+        }
+
+        .mainPages,
+        .settingsPageContainer {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .settingsPageContainer {
+            position: absolute;
+            bottom: 0;
+
+            margin-bottom: 0.5rem;
+        }
+
+        button.btnPage {
+            width: calc(100% - 0.313rem); /* ~px border.btnPage */
+
+            background-color: transparent;
+            text-decoration: none;
+            outline: none;
+            border: 0;
+            border-left: solid 0.313rem transparent;
+
+            padding: 0.5rem 0;
+
+            transition: 0.2s !important;
+            -webkit-transition: 0.2s !important;
+            -moz-transition: 0.2s !important;
+            -ms-transition: 0.2s !important;
+            -o-transition: 0.2s !important;
+
+            &:hover { border-left: 0.313rem solid var(--grey-300); }
+
+            img {
+                transition: 0.2s !important;
+                -webkit-transition: 0.2s !important;
+                -moz-transition: 0.2s !important;
+                -ms-transition: 0.2s !important;
+                -o-transition: 0.2s !important;
+
+                filter: grayscale(100%);
+                -webkit-filter: grayscale(100%);
+
+                opacity: 0.4;
+            }
+        }
+    }
+}
+
+
+
+/* Mobile (_aside) */
+@media (max-width: 600px) { /* 600px ↑ aparece o aside */
+  aside.sidebarContainer { display: none; }
+}

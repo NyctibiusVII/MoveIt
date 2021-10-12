@@ -11,7 +11,7 @@ import Cookies from 'js-cookie'
 
 import Image from 'next/image'
 
-import styles from '../styles/components/Toast.module.css'
+import styles from '../styles/components/Toast.module.scss'
 
 /* ---------------------------------------------------------------------- */
 

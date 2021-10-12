@@ -12,7 +12,7 @@ import levelImage from '../../public/icons/level.svg'
 
 import Image    from 'next/image'
 
-import styles from '../styles/components/Profile.module.css'
+import styles from '../styles/components/Profile.module.scss'
 
 /* ---------------------------------------------------------------------- */
 

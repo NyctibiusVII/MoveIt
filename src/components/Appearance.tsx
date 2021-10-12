@@ -18,7 +18,7 @@ import Cookies from 'js-cookie'
 
 import Image   from 'next/image'
 
-import styles from '../styles/components/Appearance.module.css'
+import styles from '../styles/components/Appearance.module.scss'
 
 /* ---------------------------------------------------------------------- */
 
@@ -35,7 +35,7 @@ export function Appearance() {
     const [ sideSlide__, setSideSlide__ ] = useState('')
 
     const LIGHT_iconCopy = 'var(--white)'
-    const DARK_iconCopy  = 'var(--dark-gray)'
+    const DARK_iconCopy  = 'var(--grey-800)'
 
     /* ------- */ const [ lightTheme,  setLightTheme ]  = useState('')
     /* ------- */ const [ darkTheme,   setDarkTheme ]   = useState('')
@@ -230,21 +230,20 @@ export function Appearance() {
             </div>
 
             { copied && (
-                <div
-                    className={styles.containerOverlay}
+                <div className={styles.containerOverlay}
                     style={{
                         animation:       `${fade__} 0.5s, ${sideSlide__} 0.5s both`,
                         WebkitAnimation: `${fade__} 0.5s, ${sideSlide__} 0.5s both`
                     }}>
                     <div className={styles.containerFloatingCopyText}>
                         <div className={styles.iconContainer}>
-                        <Image
-                            src={successImage}
-                            alt="icon success"
-                            width={ImgSize.Little_x20}
-                            height={ImgSize.Little_x20}
-                        />
-                    </div>
+                            <Image
+                                src={successImage}
+                                alt="icon success"
+                                width={ImgSize.Little_x20}
+                                height={ImgSize.Little_x20}
+                            />
+                        </div>
                         <div className={styles.textContainer}>
                             <p className={styles.copiedClipboardText}>Copiado&nbsp;</p>
                             <span className={styles.floatingCopyText}>

@@ -10,7 +10,7 @@ import {
 
 import Cookies from 'js-cookie'
 
-import styles from '../styles/components/CookieConsentModal.module.css'
+import styles from '../styles/components/CookieConsentModal.module.scss'
 
 /* ---------------------------------------------------------------------- */
 
