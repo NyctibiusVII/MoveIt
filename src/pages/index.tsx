@@ -21,7 +21,7 @@ import Cookies from 'js-cookie'
 
 import Head from 'next/head'
 
-import styles from '../styles/pages/home.module.css'
+import styles from '../styles/pages/home.module.scss'
 
 /* ---------------------------------------------------------------------- */
 
@@ -63,7 +63,7 @@ export default function Home(props: HomeProps) {
                                 <CompletedChallenges />
                                 <Countdown />
                             </div>
-                            <div>
+                            <div className={styles.ChallengeBox}>
                                 <ChallengeBox />
                             </div>
                         </section>

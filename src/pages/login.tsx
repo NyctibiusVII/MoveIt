@@ -17,7 +17,7 @@ import Cookies from 'js-cookie'
 import Image from 'next/image'
 import Head  from 'next/head'
 
-import styles from '../styles/pages/login.module.css'
+import styles from '../styles/pages/login.module.scss'
 
 /* ---------------------------------------------------------------------- */
 

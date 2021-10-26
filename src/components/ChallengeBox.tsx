@@ -14,7 +14,7 @@ import eyeImage     from '../../public/icons/eye.svg'
 
 import Image from 'next/image'
 
-import styles from '../styles/components/ChallengeBox.module.css'
+import styles from '../styles/components/ChallengeBox.module.scss'
 
 /* ---------------------------------------------------------------------- */
 

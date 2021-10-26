@@ -11,7 +11,7 @@ import verifiedImage from '../../public/icons/verified.svg'
 
 import Image from 'next/image'
 
-import styles from '../styles/components/Countdown.module.css'
+import styles from '../styles/components/Countdown.module.scss'
 
 /* ---------------------------------------------------------------------- */
 

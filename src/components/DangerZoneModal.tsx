@@ -12,8 +12,8 @@ import Cookies from 'js-cookie'
 
 import Link from 'next/link'
 
-import defaultModalStyles from '../styles/components/DefaultModal.module.css'
-import styles             from '../styles/components/DangerZoneModal.module.css'
+import defaultModalStyles from '../styles/components/DefaultModal.module.scss'
+import styles             from '../styles/components/DangerZoneModal.module.scss'
 
 /* ---------------------------------------------------------------------- */
 
@@ -141,8 +141,8 @@ export function DangerZoneModal() {
                             autoComplete="off"
                             required />
                         <button type="submit" className={styles.btnSubmit}>
-                            <span>Eu entendo as consequências, deletar {whichDeleteTextLowerCase}</span>
                             <span>Deletar {whichDeleteTextLowerCase}</span>
+                            <span>Eu entendo as consequências, deletar {whichDeleteTextLowerCase}</span>
                         </button>
                     </form>
                 </div>

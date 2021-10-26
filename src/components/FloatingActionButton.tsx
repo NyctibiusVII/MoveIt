@@ -19,7 +19,7 @@ import Cookies from 'js-cookie'
 import Image from 'next/image'
 import Link  from 'next/link'
 
-import styles from '../styles/components/FloatingActionButton.module.css'
+import styles from '../styles/components/FloatingActionButton.module.scss'
 
 /* ---------------------------------------------------------------------- */
 

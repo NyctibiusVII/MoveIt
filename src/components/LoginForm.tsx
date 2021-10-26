@@ -14,7 +14,7 @@ import Cookies from 'js-cookie'
 
 import Image from 'next/image'
 
-import styles from '../styles/components/LoginForm.module.css'
+import styles from '../styles/components/LoginForm.module.scss'
 
 /* ---------------------------------------------------------------------- */
 

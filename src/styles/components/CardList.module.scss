@@ -1,0 +1,30 @@
+.cardListContainer { display: none; }
+
+
+
+/* Desktop */
+@media(min-width: 821px) {
+    .cardListContainer {
+        width: 100%;
+
+        display: grid;
+        grid-template-columns: 0.5fr 2fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        gap: 0% 0%;
+        grid-auto-flow: row;
+        grid-template-areas: "you void challenges experience";
+
+        div {
+            p {
+                font: 700 0.875rem 'inter', sans-serif;
+                line-height: 1.009rem;
+
+                opacity: 50%;
+            }
+            &.you  { grid-area: you; }
+            &.void { grid-area: void; }
+            &.challenges { grid-area: challenges; }
+            &.experience { grid-area: experience; }
+        }
+    }
+}

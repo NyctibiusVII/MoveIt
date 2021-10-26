@@ -17,7 +17,7 @@ import Image from 'next/image'
 import Head  from 'next/head'
 import Link  from 'next/link'
 
-import styles from '../styles/pages/_404.module.css'
+import styles from '../styles/pages/_404.module.scss'
 
 /* ---------------------------------------------------------------------- */
 

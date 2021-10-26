@@ -12,7 +12,7 @@ import levelUpImage from '../../public/icons/level.svg'
 
 import Image from 'next/image'
 
-import styles from '../styles/components/CardUser.module.css'
+import styles from '../styles/components/CardUser.module.scss'
 
 /* ---------------------------------------------------------------------- */
 

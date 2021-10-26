@@ -12,7 +12,7 @@ README_TEST.md
 # in development
 /src/components/JsonFromGithubUser.tsx
 /src/contexts/JsonFromGithubUserContext.tsx
-/src/styles/components/JsonFromGithubUser.module.css
+/src/styles/components/JsonFromGithubUser.module.scss
 
 # dependencies
 /node_modules

@@ -17,8 +17,8 @@ import Confetti from 'react-confetti'
 import Image     from 'next/image'
 import getConfig from 'next/config'
 
-import defaultModalStyles from '../styles/components/DefaultModal.module.css'
-import styles             from '../styles/components/LevelUpModal.module.css'
+import defaultModalStyles from '../styles/components/DefaultModal.module.scss'
+import styles             from '../styles/components/LevelUpModal.module.scss'
 
 /* ---------------------------------------------------------------------- */
 

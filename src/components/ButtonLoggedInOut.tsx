@@ -15,7 +15,7 @@ import Cookies from 'js-cookie'
 import Image   from 'next/image'
 import Router  from 'next/router'
 
-import styles from '../styles/components/ButtonLoggedInOut.module.css'
+import styles from '../styles/components/ButtonLoggedInOut.module.scss'
 
 /* ---------------------------------------------------------------------- */
 

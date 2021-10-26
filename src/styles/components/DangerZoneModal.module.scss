@@ -1,0 +1,121 @@
+.container {
+    max-width: 31.25rem;
+
+    padding: 1rem;
+
+    header {
+        margin-bottom: 1rem;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        button.close {
+            background: transparent;
+            font-size: 0;
+            outline: none;
+            border: 0;
+
+            p {
+                font-size: 1.10rem;
+
+                filter: opacity(0.5);
+                -webkit-filter: opacity(0.5);
+            }
+        }
+    }
+
+    div {
+        p.typeText { padding-top: 1rem; }
+
+        form {
+            .inputTypeText {
+                width: 100%;
+
+                background: var(--dz-modal-bg-input);
+                color: var(--dz-modal-input-text);
+                box-shadow: 0 0 1.25rem 0 var(--shadow-5p), 0 0 1.25rem 0 var(--shadow-5p);
+                outline: none;
+                border: 0.063rem solid var(--dz-modal-input-border);
+                font-size: 1.30rem;
+                font-weight: 400;
+
+                padding: 0.5rem;
+
+                margin: 1rem 0;
+
+                border-radius: 0.313rem;
+                -webkit-border-radius: 0.313rem;
+                -moz-border-radius: 0.313rem;
+                -ms-border-radius: 0.313rem;
+                -o-border-radius: 0.313rem;
+
+                &:hover { border: 0.063rem solid var(--dz-modal-input-border-hover); }
+                &:focus {
+                    border: 0.063rem solid transparent;
+                    box-shadow: 0 0 0 0.063rem var(--dz-modal-input-box-shadow), 0 0 0 0.125rem var(--dz-modal-input-box-shadow), 0 0 0 0.25rem var(--dz-modal-input-box-shadow);
+                }
+                &:invalid ~.btnSubmit {
+                    background: var(--dz-modal-bg-btn-invalid);
+                    box-shadow: none;
+                    color: var(--dz-modal-desc-btn-invalid);
+
+                    cursor: default;
+                }
+                &:not(.inputTypeText:invalid) ~.btnSubmit:hover {
+                    background: var(--dz-modal-bg-btn-valid-hover);
+                    color: var(--dz-modal-desc-btn-valid-hover);
+                    border: 0.063rem solid var(--dz-modal-border-btn-valid-hover);
+                }
+            }
+
+            .btnSubmit {
+                width: 100%;
+
+                background: var(--dz-modal-bg-btn-valid);
+                box-shadow: 0.625rem 0.625rem 0.625rem 0 var(--shadow-5p), -0.063rem -0.063rem 1.25rem 0 var(--shadow-5p);
+                color: var(--dz-modal-desc-btn-valid);
+                font-weight: 500;
+                outline: none;
+                border: 0.063rem solid var(--dz-modal-border-btn-valid);
+
+                padding: 1rem 0;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                transition: 0.2s cubic-bezier(0.3,0,0.5,1);
+                -webkit-transition: 0.2s cubic-bezier(0.3,0,0.5,1);
+                -moz-transition: 0.2s cubic-bezier(0.3,0,0.5,1);
+                -ms-transition: 0.2s cubic-bezier(0.3,0,0.5,1);
+                -o-transition: 0.2s cubic-bezier(0.3,0,0.5,1);
+                transition-property: color, background-color, border-color;
+
+                border-radius: 0.313rem;
+                -webkit-border-radius: 0.313rem;
+                -moz-border-radius: 0.313rem;
+                -ms-border-radius: 0.313rem;
+                -o-border-radius: 0.313rem;
+
+                cursor: pointer;
+                white-space: nowrap;
+
+                span {
+                    &:first-child { display: none; }
+                    &:last-child  { display: block; }
+                }
+            }
+        }
+    }
+}
+
+
+
+/* Desktop */
+@media (max-width: 450px) {
+    .container div form .btnSubmit span {
+        &:first-child { display: block; }
+        &:last-child  { display: none; }
+    }
+}

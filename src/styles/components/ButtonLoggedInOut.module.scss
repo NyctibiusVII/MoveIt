@@ -1,0 +1,58 @@
+.btnLL {
+    max-width: 15rem;
+
+    background-color: var(--btn-logged);
+    border: 0;
+    outline: none;
+
+    padding: 1rem 1.5rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 0.313rem;
+    -webkit-border-radius: 0.313rem;
+    -moz-border-radius: 0.313rem;
+    -ms-border-radius: 0.313rem;
+    -o-border-radius: 0.313rem;
+
+    transition: 0.2s ease-in-out;
+    -webkit-transition: 0.2s ease-in-out;
+    -moz-transition: 0.2s ease-in-out;
+    -ms-transition: 0.2s ease-in-out;
+    -o-transition: 0.2s ease-in-out;
+
+    &:hover {
+        transition: 0.2s ease-in-out;
+        -webkit-transition: 0.2s ease-in-out;
+        -moz-transition: 0.2s ease-in-out;
+        -ms-transition: 0.2s ease-in-out;
+        -o-transition: 0.2s ease-in-out;
+    }
+
+    div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        div.spaceSeparation {
+            width: 0.063rem;
+            height: 100%;
+
+            background-color: var(--btn-logged-space-separation-bar);
+
+            margin: 0 0.8rem;
+
+            &::after {
+                content: '.';
+                color: transparent;
+            }
+        }
+    }
+
+    span {
+        color: var(--btn-logged-foreground);
+        font: 400 1.05rem 'Lato', sans-serif;
+    }
+}
