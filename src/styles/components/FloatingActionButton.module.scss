@@ -104,10 +104,7 @@
         -o-border-radius: 50%;
 
         /* - Next/Image */
-        img {
-            filter: brightness(100) !important;
-            -webkit-filter: brightness(100) !important;
-        }
+        img { filter: brightness(100); }
 
         &:hover  { background-color: var(--fab-mini-dark) }
         &:active { background-color: var(--fab-mini-light) }

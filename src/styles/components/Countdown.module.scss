@@ -1,6 +1,6 @@
 /* Countdown */
 .countdownContainer {
-    color: var(--cd-timer-background);
+    color: var(--cd-timer-foreground);
     font-family: Rajdhani;
     font-weight: 600;
 
@@ -8,7 +8,7 @@
     align-items: center;
 
     > div {
-        background: var(--cd-timer-foreground);
+        background: var(--cd-timer-background);
         box-shadow: 0 0 4.25rem var(--shadow-5p);
         font-size: 8.5rem;
         text-align: center;
@@ -101,8 +101,8 @@
 
     &:not(:disabled):hover { background: var(--cd-btn-bg-start-cycle-hover); }
     &:disabled {
-        background: var(--cd-bg-btn-closed-cycle);
-        color: var(--cd-fg-btn-closed-cycle);
+        background: var(--cd-btn-bg-closed-cycle);
+        color: var(--cd-btn-fg-closed-cycle);
 
         cursor: not-allowed;
     }

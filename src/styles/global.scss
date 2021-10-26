@@ -3,24 +3,28 @@
     padding: 0;
     box-sizing: border-box;
 
-    transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-    -webkit-transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-    -moz-transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-    -ms-transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-    -o-transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0ms, border 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    -webkit-transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0ms, border 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    -moz-transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0ms, border 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    -ms-transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0ms, border 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    -o-transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0ms, border 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 }
 :root {
     --white : #fff;
     --black : #000;
 
-    --grey-100 : #f2f3f5;
-    --grey-200 : #dcdde0;
-    --grey-300 : #d3d3d3;
-    --grey-400 : #c9d1d9;
-    --grey-500 : #babecc;
-    --grey-600 : #808080;
-    --grey-700 : #666;
-    --grey-800 : #4b4b4b;
+    --grey-50   : #f2f3f5;
+    --grey-100  : #efefef;
+    --grey-200  : #dcdde0;
+    --grey-300  : #d3d3d3;
+    --grey-400  : #c9d1d9;
+    --grey-500  : #babecc;
+    --grey-600  : #808080;
+    --grey-700  : #666;
+    --grey-800  : #4b4b4b;
+    --grey-900  : #636683;
+    --grey-1000 : #606279;
+    --grey-1100 : #50536a;
     --grey-transparent-100 : #f2f3f5cc;
 
     --red-50  : #fff5f5;
@@ -28,12 +32,17 @@
     --red-200 : #FF5555;
     --red-300 : #fa4362;
     --red-400 : #e83f5b;
-    --red-transparent-100 : #FA4362b3;
+    --red-transparent-100 : #fa4362b3;
     --red-transparent-200 : #f8514966;
 
     --green-50 : #f7fff5;
-    --green-100 : #50FA7B;
-    --green-200 : #4cd62b;
+    --green-100 : #6BFF90;
+    --green-200 : #50fa7b;/* ~ 1° */
+    --green-300 : #48E06E;
+    --green-400 : #3CBA5B;
+    --green-500 : #4cd62b;
+    --green-transparent-100 : #50fa7b80;
+    --green-transparent-200 : #50fa7a33;
 
     --blue-50   : #f5fcff;
     --blue-100  : #b3b9ff;
@@ -48,20 +57,35 @@
     --blue-1000 : #414aa3;
     --blue-1100 : #3f479e;
     --blue-1200 : #2e384d;
+    --blue-1300 : #242630;
+    --blue-1400 : #22232d;
+    --blue-1500 : #1f202a;
     --blue-transparent-100 : #6470fab3;
     --blue-transparent-200 : #5965e080;
     --blue-transparent-300 : #4953b833;
+    --blue-transparent-400 : #282a36cc;
+    --blue-transparent-500 : #282a3650;
+
+    --purple-50  : #B59FEA;
+    --purple-100 : #835afd;
+    --purple-200 : #8257e6;/* ~ 1° */
+    --purple-300 : #6f4bd8;
+    --purple-400 : #3A2766;
+    --purple-transparent-100 : #8257e680;
+    --purple-transparent-200 : #8257e633;
 
     --yellow-100 : #fff0c8;
-    --yellow-200 : #ffcb2f;
+    --yellow-200 : #ffe6a1;
+    --yellow-300 : #ffd796;
+    --yellow-400 : #ffcb2f;
 
     --brown-100 : #b97850;
     --brown-200 : #a5694b;
+    --brown-300 : #925f4a;
 
     /* ~~~~~~~~~~~~~~~~~ Geral ~~~~~~~~~~~~~~~~~ */
     --shadow-5p      : rgb(0 0 0 / 5%);
     --shadow-1p      : rgb(0 0 0 / 1%);
-    --text           : var(--grey-700);
 
     /* ~~~~~~~~~~~~~~~ JSON Code ~~~~~~~~~~~~~~~ */
     /* Colors ~ Dracula Theme */
@@ -86,9 +110,10 @@
 }
 [data-theme='light'] {
     /* ~~~~~~~~~~~~~~~~~ Geral ~~~~~~~~~~~~~~~~~ */
-    --background               : var(--grey-100);
+    --background               : var(--grey-50);
     --line                     : var(--grey-200);
     --title                    : var(--blue-1200);
+    --text                     : var(--grey-700);
     /* Scrollbar ------------ */
     --scrollbar-bg             : transparent;
     --scrollbar-thumb-bg       : var(--blue-600);
@@ -96,7 +121,7 @@
     /* Profile -------------- */
     --profile-username         : var(--blue-1200);
     /* Experience Bar ------- */
-    --eb-background            : var(--green-200);
+    --eb-background            : var(--green-500);
     --eb-current-xp-background : var(--white);
     /* Default Modal -------- */
     --dm-bg-overlay            : var(--grey-transparent-100);
@@ -112,8 +137,8 @@
     --stt-title                : var(--blue-600);
     /* Toast ---------------- */
     --toast-foreground         : var(--white);
-    --toast-success            : var(--green-100);
-    --toast-warn               : var(--yellow-200);
+    --toast-success            : var(--green-200);
+    --toast-warn               : var(--yellow-400);
     --toast-error              : var(--red-200);
     --toast-info               : var(--blue-200);
     /* Cookie Consent ------- */
@@ -121,6 +146,7 @@
     --ckc-bg-btn               : var(--brown-100);
     --ckc-bg-btn-hover         : var(--brown-200);
     --ckc-fg-btn               : var(--white);
+    --ckc-border-btn           : transparent;
 
     /* ~~~~~~~~~~~~~~ Login Form ~~~~~~~~~~~~~~~ */
     --lf-background                   : linear-gradient(90deg, var(--blue-400) 0%, var(--blue-transparent-200) 100%);
@@ -130,7 +156,7 @@
     --lf-input-border-hover           : var(--blue-1000);
     --lf-input-placeholder            : var(--blue-100);
     --lf-input-placeholder-focus      : transparent;
-    --lf-input-placeholder-filled-btn : var(--green-200);
+    --lf-input-placeholder-filled-btn : var(--green-500);
 
     /* ~~~~~~~~ Logged (in/out) Button ~~~~~~~~~ */
     --btn-logged                      : var(--blue-1200);
@@ -151,7 +177,7 @@
     --cu-background               : var(--white);
     --cu-username                 : var(--blue-1200);
     --cu-level-background         : var(--green-50);
-    --cu-level-foreground         : var(--green-200);
+    --cu-level-foreground         : var(--green-500);
     --cu-challenges-xp-background : var(--blue-50);
     --cu-challenges-xp-foreground : var(--blue-600);
     --cu-challenges-xp-num        : var(--blue-600);
@@ -164,9 +190,9 @@
     --lum-level-num-shadow : var(--grey-200);
 
     /* ~~~~~~~~~~~~~~~ Countdown ~~~~~~~~~~~~~~~ */
-    --cd-timer-background           : var(--blue-1200);
-    --cd-timer-foreground           : var(--white);
-    --cd-timer-divisor-line         : var(--grey-100);
+    --cd-timer-background           : var(--white);
+    --cd-timer-foreground           : var(--blue-1200);
+    --cd-timer-divisor-line         : var(--grey-50);
     --cd-btn-bg-start-cycle         : var(--blue-600);
     --cd-btn-fg-start-cycle         : var(--white);
     --cd-btn-bg-start-cycle-hover   : var(--blue-800);
@@ -174,17 +200,17 @@
     --cd-btn-fg-abandon-cycle       : var(--grey-700);
     --cd-btn-bg-abandon-cycle-hover : var(--red-400);
     --cd-btn-fg-abandon-cycle-hover : var(--white);
-    --cd-bg-btn-closed-cycle        : var(--white);
-    --cd-fg-btn-closed-cycle        : var(--grey-700);
-    --cd-progress-bar               : var(--green-200);
+    --cd-btn-bg-closed-cycle        : var(--white);
+    --cd-btn-fg-closed-cycle        : var(--grey-700);
+    --cd-progress-bar               : var(--green-500);
 
     /* ~~~~~~~~~~~~~ Challenge Box ~~~~~~~~~~~~~ */
     --cb-background            : var(--white);
     --cb-earn-xp               : var(--blue-600);
     --cd-new-challenge-title   : var(--blue-1200);
     --cb-btn-success           : var(--green-50);
-    --cb-btn-success-hover     : var(--green-200);
-    --cb-btn-txt-success       : var(--green-200);
+    --cb-btn-success-hover     : var(--green-500);
+    --cb-btn-txt-success       : var(--green-500);
     --cb-btn-txt-success-hover : var(--white);
     --cb-btn-Fail              : var(--red-50);
     --cb-btn-Fail-hover        : var(--red-400);
@@ -193,7 +219,9 @@
 
     /* ~~~~~~~~~~~~~~ Danger Zone ~~~~~~~~~~~~~~ */
     --dz-divisor-line                 : var(--grey-200);
+    --dz-title                        : var(--red-300);
     --dz-border                       : var(--red-transparent-200);
+    --dz-modal-bg-input               : var(--white);
     --dz-modal-input-box-shadow       : var(--blue-transparent-200);
     --dz-modal-input-border           : var(--grey-300);
     --dz-modal-input-border-hover     : var(--grey-600);
@@ -204,7 +232,7 @@
     --dz-text-btn-hover               : var(--red-300);
     --dz-modal-bg-btn-valid           : var(--red-300);
     --dz-modal-bg-btn-valid-hover     : var(--white);
-    --dz-modal-bg-btn-invalid         : var(--grey-100);
+    --dz-modal-bg-btn-invalid         : var(--grey-50);
     --dz-modal-desc-btn-valid         : var(--white);
     --dz-modal-desc-btn-valid-hover   : var(--red-300);
     --dz-modal-desc-btn-invalid       : var(--grey-400);
@@ -214,16 +242,20 @@
 
     /* ~~~~~~~~~~~~~~ Appearance ~~~~~~~~~~~~~~~ */
     /* Active Theme */
-    --at-btn-background       : var(--blue-400);
-    --at-btn-foreground       : var(--white);
-    --at-btn-border           : var(--blue-800);
-    --at-card-shadow-outset-1 : var(--white);
-    --at-card-shadow-outset-2 : var(--grey-500);
-    --at-toast-background     : var(--white);
+    --at-btn-background        : var(--grey-100);
+    --at-btn-background-active : var(--blue-400);
+    --at-btn-foreground        : var(--white);
+    --at-btn-border            : var(--blue-800);
+    --at-card-shadow-outset-1  : var(--white);
+    --at-card-shadow-outset-2  : var(--grey-500);
+    --at-toast-background      : var(--white);
 
     /* ~~~~~~~~~~~~~~~~ Sidebar ~~~~~~~~~~~~~~~~ */
     /* Active Page */
-    --sd-border : var(--blue-600);
+    --sd-background     : var(--white);
+    --sd-border         : var(--blue-600);
+    --sd-btn-border     : var(--grey-300);
+    --sd-btn-img-filter : grayscale(100%);
 
     /* ~~~~~~~~ Floating Action Button ~~~~~~~~~ */
     --fab-foreground   : var(--white);
@@ -235,11 +267,172 @@
     --fab-mini-dark    : var(--blue-1100);
     /* Active Page */
     --fab-ap-background        : var(--white);
-    --fab-ap-background-hover  : var(--grey-100);
+    --fab-ap-background-hover  : var(--grey-50);
     --fab-ap-background-active : var(--blue-50);
+    --fab-ap-filter            : 0;
 }
 [data-theme='dark'] {
+    /* ~~~~~~~~~~~~~~~~~ Geral ~~~~~~~~~~~~~~~~~ */
+    --background               : var(--blue-1400);
+    --line                     : var(--code-selection);
+    --title                    : var(--blue-1200);
+    --text                     : var(--code-foreground);
+    /* Scrollbar ------------ */
+    --scrollbar-bg             : transparent;
+    --scrollbar-thumb-bg       : var(--green-200);
+    --scrollbar-corner-bg      : transparent;
+    /* Profile -------------- */
+    --profile-username         : var(--white);
+    /* Experience Bar ------- */
+    --eb-background            : var(--green-200);
+    --eb-current-xp-background : var(--code-selection);
+    /* Default Modal -------- */
+    --dm-bg-overlay            : var(--blue-transparent-400);
+    --dm-background            : var(--blue-1400);
+    /* 404 Page ------------- */
+    --404-background           : var(--red-100);
+    --404-text                 : var(--white);
+    /* Login Page ----------- */
+    --lp-background            : var(--blue-1400);
+    --lp-welcome               : var(--white);
+    --lp-text                  : var(--blue-100);
+    /* Settings Page -------- */
+    --stt-title                : var(--green-200);
+    /* Toast ---------------- */
+    --toast-foreground         : var(--white);
+    --toast-success            : var(--green-200);
+    --toast-warn               : var(--yellow-400);
+    --toast-error              : var(--red-200);
+    --toast-info               : var(--blue-200);
+    /* Cookie Consent ------- */
+    --ckc-background           : var(--brown-300);
+    --ckc-bg-btn               : var(--yellow-200);
+    --ckc-bg-btn-hover         : var(--yellow-300);
+    --ckc-fg-btn               : var(--brown-100);
+    --ckc-border-btn           : var(--brown-300);
 
+    /* ~~~~~~~~~~~~~~ Login Form ~~~~~~~~~~~~~~~ */
+    --lf-background                   : linear-gradient(90deg, var(--purple-200) 0%, var(--purple-transparent-100) 100%);
+    --lf-foreground                   : var(--white);
+    --lf-bg-btn                       : var(--purple-200);
+    --lf-input-border                 : transparent;
+    --lf-input-border-hover           : var(--blue-1000);
+    --lf-input-placeholder            : var(--blue-100);
+    --lf-input-placeholder-focus      : transparent;
+    --lf-input-placeholder-filled-btn : var(--green-200);
+
+    /* ~~~~~~~~ Logged (in/out) Button ~~~~~~~~~ */
+    --btn-logged                      : var(--code-background);
+    --btn-logged-in                   : var(--purple-200);
+    --btn-logged-out                  : var(--red-300);
+    --btn-logged-in-transparent       : var(--purple-transparent-100);
+    --btn-logged-out-transparent      : var(--red-transparent-100);
+    --btn-logged-foreground           : var(--white);
+    --btn-logged-space-separation-bar : var(--white);
+
+    /* ~~~~~~~ Button Share With Twitter ~~~~~~~ */
+    --bswt-background       : var(--code-background);
+    --bswt-background-hover : var(--blue-200);
+    --bswt-foreground       : var(--blue-200);
+    --bswt-foreground-hover : var(--white);
+
+    /* ~~~~~~~~~~~~~~~ Card User ~~~~~~~~~~~~~~~ */
+    --cu-background               : var(--code-background);
+    --cu-username                 : var(--white);
+    --cu-level-background         : var(--green-transparent-200);
+    --cu-level-foreground         : var(--green-200);
+    --cu-challenges-xp-background : var(--purple-transparent-200);
+    --cu-challenges-xp-foreground : var(--purple-200);
+    --cu-challenges-xp-num        : var(--purple-200);
+
+    /* ~~~~~~~~~~~~ Level Up Modal ~~~~~~~~~~~~~ */
+    --lum-title            : var(--green-200);
+    --lum-text             : var(--white);
+    --lum-btn-close        : transparent;
+    --lum-level-num        : var(--green-200);
+    --lum-level-num-shadow : var(--green-transparent-100);
+
+    /* ~~~~~~~~~~~~~~~ Countdown ~~~~~~~~~~~~~~~ */
+    --cd-timer-background           : var(--code-background);
+    --cd-timer-foreground           : var(--white);
+    --cd-timer-divisor-line         : var(--blue-1400);
+    --cd-btn-bg-start-cycle         : var(--purple-200);
+    --cd-btn-fg-start-cycle         : var(--white);
+    --cd-btn-bg-start-cycle-hover   : var(--purple-300);
+    --cd-btn-bg-abandon-cycle       : var(--code-background);
+    --cd-btn-fg-abandon-cycle       : var(--white);
+    --cd-btn-bg-abandon-cycle-hover : var(--red-400);
+    --cd-btn-fg-abandon-cycle-hover : var(--white);
+    --cd-btn-bg-closed-cycle        : var(--code-background);
+    --cd-btn-fg-closed-cycle        : var(--white);
+    --cd-progress-bar               : var(--green-200);
+
+    /* ~~~~~~~~~~~~~ Challenge Box ~~~~~~~~~~~~~ */
+    --cb-background            : var(--code-background);
+    --cb-earn-xp               : var(--green-200);
+    --cd-new-challenge-title   : var(--white);
+    --cb-btn-success           : var(--green-200);
+    --cb-btn-success-hover     : var(--green-300);
+    --cb-btn-txt-success       : var(--white);
+    --cb-btn-txt-success-hover : var(--white);
+    --cb-btn-Fail              : var(--red-300);
+    --cb-btn-Fail-hover        : var(--red-400);
+    --cb-btn-txt-Fail          : var(--white);
+    --cb-btn-txt-Fail-hover    : var(--white);
+
+    /* ~~~~~~~~~~~~~~ Danger Zone ~~~~~~~~~~~~~~ */
+    --dz-divisor-line                 : var(--code-selection);
+    --dz-title                        : var(--red-300);
+    --dz-border                       : var(--red-transparent-200);
+    --dz-modal-bg-input               : var(--blue-transparent-500);
+    --dz-modal-input-box-shadow       : var(--green-transparent-100);
+    --dz-modal-input-border           : var(--grey-1100);
+    --dz-modal-input-border-hover     : var(--grey-900);
+    --dz-modal-input-text             : var(--code-foreground);
+    --dz-bg-btn                       : var(--red-300);
+    --dz-bg-btn-hover                 : var(--red-transparent-100);
+    --dz-text-btn                     : var(--white);
+    --dz-text-btn-hover               : var(--white);
+    --dz-modal-bg-btn-valid           : var(--red-300);
+    --dz-modal-bg-btn-valid-hover     : var(--red-transparent-100);
+    --dz-modal-bg-btn-invalid         : var(--blue-transparent-500);
+    --dz-modal-desc-btn-valid         : var(--white);
+    --dz-modal-desc-btn-valid-hover   : var(--white);
+    --dz-modal-desc-btn-invalid       : var(--grey-1000);
+    --dz-modal-border-btn-valid       : transparent;
+    --dz-modal-border-btn-valid-hover : transparent;
+    --dz-modal-border-btn-invalid     : transparent;
+
+    /* ~~~~~~~~~~~~~~ Appearance ~~~~~~~~~~~~~~~ */
+    /* Active Theme */
+    --at-btn-background        : var(--blue-transparent-500);
+    --at-btn-background-active : var(--purple-200);
+    --at-btn-foreground        : var(--white);
+    --at-btn-border            : var(--purple-400);
+    --at-card-shadow-outset-1  : var(--blue-1300);
+    --at-card-shadow-outset-2  : var(--blue-1500);
+    --at-toast-background      : var(--code-background);
+
+    /* ~~~~~~~~~~~~~~~~ Sidebar ~~~~~~~~~~~~~~~~ */
+    /* Active Page */
+    --sd-background     : var(--code-background);
+    --sd-border         : var(--green-200);
+    --sd-btn-border     : var(--code-selection);
+    --sd-btn-img-filter : grayscale(70%);
+
+    /* ~~~~~~~~ Floating Action Button ~~~~~~~~~ */
+    --fab-foreground   : var(--white);
+    --fab-light        : var(--green-100);
+    --fab-default      : var(--green-200);
+    --fab-dark         : var(--green-300);
+    --fab-mini-light   : var(--green-200);
+    --fab-mini-default : var(--green-300);
+    --fab-mini-dark    : var(--green-400);
+    /* Active Page */
+    --fab-ap-background        : var(--white);
+    --fab-ap-background-hover  : var(--grey-50);
+    --fab-ap-background-active : var(--green-50);
+    --fab-ap-filter            : invert(65%) sepia(53%) saturate(453%) hue-rotate(83deg) brightness(105%) contrast(114%);
 }
 
 
@@ -283,14 +476,13 @@ ul {
 
     img {
         filter: grayscale(0) !important;
-        -webkit-filter: grayscale(0) !important;
 
         opacity: 1 !important;
     }
 }
 /* FloatingActionButton */
 .activePageButton {
-    background-color: var(--fab-ap-background);
+    background-color: var(--fab-ap-background) !important;
 
     transition: all 0.2s !important;
     -webkit-transition: all 0.2s !important;
@@ -298,13 +490,11 @@ ul {
     -ms-transition: all 0.2s !important;
     -o-transition: all 0.2s !important;
 
-    :hover  { background-color: var(--fab-ap-background-hover); }
-    :active { background-color: var(--fab-ap-background-active); }
+    :hover  { background-color: var(--fab-ap-background-hover) !important; }
+    :active { background-color: var(--fab-ap-background-active) !important; }
 
     img {
-        filter: grayscale(0) !important;
-        -webkit-filter: grayscale(0) !important;
-
+        filter: var(--fab-ap-filter)  !important;
         opacity: 1 !important;
     }
 }
@@ -349,7 +539,7 @@ ul {
 
 /* activeTheme - Theme */
 .activeTheme {
-    background: var(--at-btn-background) !important;
+    background: var(--at-btn-background-active) !important;
     color: var(--at-btn-foreground) !important;
     border-right: 0.313rem solid var(--at-btn-border) !important;
 }
@@ -403,7 +593,7 @@ ul {
 
 @keyframes pulse-red {
     0% { box-shadow: 0 0 0 0  var(--btn-logged-out-transparent); }
-    70% { box-shadow: 0 0 0 0.625 transparent; }
+    70% { box-shadow: 0 0 0 0.625rem transparent; }
     100% { box-shadow: 0 0 0 0 transparent; }
 }
 @keyframes pulse-blue {
@@ -430,7 +620,7 @@ ul {
     width:  0.438rem;
     background: var(--scrollbar-bg);
 
-    :horizontal {
+    &:horizontal {
         height: 0.438rem;
         background: var(--scrollbar-bg);
     }
@@ -452,6 +642,6 @@ ul {
 
 /* Json */
 .jsonUser {
-    ::-webkit-scrollbar       { height: 0.375rem; }
-    ::-webkit-scrollbar-thumb { background: var(--variable); }
+    &::-webkit-scrollbar       { height: 0.375rem; }
+    &::-webkit-scrollbar-thumb { background: var(--variable); }
 }

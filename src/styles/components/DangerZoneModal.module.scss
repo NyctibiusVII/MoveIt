@@ -32,8 +32,9 @@
             .inputTypeText {
                 width: 100%;
 
-                box-shadow: 0 0 1.25rem 0 var(--shadow-5p), 0 0 1.25rem 0 var(--shadow-5p);
+                background: var(--dz-modal-bg-input);
                 color: var(--dz-modal-input-text);
+                box-shadow: 0 0 1.25rem 0 var(--shadow-5p), 0 0 1.25rem 0 var(--shadow-5p);
                 outline: none;
                 border: 0.063rem solid var(--dz-modal-input-border);
                 font-size: 1.30rem;
@@ -60,6 +61,11 @@
                     color: var(--dz-modal-desc-btn-invalid);
 
                     cursor: default;
+                }
+                &:not(.inputTypeText:invalid) ~.btnSubmit:hover {
+                    background: var(--dz-modal-bg-btn-valid-hover);
+                    color: var(--dz-modal-desc-btn-valid-hover);
+                    border: 0.063rem solid var(--dz-modal-border-btn-valid-hover);
                 }
             }
 
@@ -99,12 +105,6 @@
                     &:first-child { display: none; }
                     &:last-child  { display: block; }
                 }
-            }
-
-            &:not(.inputTypeText:invalid) ~.btnSubmit:hover {
-                background: var(--dz-modal-bg-btn-valid-hover);
-                color: var(--dz-modal-desc-btn-valid-hover);
-                border: 0.063rem solid var(--dz-modal-border-btn-valid-hover);
             }
         }
     }

@@ -10,6 +10,7 @@ import {
     useEffect,
     useState
 } from 'react'
+import { useTheme } from 'next-themes'
 
 import { api, github_api } from '../services/api'
 
@@ -44,7 +45,7 @@ export const LoginContext = createContext({} as LoginContextData)
 const date = new Date()
 
 export function LoginProvider({ children, ...rest }: LoginProviderProps) {
-    const { goHome }  = useContext(SidebarContext)
+    const { goHome  } = useContext(SidebarContext)
     const { toastON } = useContext(ToastContext)
 
     const { serverRuntimeConfig, publicRuntimeConfig } = getConfig()
@@ -75,9 +76,10 @@ export function LoginProvider({ children, ...rest }: LoginProviderProps) {
     const quickUsername = String(rest.__username)   === 'undefined' ? getUserCache()  : String(rest.__username)
     const quickLogin    = String(rest.__isLogged)   === 'undefined' ? 0               : Number(rest.__isLogged) // DESC: !__isLogged ? 0 : 1
 
-    const [__avatar_url, setAvatar_url] = useState(quickImage)
-    const [__username,   setUsername]   = useState(quickUsername)
-    const [__isLogged,   setIsLogged]   = useState(quickLogin)
+    const [ __avatar_url, setAvatar_url ] = useState(quickImage)
+    const [ __username,   setUsername   ] = useState(quickUsername)
+    const [ __isLogged,   setIsLogged   ] = useState(quickLogin)
+    const { setTheme } = useTheme()
 
 
 
@@ -231,6 +233,7 @@ export function LoginProvider({ children, ...rest }: LoginProviderProps) {
         // - Not strictly mandatory
         setAvatar_url (user.avatar_url)
         setUsername   (user.username)
+        setTheme      (user.theme)
 
         Cookies.set(CookiesType.level,               String(user.level))
         Cookies.set(CookiesType.currentExperience,   String(user.current_experience))

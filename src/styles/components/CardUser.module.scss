@@ -74,10 +74,18 @@
             background-color: var(--cu-level-background);
             color: var(--cu-level-foreground);
 
+            padding: 0.1rem;
+
             display: flex;
 
             grid-area: level;
             column-gap: 0.5rem;
+
+            border-radius: 0.313rem;
+            -webkit-border-radius: 0.313rem;
+            -moz-border-radius: 0.313rem;
+            -ms-border-radius: 0.313rem;
+            -o-border-radius: 0.313rem;
 
             span {
                 text-overflow: ellipsis;
@@ -87,11 +95,33 @@
         }
     }
 
-    .challenges { align-self: flex-end;   grid-area: challenges; }
-    .xp         { align-self: flex-start; grid-area: xp; }
+    .challenges {
+        align-self: flex-end;
+
+        grid-area: challenges;
+
+        border-radius: 0.313rem 0.313rem 0 0;
+        -webkit-border-radius: 0.313rem 0.313rem 0 0;
+        -moz-border-radius: 0.313rem 0.313rem 0 0;
+        -ms-border-radius: 0.313rem 0.313rem 0 0;
+        -o-border-radius: 0.313rem 0.313rem 0 0;
+    }
+    .xp {
+        align-self: flex-start;
+
+        grid-area: xp;
+
+        border-radius: 0 0 0.313rem 0.313rem;
+        -webkit-border-radius: 0 0 0.313rem 0.313rem;
+        -moz-border-radius: 0 0 0.313rem 0.313rem;
+        -ms-border-radius: 0 0 0.313rem 0.313rem;
+        -o-border-radius: 0 0 0.313rem 0.313rem;
+    }
     .challenges, .xp {
         background-color: var(--cu-challenges-xp-background);
         color: var(--cu-challenges-xp-foreground);
+
+        padding: 0.1rem;
 
         display: flex;
         justify-content: space-between;
@@ -139,6 +169,14 @@
 
                 color: var(--cu-challenges-xp-num);
             }
+        }
+
+        .info .level, .challenges, .xp {
+            border-radius: initial;
+            -webkit-border-radius: initial;
+            -moz-border-radius: initial;
+            -ms-border-radius: initial;
+            -o-border-radius: initial;
         }
     }
 }

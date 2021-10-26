@@ -81,7 +81,7 @@
             -ms-transition: 0.2s;
             -o-transition: 0.2s;
 
-            .challengeFailButton {
+            &.challengeFailButton {
                 background: var(--cb-btn-Fail);
                 color: var(--cb-btn-txt-Fail);
 
@@ -92,7 +92,7 @@
                     color: var(--cb-btn-txt-Fail-hover);
                 }
             }
-            .challengeSucceededButton {
+            &.challengeSucceededButton {
                 background: var(--cb-btn-success);
                 color: var(--cb-btn-txt-success);
 

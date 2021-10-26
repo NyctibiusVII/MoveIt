@@ -25,7 +25,11 @@
     .container {
         max-width: 38.75rem;
 
-        section { grid-template-columns: 1fr; }
+        section {
+            grid-template-columns: 1fr;
+
+            div.ChallengeBox { margin-bottom: 2rem; }
+        }
     }
 }
 /* Mobile (_aside) */

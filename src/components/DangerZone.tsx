@@ -32,10 +32,9 @@ export function DangerZone() {
         openDangerZoneModal()
     }
 
-    /* ------- */ const [ isLogged, setIsLogged ] = useState(Boolean)
-    /* ------- */ useEffect(() => {
-    /* ------- */     setIsLogged(Cookies.get('__isLogged') === '1')
-    /* ------- */ }, [ logout ])
+    const [ isLogged, setIsLogged ] = useState(Boolean)
+    useEffect(() => { setIsLogged(Cookies.get('__isLogged') === '1') }, [ logout ])
+    //console.info(`logStatus: ${Cookies.get('__isLogged')}`) // - Look info
 
     return (
         <div className={styles.containerDangerZone}>

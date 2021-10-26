@@ -12,6 +12,13 @@
 
     span {
         &:first-child { font-size: 1.25rem; }
-        &:last-child  { font-size: 1.5rem; }
+        &:last-child  {
+            max-width: 7rem;
+            font-size: 1.5rem;
+
+            text-overflow: ellipsis;
+            overflow-x: hidden;
+            white-space: nowrap;
+        }
     }
 }

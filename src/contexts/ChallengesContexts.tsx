@@ -8,6 +8,7 @@ import {
     useEffect,
     useState
 } from 'react'
+import { useTheme } from 'next-themes'
 
 import { api } from '../services/api'
 
@@ -48,12 +49,14 @@ interface ChallengesProviderProps {
 export const ChallengesContext = createContext({} as ChallengesContextData)
 
 export function ChallengesProvider({ children, ...rest }: ChallengesProviderProps) {
-    const [level,               setLevel]               = useState(rest.level               ?? Number(process.env.STANDARD_LEVEL)) // - abc ?? 1 | Se 'abc' não existir use 1
-    const [currentExperience,   setCurrentExperience]   = useState(rest.currentExperience   ?? Number(process.env.STANDARD_CURRENT_EXPERIENCE))
-    const [challengesCompleted, setChallengesCompleted] = useState(rest.challengesCompleted ?? Number(process.env.STANDARD_CHALLENGES_COMPLETED))
+    const [ level,               setLevel               ] = useState(rest.level               ?? Number(process.env.STANDARD_LEVEL)) // - abc ?? 1 | Se 'abc' não existir use 1
+    const [ currentExperience,   setCurrentExperience   ] = useState(rest.currentExperience   ?? Number(process.env.STANDARD_CURRENT_EXPERIENCE))
+    const [ challengesCompleted, setChallengesCompleted ] = useState(rest.challengesCompleted ?? Number(process.env.STANDARD_CHALLENGES_COMPLETED))
 
-    const [activeChallenge,    setActiveChallenge]    = useState(null)
-    const [isLevelUpModalOpen, setIsLevelUpModalOpen] = useState(false)
+    const [ activeChallenge,    setActiveChallenge    ] = useState(null)
+    const [ isLevelUpModalOpen, setIsLevelUpModalOpen ] = useState(false)
+
+    const { theme } = useTheme()
 
     const experienceToNextLevel = Math.pow((level + 1) * 4, 2)
 
@@ -64,34 +67,35 @@ export function ChallengesProvider({ children, ...rest }: ChallengesProviderProp
             const username = Cookies.get(CookiesType.__username)
 
             await api
-            .get(`/users/${username}`, {
-                validateStatus: (status: number): boolean => status < 500 // - Resolve only if the status code is less than 500
-            })
-            .then(async resp => {
-                if (Number(resp.request.status) === 200) {
-                    const
-                        data: User= resp.data,
-                        updateUser: User = {
-                            github_id:  data.github_id,
-                            avatar_url: data.avatar_url,
-                            username:   data.username,
-                            name:       data.name,
-                            email:      data.email,
-                            type:       data.type,
-                            level:                level,               // - Alterado
-                            current_experience:   currentExperience,   // - Alterado
-                            challenges_completed: challengesCompleted, // - Alterado
-                            theme:          data.theme,
-                            cookie_consent: data.cookie_consent
-                        }
+                .get(`/users/${username}`, {
+                    validateStatus: (status: number): boolean => status < 500 // - Resolve only if the status code is less than 500
+                })
+                .then(async resp => {
+                    if (Number(resp.request.status) === 200) {
+                        const
+                            data: User = resp.data,
+                            updateUser: User = {
+                                github_id:  data.github_id,
+                                avatar_url: data.avatar_url,
+                                username:   data.username,
+                                name:       data.name,
+                                email:      data.email,
+                                type:       data.type,
+                                level:                level,               // - Alterado
+                                current_experience:   currentExperience,   // - Alterado
+                                challenges_completed: challengesCompleted, // - Alterado
+                                theme:          theme,                     // - Alterado
+                                cookie_consent: data.cookie_consent
+                            }
+                            //console.info(updateUser) // - Look info
 
-                        await api
-                            .put(`/users/${username}`, updateUser)
-                            .catch(e => { throw e })
-                }
-                else { console.error(process.env.ERROR_GET) }
-            })
-            .catch(e => { throw e })
+                            await api
+                                .put(`/users/${username}`, updateUser)
+                                .catch(e => { throw e })
+                    }
+                    else { console.error(process.env.ERROR_GET) }
+                })
+                .catch(e => { throw e })
         }
         const setCookies_newValue = () => {
             Cookies.set('level',               String(level))
@@ -113,16 +117,16 @@ export function ChallengesProvider({ children, ...rest }: ChallengesProviderProp
             /**
              * Evitando bugs*
              *
-             * - Se (level, currentExperience ou challengesCompleted)
-             * for deletado dos cookies automaticamente todas as três variáveis
-             * serão setadas para seu 'Default' novamente, impedindo assim,
+             * - Se (level, currentExperience ou challengesCompleted) individualmente
+             * for deletado dos cookies pelo usuario, automaticamente todas as três
+             * variáveis serão setadas para seu 'Default' novamente, impedindo assim,
              * uma possível desregulagem na contagem de level, experiência e
              * desafios completos.
              */
             if ((Cookies.get('level') && Cookies.get('currentExperience') && Cookies.get('challengesCompleted')) !== undefined) setCookies_newValue()
             else setCookies_default()
         }
-    }, [ level, currentExperience, challengesCompleted ])
+    }, [ level, currentExperience, challengesCompleted, theme ])
 
     function levelUp() {
       setLevel(level + 1)

@@ -63,7 +63,7 @@ export default function Home(props: HomeProps) {
                                 <CompletedChallenges />
                                 <Countdown />
                             </div>
-                            <div>
+                            <div className={styles.ChallengeBox}>
                                 <ChallengeBox />
                             </div>
                         </section>

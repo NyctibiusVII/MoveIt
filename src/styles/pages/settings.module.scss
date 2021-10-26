@@ -13,9 +13,8 @@
         color: var(--stt-title);
 
         &:not(h2.subTitle:first-of-type) { margin-top: 3rem; }
-
-        .dangerZoneTitle { color: var(--dz-title); }
     }
+    .dangerZoneTitle { color: var(--dz-title); }
     .separator {
         width: 10%;
         height: 0.063rem;

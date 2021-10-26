@@ -11,6 +11,7 @@ import {
     useContext,
     useState
 } from 'react'
+import { useTheme } from 'next-themes'
 
 import { api } from '../services/api'
 
@@ -38,10 +39,11 @@ export const DangerZoneContext = createContext({} as DangerZoneContextData)
 
 export function DangerZoneProvider({ children }: DangerZoneProviderProps) {
     const { resetCookiesDataLCC } = useContext(ChallengesContext)
-    const { goSettings }          = useContext(SidebarContext)
+    const { goSettings          } = useContext(SidebarContext)
+    const { theme,   setTheme   } = useTheme()
 
-    const [ textMain,    setTextMain ]    = useState(null)
-    const [ textButton,  setTextButton ]  = useState(null)
+    const [ textMain,    setTextMain   ] = useState(null)
+    const [ textButton,  setTextButton ] = useState(null)
 
     const [ isDangerZoneModalOpen, setIsDangerZoneModalOpen ] = useState(false)
 
@@ -66,19 +68,21 @@ export function DangerZoneProvider({ children }: DangerZoneProviderProps) {
         cookieBaseDatas()
 
         Cookies.remove('activePage')
-        Cookies.remove('activeTheme')
+        setTheme('light')
         Cookies.remove('cookieConsent')
 
-        console.info('Cookies Deletados ✅')
+        console.info('Cookies Deletados ✔')
 
         reload()
     }
     async function deleteDataBase() {
         const username = Cookies.get(CookiesType.__username)
 
-        await api.delete(`/users/${username}`).then(() => cookieBaseDatas())
-
-        console.info('Dados Deletados ✅')
+        await api
+            .delete(`/users/${username}`)
+            .then (() => cookieBaseDatas())
+            .then (() => console.info ('Dados Deletados ✔'))
+            .catch(() => console.error('Erro ao deletar dados ✖'))
 
         reload()
     }
@@ -87,8 +91,8 @@ export function DangerZoneProvider({ children }: DangerZoneProviderProps) {
         resetCookiesDataLCC()
 
         Cookies.remove('__avatar_url')
-        Cookies.remove('__username')
         Cookies.remove('__isLogged')
+        Cookies.remove('__username')
 
         Cookies.remove('usernameCacheForValidation')
     }
