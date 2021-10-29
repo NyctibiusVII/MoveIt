@@ -1,20 +1,19 @@
 /* Import ---------------------------------------------------------------------- */ // - x70
 
-import { ChallengesProvider }          from '../contexts/ChallengesContexts'
-import { LoginContext, LoginProvider } from '../contexts/LoginContext'
+import { ChallengesProvider } from '../contexts/ChallengesContexts'
+import { LoginProvider }      from '../contexts/LoginContext'
 
 import { ButtonLoggedInOut } from '../components/ButtonLoggedInOut'
-
-import { api }      from '../services/api'
-import { AppProps } from '../interface/appProps'
-import { ISLOGGED } from '../interface/cookiesType'
-import { User }     from '../interface/user'
+import { CardList }          from '../components/CardList'
 
 import {
-    useContext,
     useEffect,
     useState
 } from 'react'
+import { api }      from '../services/api'
+import { ISLOGGED } from '../interface/cookiesType'
+import { User, UserAPI }                from '../interface/user'
+import { AppProps, AppPropsLeaderbord } from '../interface/appProps'
 
 import { GetServerSideProps } from 'next'
 
@@ -34,10 +33,12 @@ interface LeaderboardProps {
     level:               number
     currentExperience:   number
     challengesCompleted: number
+
+    users: UserAPI | null
 }
 
 export default function Leaderboard(props: LeaderboardProps) {
-  Cookies.set('sidebar&FAB', 'enable') // NOTE: Sidebar depends on this cookie to be visible if this page is accessed directly via the URL
+    Cookies.set('sidebar&FAB', 'enable') // NOTE: Sidebar depends on this cookie to be visible if this page is accessed directly via the URL
 
     /* ------- */ const [ isLogged, setIsLogged ] = useState(Boolean)
     /* ------- */
@@ -45,43 +46,46 @@ export default function Leaderboard(props: LeaderboardProps) {
     /* ------- */     setIsLogged(Cookies.get('__isLogged') === '1')
     /* ------- */ }, [])
 
-  return (
-      <LoginProvider
-          __avatar_url={props.__avatar_url}
-          __username={props.__username}
-          __isLogged={props.__isLogged}
-      >
-          <ChallengesProvider
-              level={props.level}
-              currentExperience={props.currentExperience}
-              challengesCompleted={props.challengesCompleted}
-          >
-              <div className={styles.container}>
-                  <Head>
-                      <title>Leaderboard | MoveIt</title>
-                  </Head>
+    return (
+        <LoginProvider
+            __avatar_url={props.__avatar_url}
+            __username={props.__username}
+            __isLogged={props.__isLogged}
+        >
+            <ChallengesProvider
+                level={props.level}
+                currentExperience={props.currentExperience}
+                challengesCompleted={props.challengesCompleted}
+            >
+                <div className={styles.container}>
+                    <Head>
+                        <title>Leaderboard | MoveIt</title>
+                    </Head>
 
-                  <h1>Leaderboard</h1>
-                  { isLogged ? (
-                      <>
-                          <h3>Em breve...</h3>
-                      </>
-                  ) : (
-                      <>
-                          <h3>Faça login pra ter acesso a este conteúdo</h3>
-                          <ButtonLoggedInOut/>
-                      </>
-                  ) }
-              </div>
-          </ChallengesProvider>
-      </LoginProvider>
-  )
+                    <h1>Leaderboard</h1>
+                    { isLogged ? <CardList page='leaderbord' users={props.users} />
+                    : (
+                        <div className={styles.notAuthorized}>
+                            <h3>Faça login para ter acesso a este conteúdo</h3>
+                            <ButtonLoggedInOut/>
+                        </div>
+                    ) }
+                </div>
+            </ChallengesProvider>
+        </LoginProvider>
+    )
 }
 
-export const getServerSideProps: GetServerSideProps = async (ctx) => { //INFO: fazer o get só do db futuramente...
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
     const { __username, __isLogged } = ctx.req.cookies
 
-    const UseDb = async (): Promise<AppProps> => {
+    const getLeaderbord = async (): Promise<UserAPI> => {
+        const { data } = await api.get(`/users`)
+
+        return data
+    }
+
+    const UseDb = async (): Promise<AppPropsLeaderbord> => {
         const { data } = await api.get(`/users/${__username}`)
 
         const user: User = {
@@ -96,7 +100,9 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => { //INFO: f
             challenges_completed: data.challenges_completed,
             theme:          data.theme,
             cookie_consent: data.cookie_consent
-    }
+        }
+
+        const users = await getLeaderbord()
 
         return {
             props: {
@@ -106,7 +112,9 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => { //INFO: f
 
                 level:               Number(user.level),
                 currentExperience:   Number(user.current_experience),
-                challengesCompleted: Number(user.challenges_completed)
+                challengesCompleted: Number(user.challenges_completed),
+
+                users: users ?? null
             }
         }
     }

@@ -21,10 +21,23 @@
 
                 opacity: 50%;
             }
+            &.position { display: none; }
             &.you  { grid-area: you; }
             &.void { grid-area: void; }
             &.challenges { grid-area: challenges; }
             &.experience { grid-area: experience; }
+        }
+    }
+
+    #usersLeaderboard.cardListContainer {
+        margin-bottom: 0.5rem;
+        grid-template-columns: 0.5fr 0.47fr 1.97fr 0.97fr 1.07fr;
+        grid-template-areas: "position you void challenges experience";
+
+        div {
+            p { font: 700 0.75rem 'inter', sans-serif; }
+
+            &.position { display: block; grid-area: position; }
         }
     }
 }

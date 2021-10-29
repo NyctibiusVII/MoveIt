@@ -95,7 +95,7 @@ Concluindo-a ou não, ele deve parar e descansar 5 minutos.
 
 Funcionalidades:
     - Mensagem de aviso ao sair da pagina ("O timer esta ativo!")
-    - Trocar o tema da aplicação: Light e Dark
+    ✔ - Trocar o tema da aplicação: Light e Dark
     ✔ - Consumo de api-rest
     ✔ - Banco de dados externo (MongoDB)
     ✔ - oAuth github (Pagina de login)
@@ -125,7 +125,7 @@ Funcionalidades:
         ✔ - Animação de entrada e saida
     - Telas:
         ✔ - Home
-        - Leaderbord
+        ✔ - Leaderbord
         - Settings
         ✔ - Login
         ✔ - 404

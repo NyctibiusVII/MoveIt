@@ -1,142 +1,185 @@
 .cardContainer {
     width: 100%;
 
-    background-color: var(--cu-background);
-    box-shadow: 0.625rem 0.625rem 1.25rem 0rem var(--shadow-5p);
-
-    padding: 1rem;
-
     margin: 0.5rem auto 0;
 
-    display: grid;
-    grid-template-columns: 0.5fr 2fr;
-    grid-template-rows: 1fr 0.5fr 0.5fr;
-    gap: 0% 2%;
-    grid-auto-flow: row;
-    grid-template-areas:
-        "photo info"
-        "challenges challenges"
-        "xp xp";
+    .user {
+        background-color: var(--cu-background);
+        box-shadow: 0.625rem 0.625rem 1.25rem 0rem var(--shadow-5p);
 
-    border-radius: 0.313rem;
-    -webkit-border-radius: 0.313rem;
-    -moz-border-radius: 0.313rem;
-    -ms-border-radius: 0.313rem;
-    -o-border-radius: 0.313rem;
+        padding: 1rem;
 
-    .photo {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-
-        grid-area: photo;
-
-        /* - Next/Image */
-        > * {
-            border-radius: 50%;
-            -webkit-border-radius: 50%;
-            -moz-border-radius: 50%;
-            -ms-border-radius: 50%;
-            -o-border-radius: 50%;
-        }
-    }
-
-    .info {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
-        gap: 0% 0%;
+        grid-template-columns: 0.5fr 2fr;
+        grid-template-rows: 1fr 0.5fr 0.5fr;
+        gap: 0% 2%;
         grid-auto-flow: row;
         grid-template-areas:
-            "username username"
-            "level level";
-        grid-area: info;
+            "photo info"
+            "challenges challenges"
+            "xp xp";
 
-        .username {
-            align-self: flex-end;
+        border-radius: 0.313rem;
+        -webkit-border-radius: 0.313rem;
+        -moz-border-radius: 0.313rem;
+        -ms-border-radius: 0.313rem;
+        -o-border-radius: 0.313rem;
 
-            grid-area: username;
+        .photo {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
 
-            text-overflow: ellipsis;
-            overflow-x: hidden;
+            grid-area: photo;
 
-            strong {
-                color: var(--cu-username);
-                font-size: 1.3rem;
-                font-weight: 600;
-
-                white-space: nowrap;
+            /* - Next/Image */
+            > * {
+                border-radius: 50%;
+                -webkit-border-radius: 50%;
+                -moz-border-radius: 50%;
+                -ms-border-radius: 50%;
+                -o-border-radius: 50%;
             }
         }
-        .level {
-            height: fit-content;
 
-            background-color: var(--cu-level-background);
-            color: var(--cu-level-foreground);
+        .info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 0% 0%;
+            grid-auto-flow: row;
+            grid-template-areas:
+                "username username"
+                "level level";
+            grid-area: info;
+
+            .username {
+                align-self: flex-end;
+
+                grid-area: username;
+
+                text-overflow: ellipsis;
+                overflow-x: hidden;
+
+                strong {
+                    color: var(--cu-username);
+                    font-size: 1.3rem;
+                    font-weight: 600;
+
+                    white-space: nowrap;
+                }
+            }
+            .level {
+                height: fit-content;
+
+                background-color: var(--cu-level-background);
+                color: var(--cu-level-foreground);
+
+                padding: 0.1rem;
+
+                display: flex;
+
+                grid-area: level;
+                column-gap: 0.5rem;
+
+                border-radius: 0.313rem;
+                -webkit-border-radius: 0.313rem;
+                -moz-border-radius: 0.313rem;
+                -ms-border-radius: 0.313rem;
+                -o-border-radius: 0.313rem;
+
+                span {
+                    text-overflow: ellipsis;
+                    overflow-x: hidden;
+                    white-space: nowrap;
+                }
+            }
+        }
+
+        .challenges {
+            align-self: flex-end;
+
+            grid-area: challenges;
+
+            border-radius: 0.313rem 0.313rem 0 0;
+            -webkit-border-radius: 0.313rem 0.313rem 0 0;
+            -moz-border-radius: 0.313rem 0.313rem 0 0;
+            -ms-border-radius: 0.313rem 0.313rem 0 0;
+            -o-border-radius: 0.313rem 0.313rem 0 0;
+        }
+        .xp {
+            align-self: flex-start;
+
+            grid-area: xp;
+
+            border-radius: 0 0 0.313rem 0.313rem;
+            -webkit-border-radius: 0 0 0.313rem 0.313rem;
+            -moz-border-radius: 0 0 0.313rem 0.313rem;
+            -ms-border-radius: 0 0 0.313rem 0.313rem;
+            -o-border-radius: 0 0 0.313rem 0.313rem;
+        }
+        .challenges, .xp {
+            background-color: var(--cu-challenges-xp-background);
+            color: var(--cu-challenges-xp-foreground);
 
             padding: 0.1rem;
 
             display: flex;
+            justify-content: space-between;
+            align-items: center;
 
-            grid-area: level;
             column-gap: 0.5rem;
 
-            border-radius: 0.313rem;
-            -webkit-border-radius: 0.313rem;
-            -moz-border-radius: 0.313rem;
-            -ms-border-radius: 0.313rem;
-            -o-border-radius: 0.313rem;
-
             span {
+                font-weight: 500;
+
                 text-overflow: ellipsis;
                 overflow-x: hidden;
                 white-space: nowrap;
             }
         }
     }
+}
 
-    .challenges {
-        align-self: flex-end;
+#usersLeaderboard.cardContainer {
+    display: grid;
+    grid-template-columns: 0.2fr 1.8fr;
+    grid-template-rows: 1fr;
+    gap: 0% 0.8%;
+    grid-template-areas:
+        "position user";
 
-        grid-area: challenges;
+    .position {
+        min-width: 2.5rem;
 
-        border-radius: 0.313rem 0.313rem 0 0;
-        -webkit-border-radius: 0.313rem 0.313rem 0 0;
-        -moz-border-radius: 0.313rem 0.313rem 0 0;
-        -ms-border-radius: 0.313rem 0.313rem 0 0;
-        -o-border-radius: 0.313rem 0.313rem 0 0;
-    }
-    .xp {
-        align-self: flex-start;
+        background-color: var(--cu-background);
+        box-shadow: 0.625rem 0.625rem 1.25rem 0rem var(--shadow-5p);
 
-        grid-area: xp;
-
-        border-radius: 0 0 0.313rem 0.313rem;
-        -webkit-border-radius: 0 0 0.313rem 0.313rem;
-        -moz-border-radius: 0 0 0.313rem 0.313rem;
-        -ms-border-radius: 0 0 0.313rem 0.313rem;
-        -o-border-radius: 0 0 0.313rem 0.313rem;
-    }
-    .challenges, .xp {
-        background-color: var(--cu-challenges-xp-background);
-        color: var(--cu-challenges-xp-foreground);
-
-        padding: 0.1rem;
+        padding: 1rem;
 
         display: flex;
-        justify-content: space-between;
+        flex-direction: column;
         align-items: center;
+        justify-content: center;
 
-        column-gap: 0.5rem;
+        grid-area: position;
+
+        border-radius: 0.313rem;
+        -webkit-border-radius: 0.313rem;
+        -moz-border-radius: 0.313rem;
+        -ms-border-radius: 0.313rem;
+        -o-border-radius: 0.313rem;
 
         span {
-            font-weight: 500;
-
+            max-width: 2rem;
+            
             text-overflow: ellipsis;
             overflow-x: hidden;
             white-space: nowrap;
         }
     }
+
+    .user { grid-area: user; }
 }
 
 
@@ -144,39 +187,46 @@
 /* Desktop */
 @media(min-width: 821px) {
     .cardContainer {
-        grid-template-columns: 0.5fr 2fr 1fr 1fr;
-        grid-template-rows: 1fr;
-        grid-template-areas: "photo info challenges xp";
-        gap: 0% 1%;
+        .user {
+            grid-template-columns: 0.5fr 2fr 1fr 1fr;
+            grid-template-rows: 1fr;
+            grid-template-areas: "photo info challenges xp";
+            gap: 0% 1%;
 
-        .info {
-            .level {
+            .info {
+                .level {
+                    background-color: initial;
+                    color: initial;
+
+                    span { max-width: 5rem; }
+                }
+            }
+            .challenges, .xp {
                 background-color: initial;
                 color: initial;
 
-                span { max-width: 5rem; }
+                justify-content: normal;
+                align-self: center;
+
+                span {
+                    max-width: 2rem;
+
+                    color: var(--cu-challenges-xp-num);
+                }
+            }
+
+            .info .level, .challenges, .xp {
+                border-radius: initial;
+                -webkit-border-radius: initial;
+                -moz-border-radius: initial;
+                -ms-border-radius: initial;
+                -o-border-radius: initial;
             }
         }
-        .challenges, .xp {
-            background-color: initial;
-            color: initial;
+    }
 
-            justify-content: normal;
-            align-self: center;
-
-            span {
-                max-width: 5rem;
-
-                color: var(--cu-challenges-xp-num);
-            }
-        }
-
-        .info .level, .challenges, .xp {
-            border-radius: initial;
-            -webkit-border-radius: initial;
-            -moz-border-radius: initial;
-            -ms-border-radius: initial;
-            -o-border-radius: initial;
-        }
+    #usersLeaderboard.cardContainer {
+        grid-template-columns: 0.15fr 1.85fr;
+        gap: 0% 0.5%;
     }
 }

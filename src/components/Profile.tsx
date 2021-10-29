@@ -18,9 +18,9 @@ import styles from '../styles/components/Profile.module.scss'
 
 export function Profile() {
     const { level } = useContext(ChallengesContext)
-    const { __username, __avatar_url } = useContext(LoginContext)
+    const { __username, __avatar_url,  } = useContext(LoginContext)
 
-    const profileImage = ({ src, width, quality }) => `${__avatar_url}/${src}?w=${width}&q=${quality || 100}`
+    const profileImage = ({ src, width, quality }) => `${src || __avatar_url}?s=${width || ImgSize.Medium_x80}&q=${quality || 100}&v=4`
 
     return (
         <div className={styles.profileContainer}>
@@ -31,10 +31,11 @@ export function Profile() {
                 width={ImgSize.Medium_x80}
                 height={ImgSize.Medium_x80}
                 placeholder="blur"
-                blurDataURL={__avatar_url}
                 decoding="async"
+                blurDataURL={__avatar_url}
                 priority
             />
+
             <div className={styles.separation}>
                 <strong>{__username}</strong>
                 <div className={styles.levelContainer}>

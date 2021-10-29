@@ -61,7 +61,7 @@ export default function Settings(props: SettingsProps) {
                         <section className={styles.profileContainer}>
                             <h2 className={styles.subTitle}>Perfil</h2>
                             <div className={styles.separator} />
-                                <CardList />
+                                <CardList page='settings'/>
                             <h2 className={styles.subTitle}>Informações públicas</h2>
                             <div className={styles.separator} />
                                 Em breve...

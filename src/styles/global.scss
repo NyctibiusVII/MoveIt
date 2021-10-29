@@ -126,6 +126,9 @@
     /* Default Modal -------- */
     --dm-bg-overlay            : var(--grey-transparent-100);
     --dm-background            : var(--white);
+    /* Not Authorized ------- */
+    --na-background            : var(--grey-100);
+    --na-border                : var(--blue-1200);
     /* 404 Page ------------- */
     --404-background           : var(--red-100);
     --404-text                 : var(--white);
@@ -289,6 +292,9 @@
     /* Default Modal -------- */
     --dm-bg-overlay            : var(--blue-transparent-400);
     --dm-background            : var(--blue-1400);
+    /* Not Authorized ------- */
+    --na-background            : var(--blue-1500);
+    --na-border                : var(--purple-transparent-200);
     /* 404 Page ------------- */
     --404-background           : var(--red-100);
     --404-text                 : var(--white);
@@ -437,29 +443,18 @@
 
 
 
+html { scroll-behavior: smooth; }
 body {
     background-color: var(--background);
     color: var(--text);
 }
-
 body,
 button,
 input,
-textarea { font: 400 1rem "inter", sans-serif; }
-
-button { cursor: pointer; }
-
-a {
-    color: inherit;
-    text-decoration: none;
-}
-ol,
-ul {
-    padding-left: 0;
-
-    margin-top: 0;
-    margin-bottom: 0;
-}
+textarea { font: 400 1rem "inter", sans-serif;               }
+button   { cursor: pointer;                                  }
+ol, ul   { padding-left: 0; margin-top: 0; margin-bottom: 0; }
+a        { color: inherit; text-decoration: none;            }
 
 
 
