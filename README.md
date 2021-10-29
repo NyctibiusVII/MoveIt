@@ -223,19 +223,21 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ```json
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^0.21.4",
     "chrome-aws-lambda": "^10.1.0",
     "js-cookie": "^3.0.0",
     "next": "^11.1.2",
+    "next-themes": "0.0.15",
     "puppeteer-core": "^10.2.0",
     "react": "^17.0.2",
     "react-confetti": "^6.0.1",
     "react-copy-to-clipboard": "^5.0.4",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "sass": "^1.42.1"
   },
   "devDependencies": {
     "@types/js-cookie": "^2.2.7",
-    "@types/node": "^16.7.10",
+    "@types/node": "^16.11.6",
     "@types/react": "^17.0.19",
     "@types/react-copy-to-clipboard": "^5.0.1",
     "@types/react-dom": "^17.0.9",
